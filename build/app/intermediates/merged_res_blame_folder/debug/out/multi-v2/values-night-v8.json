@@ -1,0 +1,45 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.mashtoc.mashtoc.app-mergeDebugResources-44:/values-night-v8/values-night-v8.xml",
+            "map": [
+                {
+                    "source": "/Users/davit/.gradle/caches/transforms-3/fdfe8e5e2c95e94bffb48201eb79d9a6/transformed/appcompat-1.5.1/res/values-night-v8/values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593,687",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "120,204,288,384,486,588,682,771"
+                    },
+                    "to": {
+                        "startLines": "11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "523,593,677,761,857,959,1061,1155",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "588,672,756,852,954,1056,1150,1239"
+                    }
+                },
+                {
+                    "source": "/Users/davit/StudioProjects/mashtoz_finaly/mashtoz/android/app/src/main/res/values-night/styles.xml",
+                    "from": {
+                        "startLines": "3,16",
+                        "startColumns": "4,4",
+                        "startOffsets": "172,924",
+                        "endLines": "9,18",
+                        "endColumns": "12,12",
+                        "endOffsets": "582,1088"
+                    },
+                    "to": {
+                        "startLines": "2,8",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,354",
+                        "endLines": "7,10",
+                        "endColumns": "12,12",
+                        "endOffsets": "349,518"
+                    }
+                }
+            ]
+        }
+    ]
+}

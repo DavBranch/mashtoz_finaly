@@ -1,0 +1,6 @@
+{
+    "cmake.configureOnOpen": true,
+    "zenMode.hideActivityBar": true,
+    "workbench.activityBar.visible": true,
+    "explorer.enableDragAndDrop": true
+}

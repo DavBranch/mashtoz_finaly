@@ -1,0 +1,46 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="zhuoyuan.li.fluttershareme" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="16"
+6-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml
+7        android:targetSdkVersion="16" />
+7-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml
+8
+9    <uses-permission android:name="android.permission.INTERNET" />
+9-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:4:5-67
+9-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:4:22-64
+10    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+10-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:5:5-80
+10-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:5:22-78
+11
+12    <queries>
+12-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:6:5-8:15
+13        <package android:name="com.instagram.android" />
+13-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:7:9-57
+13-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:7:18-54
+14    </queries>
+15
+16    <application>
+16-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:9:5-19:19
+17        <provider
+17-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:10:9-18:20
+18            android:name="zhuoyuan.li.fluttershareme.util.ShareFileProvider"
+18-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:11:13-51
+19            android:authorities="${applicationId}.provider"
+19-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:12:13-60
+20            android:exported="false"
+20-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:13:13-37
+21            android:grantUriPermissions="true" >
+21-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:14:13-47
+22            <meta-data
+22-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:15:13-17:54
+23                android:name="android.support.FILE_PROVIDER_PATHS"
+23-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:16:17-67
+24                android:resource="@xml/file_paths" />
+24-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_share_me-1.4.0/android/src/main/AndroidManifest.xml:17:17-51
+25        </provider>
+26    </application>
+27
+28</manifest>

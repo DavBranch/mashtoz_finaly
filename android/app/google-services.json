@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "828541657077",
+    "project_id": "mashtoz-aa897",
+    "storage_bucket": "mashtoz-aa897.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828541657077:android:5b5231d5e2df791fec4abc",
+        "android_client_info": {
+          "package_name": "com.mashtoc.mashtoc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828541657077-c7hbcqfpmkvt8c8guicf977rfnhkqd8c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mashtoc.mashtoc",
+            "certificate_hash": "595b1022632f91645b9aade2e83ed07799a22765"
+          }
+        },
+        {
+          "client_id": "828541657077-67lbret9t6ukfq41l2lnqnclo0hpe6l9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyrVadIm7o3QnOShQ6dc6IW-SkDYpfNs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828541657077-67lbret9t6ukfq41l2lnqnclo0hpe6l9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "828541657077-avnaa1nn4hu0qass4bmjpb5nkuf6tkev.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mashtoc.mashtoc"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

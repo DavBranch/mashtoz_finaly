@@ -1,0 +1,823 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.mashtoc.mashtoc"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="31" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->/Users/davit/StudioProjects/mashtoz_finaly/mashtoz/android/app/src/main/AndroidManifest.xml:4:5-66
+14-->/Users/davit/StudioProjects/mashtoz_finaly/mashtoz/android/app/src/main/AndroidManifest.xml:4:22-64
+15    <uses-permission android:name="android.permission.WAKE_LOCK" />
+15-->/Users/davit/StudioProjects/mashtoz_finaly/mashtoz/android/app/src/main/AndroidManifest.xml:5:5-68
+15-->/Users/davit/StudioProjects/mashtoz_finaly/mashtoz/android/app/src/main/AndroidManifest.xml:5:22-65
+16    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+16-->/Users/davit/StudioProjects/mashtoz_finaly/mashtoz/android/app/src/main/AndroidManifest.xml:71:5-77
+16-->/Users/davit/StudioProjects/mashtoz_finaly/mashtoz/android/app/src/main/AndroidManifest.xml:71:22-74
+17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Permissions options for the `notification` group -->
+17-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-79
+17-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:11:22-76
+18    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+18-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-77
+18-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:13:22-74
+19    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+19-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-81
+19-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-78
+20    <uses-permission android:name="android.permission.VIBRATE" />
+20-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-66
+20-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-63
+21    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+21-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-81
+21-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:11:22-78
+22    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+22-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:12:5-79
+22-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:12:22-76
+23    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+23-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-81
+23-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-78
+24
+25    <queries>
+25-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:12:5-14:15
+26        <package android:name="com.instagram.android" />
+26-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-57
+26-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:13:18-54
+27
+28        <intent>
+28-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-12:18
+29            <action android:name="android.support.customtabs.action.CustomTabsService" />
+29-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-90
+29-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:11:21-87
+30        </intent>
+31
+32        <package android:name="com.facebook.katana" />
+32-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:18:9-55
+32-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:18:18-52
+33    </queries>
+34
+35    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+36    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+36-->[com.google.firebase:firebase-iid:21.1.0] /Users/davit/.gradle/caches/transforms-3/1cc9e0d9cd32e95a1c47daefcad3b5be/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:26:5-82
+36-->[com.google.firebase:firebase-iid:21.1.0] /Users/davit/.gradle/caches/transforms-3/1cc9e0d9cd32e95a1c47daefcad3b5be/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:26:22-79
+37    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+37-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:25:5-79
+37-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:25:22-76
+38    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+38-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:26:5-110
+38-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:26:22-107
+39
+40    <permission
+40-->[androidx.core:core:1.9.0] /Users/davit/.gradle/caches/transforms-3/b7988e2cc7e7e7aed61f41ba5f2c6caa/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+41        android:name="com.mashtoc.mashtoc.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+41-->[androidx.core:core:1.9.0] /Users/davit/.gradle/caches/transforms-3/b7988e2cc7e7e7aed61f41ba5f2c6caa/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+42        android:protectionLevel="signature" />
+42-->[androidx.core:core:1.9.0] /Users/davit/.gradle/caches/transforms-3/b7988e2cc7e7e7aed61f41ba5f2c6caa/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+43
+44    <uses-permission android:name="com.mashtoc.mashtoc.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+44-->[androidx.core:core:1.9.0] /Users/davit/.gradle/caches/transforms-3/b7988e2cc7e7e7aed61f41ba5f2c6caa/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+44-->[androidx.core:core:1.9.0] /Users/davit/.gradle/caches/transforms-3/b7988e2cc7e7e7aed61f41ba5f2c6caa/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+45    <!--
+46 <queries>
+47          <provider android:authorities="com.facebook.katana.provider.Platformprovider"/>
+48    </queries>
+49    -->
+50    <application
+51        android:name="android.app.Application"
+52        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+52-->[androidx.core:core:1.9.0] /Users/davit/.gradle/caches/transforms-3/b7988e2cc7e7e7aed61f41ba5f2c6caa/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+53        android:debuggable="true"
+54        android:icon="@mipmap/ic_launcher"
+55        android:label="Mashtoz"
+56        android:supportsRtl="true"
+56-->[com.facebook.android:facebook-login:16.0.0] /Users/davit/.gradle/caches/transforms-3/d62c5e092aaf9364a24da08b40e24c41/transformed/jetified-facebook-login-16.0.0/AndroidManifest.xml:16:18-44
+57        android:usesCleartextTraffic="true" >
+58        <meta-data
+59            android:name="com.facebook.sdk.ApplicationId"
+60            android:value="@string/facebook_app_id" />
+61        <meta-data
+62            android:name="com.facebook.sdk.ClientToken"
+63            android:value="@string/facebook_client_token" />
+64
+65        <activity
+66            android:name="com.facebook.FacebookActivity"
+67            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+68            android:label="@string/app_name"
+69            android:theme="@style/com_facebook_activity_theme" />
+69-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:25:13-63
+70        <activity
+71            android:name="com.facebook.CustomTabActivity"
+72            android:exported="true" >
+73            <intent-filter>
+74                <action android:name="android.intent.action.VIEW" />
+74-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:32:17-69
+74-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:32:25-66
+75
+76                <category android:name="android.intent.category.DEFAULT" />
+76-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:34:17-76
+76-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:34:27-73
+77                <category android:name="android.intent.category.BROWSABLE" />
+77-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:35:17-78
+77-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:35:27-75
+78
+79                <data android:scheme="@string/fb_login_protocol_scheme" />
+79-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:37:17-39:50
+79-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:39:21-47
+80            </intent-filter>
+81            <intent-filter>
+81-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:31:13-40:29
+82                <action android:name="android.intent.action.VIEW" />
+82-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:32:17-69
+82-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:32:25-66
+83
+84                <category android:name="android.intent.category.DEFAULT" />
+84-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:34:17-76
+84-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:34:27-73
+85                <category android:name="android.intent.category.BROWSABLE" />
+85-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:35:17-78
+85-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:35:27-75
+86
+87                <data
+87-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:37:17-39:50
+88                    android:host="cct.com.mashtoc.mashtoc"
+88-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:38:21-56
+89                    android:scheme="fbconnect" />
+89-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:39:21-47
+90            </intent-filter>
+91        </activity>
+92        <activity
+93            android:name="com.mashtoc.mashtoc.MainActivity"
+94            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+95            android:exported="true"
+96            android:hardwareAccelerated="true"
+97            android:launchMode="singleTop"
+98            android:showWhenLocked="true"
+99            android:theme="@style/LaunchTheme"
+100            android:turnScreenOn="true"
+101            android:windowSoftInputMode="adjustResize" >
+102
+103            <!--
+104                 Specifies an Android theme to apply to this Activity as soon as
+105                 the Android process has started. This theme is visible to the user
+106                 while the Flutter UI initializes. After that, this theme continues
+107                 to determine the Window background behind the Flutter UI.
+108            -->
+109            <meta-data
+110                android:name="io.flutter.embedding.android.NormalTheme"
+111                android:resource="@style/NormalTheme" />
+112
+113            <intent-filter>
+114                <action android:name="android.intent.action.MAIN" />
+115
+116                <category android:name="android.intent.category.LAUNCHER" />
+117            </intent-filter>
+118        </activity>
+119        <!--
+120             Don't delete the meta-data below.
+121             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+122        -->
+123        <meta-data
+124            android:name="flutterEmbedding"
+125            android:value="2" />
+126
+127        <service
+128            android:name="com.dexterous.flutterlocalnotifications.ForegroundService"
+129            android:exported="false"
+130            android:stopWithTask="false" />
+131        <service
+131-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-19:72
+132            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
+132-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-107
+133            android:exported="false"
+133-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-37
+134            android:permission="android.permission.BIND_JOB_SERVICE" />
+134-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-69
+135        <service
+135-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:20:9-26:19
+136            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
+136-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-97
+137            android:exported="false" >
+137-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-37
+138            <intent-filter>
+138-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-25:29
+139                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+139-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-78
+139-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-75
+140            </intent-filter>
+141        </service>
+142
+143        <receiver
+143-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:28:9-35:20
+144            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
+144-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:29:13-98
+145            android:exported="true"
+145-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-36
+146            android:permission="com.google.android.c2dm.permission.SEND" >
+146-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:31:13-73
+147            <intent-filter>
+147-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-34:29
+148                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+148-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:17-81
+148-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:25-78
+149            </intent-filter>
+150        </receiver>
+151
+152        <service
+152-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:37:9-41:19
+153            android:name="com.google.firebase.components.ComponentDiscoveryService"
+153-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:37:18-89
+154            android:directBootAware="true"
+154-->[com.google.firebase:firebase-common:20.3.0] /Users/davit/.gradle/caches/transforms-3/ead315f10c85d829e17e3818a03da493/transformed/jetified-firebase-common-20.3.0/AndroidManifest.xml:34:13-43
+155            android:exported="false" >
+155-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:66:13-37
+156            <meta-data
+156-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:38:13-40:85
+157                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
+157-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:39:17-128
+158                android:value="com.google.firebase.components.ComponentRegistrar" />
+158-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:40:17-82
+159            <meta-data
+159-->[:cloud_functions] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/cloud_functions/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-16:85
+160                android:name="com.google.firebase.components:io.flutter.plugins.firebase.functions.FlutterFirebaseAppRegistrar"
+160-->[:cloud_functions] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/cloud_functions/intermediates/merged_manifest/debug/AndroidManifest.xml:15:17-128
+161                android:value="com.google.firebase.components.ComponentRegistrar" />
+161-->[:cloud_functions] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/cloud_functions/intermediates/merged_manifest/debug/AndroidManifest.xml:16:17-82
+162            <meta-data
+162-->[:firebase_auth] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+163                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+163-->[:firebase_auth] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+164                android:value="com.google.firebase.components.ComponentRegistrar" />
+164-->[:firebase_auth] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+165            <meta-data
+165-->[:firebase_core] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+166                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+166-->[:firebase_core] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+167                android:value="com.google.firebase.components.ComponentRegistrar" />
+167-->[:firebase_core] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+168            <meta-data
+168-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:67:13-69:85
+169                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+169-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:68:17-109
+170                android:value="com.google.firebase.components.ComponentRegistrar" />
+170-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:69:17-82
+171            <meta-data
+171-->[com.google.firebase:firebase-functions:20.2.2] /Users/davit/.gradle/caches/transforms-3/e3e98b3d5682d34e0b00be3684c6b49d/transformed/jetified-firebase-functions-20.2.2/AndroidManifest.xml:17:13-19:85
+172                android:name="com.google.firebase.components:com.google.firebase.functions.FunctionsRegistrar"
+172-->[com.google.firebase:firebase-functions:20.2.2] /Users/davit/.gradle/caches/transforms-3/e3e98b3d5682d34e0b00be3684c6b49d/transformed/jetified-firebase-functions-20.2.2/AndroidManifest.xml:18:17-111
+173                android:value="com.google.firebase.components.ComponentRegistrar" />
+173-->[com.google.firebase:firebase-functions:20.2.2] /Users/davit/.gradle/caches/transforms-3/e3e98b3d5682d34e0b00be3684c6b49d/transformed/jetified-firebase-functions-20.2.2/AndroidManifest.xml:19:17-82
+174            <meta-data
+174-->[com.google.firebase:firebase-iid:21.1.0] /Users/davit/.gradle/caches/transforms-3/1cc9e0d9cd32e95a1c47daefcad3b5be/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:32:13-34:85
+175                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+175-->[com.google.firebase:firebase-iid:21.1.0] /Users/davit/.gradle/caches/transforms-3/1cc9e0d9cd32e95a1c47daefcad3b5be/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:33:17-96
+176                android:value="com.google.firebase.components.ComponentRegistrar" />
+176-->[com.google.firebase:firebase-iid:21.1.0] /Users/davit/.gradle/caches/transforms-3/1cc9e0d9cd32e95a1c47daefcad3b5be/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:34:17-82
+177            <meta-data
+177-->[com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle/caches/transforms-3/3a9cd6d65b583547eaba27f8b73594cd/transformed/jetified-firebase-messaging-23.1.1/AndroidManifest.xml:55:13-57:85
+178                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+178-->[com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle/caches/transforms-3/3a9cd6d65b583547eaba27f8b73594cd/transformed/jetified-firebase-messaging-23.1.1/AndroidManifest.xml:56:17-119
+179                android:value="com.google.firebase.components.ComponentRegistrar" />
+179-->[com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle/caches/transforms-3/3a9cd6d65b583547eaba27f8b73594cd/transformed/jetified-firebase-messaging-23.1.1/AndroidManifest.xml:57:17-82
+180            <meta-data
+180-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:31:13-33:85
+181                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+181-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:32:17-139
+182                android:value="com.google.firebase.components.ComponentRegistrar" />
+182-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:33:17-82
+183            <meta-data
+183-->[com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:17:13-19:85
+184                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+184-->[com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:18:17-127
+185                android:value="com.google.firebase.components.ComponentRegistrar" />
+185-->[com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:19:17-82
+186            <meta-data
+186-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/davit/.gradle/caches/transforms-3/6ca0c6ce61bb900f7ccb404d92d9b304/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
+187                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+187-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/davit/.gradle/caches/transforms-3/6ca0c6ce61bb900f7ccb404d92d9b304/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:28:17-115
+188                android:value="com.google.firebase.components.ComponentRegistrar" />
+188-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/davit/.gradle/caches/transforms-3/6ca0c6ce61bb900f7ccb404d92d9b304/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:29:17-82
+189        </service>
+190
+191        <provider
+191-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:43:9-47:38
+192            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
+192-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:44:13-102
+193            android:authorities="com.mashtoc.mashtoc.flutterfirebasemessaginginitprovider"
+193-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:45:13-88
+194            android:exported="false"
+194-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:46:13-37
+195            android:initOrder="99" />
+195-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:47:13-35
+196
+197        <receiver
+197-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-18:40
+198            android:name="com.dexterous.flutterlocalnotifications.ActionBroadcastReceiver"
+198-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-91
+199            android:exported="false" />
+199-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-37
+200        <receiver
+200-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:19:9-21:40
+201            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
+201-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-97
+202            android:exported="false" />
+202-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-37
+203        <receiver
+203-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:22:9-31:20
+204            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
+204-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-101
+205            android:exported="false" >
+205-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-37
+206            <intent-filter>
+206-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:25:13-30:29
+207                <action android:name="android.intent.action.BOOT_COMPLETED" />
+207-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:26:17-79
+207-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:26:25-76
+208                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+208-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:27:17-84
+208-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:27:25-81
+209                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+209-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:28:17-82
+209-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:28:25-79
+210                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+210-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:29:17-82
+210-->[:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:29:25-79
+211            </intent-filter>
+212        </receiver>
+213
+214        <provider
+214-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:17:9-25:20
+215            android:name="zhuoyuan.li.fluttershareme.util.ShareFileProvider"
+215-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-77
+216            android:authorities="com.mashtoc.mashtoc.provider"
+216-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-60
+217            android:exported="false"
+217-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-37
+218            android:grantUriPermissions="true" >
+218-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-47
+219            <meta-data
+219-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-24:54
+220                android:name="android.support.FILE_PROVIDER_PATHS"
+220-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:23:17-67
+221                android:resource="@xml/file_paths" />
+221-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-51
+222        </provider>
+223
+224        <activity
+224-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-20:47
+225            android:name="com.pichillilorenzo.flutter_inappwebview.in_app_browser.InAppBrowserActivity"
+225-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-104
+226            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
+226-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-137
+227            android:exported="false"
+227-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-37
+228            android:theme="@style/AppTheme" />
+228-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-44
+229        <activity
+229-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:21:9-24:55
+230            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.ChromeCustomTabsActivity"
+230-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-112
+231            android:exported="false"
+231-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-37
+232            android:theme="@style/ThemeTransparent" />
+232-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-52
+233        <activity
+233-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:25:9-28:55
+234            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.TrustedWebActivity"
+234-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-106
+235            android:exported="false"
+235-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-37
+236            android:theme="@style/ThemeTransparent" />
+236-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:28:13-52
+237        <activity
+237-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:29:9-33:55
+238            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.ChromeCustomTabsActivitySingleInstance"
+238-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-126
+239            android:exported="false"
+239-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:31:13-37
+240            android:launchMode="singleInstance"
+240-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-48
+241            android:theme="@style/ThemeTransparent" />
+241-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:33:13-52
+242        <activity
+242-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:34:9-38:55
+243            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.TrustedWebActivitySingleInstance"
+243-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:35:13-120
+244            android:exported="false"
+244-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:36:13-37
+245            android:launchMode="singleInstance"
+245-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:37:13-48
+246            android:theme="@style/ThemeTransparent" />
+246-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:38:13-52
+247
+248        <receiver
+248-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:40:9-43:40
+249            android:name="com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.ActionBroadcastReceiver"
+249-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:41:13-111
+250            android:enabled="true"
+250-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:42:13-35
+251            android:exported="false" />
+251-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:43:13-37
+252
+253        <meta-data
+253-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:45:9-47:36
+254            android:name="io.flutter.embedded_views_preview"
+254-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:46:13-61
+255            android:value="true" />
+255-->[:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:47:13-33
+256        <!--
+257           Declares a provider which allows us to store files to share in
+258           '.../caches/share_plus' and grant the receiving action access
+259        -->
+260        <provider
+260-->[:share_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:15:9-23:20
+261            android:name="dev.fluttercommunity.plus.share.ShareFileProvider"
+261-->[:share_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-77
+262            android:authorities="com.mashtoc.mashtoc.flutter.share_provider"
+262-->[:share_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-74
+263            android:exported="false"
+263-->[:share_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-37
+264            android:grantUriPermissions="true" >
+264-->[:share_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-47
+265            <meta-data
+265-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-24:54
+266                android:name="android.support.FILE_PROVIDER_PATHS"
+266-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:23:17-67
+267                android:resource="@xml/flutter_share_file_paths" />
+267-->[:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-51
+268        </provider>
+269        <!--
+270           This manifest declared broadcast receiver allows us to use an explicit
+271           Intent when creating a PendingItent to be informed of the user's choice
+272        -->
+273        <receiver
+273-->[:share_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:28:9-34:20
+274            android:name="dev.fluttercommunity.plus.share.SharePlusPendingIntent"
+274-->[:share_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:29:13-82
+275            android:exported="true" >
+275-->[:share_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-36
+276            <intent-filter>
+276-->[:share_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:31:13-33:29
+277                <action android:name="EXTRA_CHOSEN_COMPONENT" />
+277-->[:share_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:32:17-65
+277-->[:share_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:32:25-62
+278            </intent-filter>
+279        </receiver>
+280
+281        <activity
+281-->[:url_launcher_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
+282            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+282-->[:url_launcher_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+283            android:exported="false"
+283-->[:url_launcher_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+284            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+284-->[:url_launcher_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
+285
+286        <uses-library
+286-->[androidx.window:window:1.0.0-beta04] /Users/davit/.gradle/caches/transforms-3/591cd6415b5665e073c2c883b71bd965/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+287            android:name="androidx.window.extensions"
+287-->[androidx.window:window:1.0.0-beta04] /Users/davit/.gradle/caches/transforms-3/591cd6415b5665e073c2c883b71bd965/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+288            android:required="false" />
+288-->[androidx.window:window:1.0.0-beta04] /Users/davit/.gradle/caches/transforms-3/591cd6415b5665e073c2c883b71bd965/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+289        <uses-library
+289-->[androidx.window:window:1.0.0-beta04] /Users/davit/.gradle/caches/transforms-3/591cd6415b5665e073c2c883b71bd965/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+290            android:name="androidx.window.sidecar"
+290-->[androidx.window:window:1.0.0-beta04] /Users/davit/.gradle/caches/transforms-3/591cd6415b5665e073c2c883b71bd965/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+291            android:required="false" />
+291-->[androidx.window:window:1.0.0-beta04] /Users/davit/.gradle/caches/transforms-3/591cd6415b5665e073c2c883b71bd965/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+292
+293        <activity android:name="com.facebook.CustomTabMainActivity" />
+293-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:26:9-71
+293-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:26:19-68
+294        <activity
+294-->[com.google.android.gms:play-services-auth:20.4.1] /Users/davit/.gradle/caches/transforms-3/6c88bfde5de8ac654f3f0b9b5fa835f9/transformed/jetified-play-services-auth-20.4.1/AndroidManifest.xml:23:9-27:75
+295            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+295-->[com.google.android.gms:play-services-auth:20.4.1] /Users/davit/.gradle/caches/transforms-3/6c88bfde5de8ac654f3f0b9b5fa835f9/transformed/jetified-play-services-auth-20.4.1/AndroidManifest.xml:24:13-93
+296            android:excludeFromRecents="true"
+296-->[com.google.android.gms:play-services-auth:20.4.1] /Users/davit/.gradle/caches/transforms-3/6c88bfde5de8ac654f3f0b9b5fa835f9/transformed/jetified-play-services-auth-20.4.1/AndroidManifest.xml:25:13-46
+297            android:exported="false"
+297-->[com.google.android.gms:play-services-auth:20.4.1] /Users/davit/.gradle/caches/transforms-3/6c88bfde5de8ac654f3f0b9b5fa835f9/transformed/jetified-play-services-auth-20.4.1/AndroidManifest.xml:26:13-37
+298            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+298-->[com.google.android.gms:play-services-auth:20.4.1] /Users/davit/.gradle/caches/transforms-3/6c88bfde5de8ac654f3f0b9b5fa835f9/transformed/jetified-play-services-auth-20.4.1/AndroidManifest.xml:27:13-72
+299        <!--
+300            Service handling Google Sign-In user revocation. For apps that do not integrate with
+301            Google Sign-In, this service will never be started.
+302        -->
+303        <service
+303-->[com.google.android.gms:play-services-auth:20.4.1] /Users/davit/.gradle/caches/transforms-3/6c88bfde5de8ac654f3f0b9b5fa835f9/transformed/jetified-play-services-auth-20.4.1/AndroidManifest.xml:33:9-37:51
+304            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+304-->[com.google.android.gms:play-services-auth:20.4.1] /Users/davit/.gradle/caches/transforms-3/6c88bfde5de8ac654f3f0b9b5fa835f9/transformed/jetified-play-services-auth-20.4.1/AndroidManifest.xml:34:13-89
+305            android:exported="true"
+305-->[com.google.android.gms:play-services-auth:20.4.1] /Users/davit/.gradle/caches/transforms-3/6c88bfde5de8ac654f3f0b9b5fa835f9/transformed/jetified-play-services-auth-20.4.1/AndroidManifest.xml:35:13-36
+306            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+306-->[com.google.android.gms:play-services-auth:20.4.1] /Users/davit/.gradle/caches/transforms-3/6c88bfde5de8ac654f3f0b9b5fa835f9/transformed/jetified-play-services-auth-20.4.1/AndroidManifest.xml:36:13-107
+307            android:visibleToInstantApps="true" />
+307-->[com.google.android.gms:play-services-auth:20.4.1] /Users/davit/.gradle/caches/transforms-3/6c88bfde5de8ac654f3f0b9b5fa835f9/transformed/jetified-play-services-auth-20.4.1/AndroidManifest.xml:37:13-48
+308
+309        <activity
+309-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:27:9-44:20
+310            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+310-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:28:13-80
+311            android:excludeFromRecents="true"
+311-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:29:13-46
+312            android:exported="true"
+312-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:30:13-36
+313            android:launchMode="singleTask"
+313-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:31:13-44
+314            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+314-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:32:13-72
+315            <intent-filter>
+315-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:33:13-43:29
+316                <action android:name="android.intent.action.VIEW" />
+316-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:32:17-69
+316-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:32:25-66
+317
+318                <category android:name="android.intent.category.DEFAULT" />
+318-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:34:17-76
+318-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:34:27-73
+319                <category android:name="android.intent.category.BROWSABLE" />
+319-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:35:17-78
+319-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:35:27-75
+320
+321                <data
+321-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:37:17-39:50
+322                    android:host="firebase.auth"
+322-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:38:21-56
+323                    android:path="/"
+324                    android:scheme="genericidp" />
+324-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:39:21-47
+325            </intent-filter>
+326        </activity>
+327        <activity
+327-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:45:9-62:20
+328            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+328-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:46:13-79
+329            android:excludeFromRecents="true"
+329-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:47:13-46
+330            android:exported="true"
+330-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:48:13-36
+331            android:launchMode="singleTask"
+331-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:49:13-44
+332            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+332-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:50:13-72
+333            <intent-filter>
+333-->[com.google.firebase:firebase-auth:21.1.0] /Users/davit/.gradle/caches/transforms-3/f57300a0cb277b106d754f44d3524317/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:51:13-61:29
+334                <action android:name="android.intent.action.VIEW" />
+334-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:32:17-69
+334-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:32:25-66
+335
+336                <category android:name="android.intent.category.DEFAULT" />
+336-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:34:17-76
+336-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:34:27-73
+337                <category android:name="android.intent.category.BROWSABLE" />
+337-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:35:17-78
+337-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:35:27-75
+338
+339                <data
+339-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:37:17-39:50
+340                    android:host="firebase.auth"
+340-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:38:21-56
+341                    android:path="/"
+342                    android:scheme="recaptcha" />
+342-->[com.facebook.android:facebook-common:16.0.0] /Users/davit/.gradle/caches/transforms-3/d843262beb3e1bc127824699c51fed01/transformed/jetified-facebook-common-16.0.0/AndroidManifest.xml:39:21-47
+343            </intent-filter>
+344        </activity>
+345
+346        <receiver
+346-->[com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle/caches/transforms-3/3a9cd6d65b583547eaba27f8b73594cd/transformed/jetified-firebase-messaging-23.1.1/AndroidManifest.xml:31:9-38:20
+347            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+347-->[com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle/caches/transforms-3/3a9cd6d65b583547eaba27f8b73594cd/transformed/jetified-firebase-messaging-23.1.1/AndroidManifest.xml:32:13-78
+348            android:exported="true"
+348-->[com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle/caches/transforms-3/3a9cd6d65b583547eaba27f8b73594cd/transformed/jetified-firebase-messaging-23.1.1/AndroidManifest.xml:33:13-36
+349            android:permission="com.google.android.c2dm.permission.SEND" >
+349-->[com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle/caches/transforms-3/3a9cd6d65b583547eaba27f8b73594cd/transformed/jetified-firebase-messaging-23.1.1/AndroidManifest.xml:34:13-73
+350            <intent-filter>
+350-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-34:29
+351                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+351-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:17-81
+351-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:25-78
+352            </intent-filter>
+353        </receiver>
+354        <!--
+355             FirebaseMessagingService performs security checks at runtime,
+356             but set to not exported to explicitly avoid allowing another app to call it.
+357        -->
+358        <service
+358-->[com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle/caches/transforms-3/3a9cd6d65b583547eaba27f8b73594cd/transformed/jetified-firebase-messaging-23.1.1/AndroidManifest.xml:44:9-51:19
+359            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+359-->[com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle/caches/transforms-3/3a9cd6d65b583547eaba27f8b73594cd/transformed/jetified-firebase-messaging-23.1.1/AndroidManifest.xml:45:13-82
+360            android:directBootAware="true"
+360-->[com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle/caches/transforms-3/3a9cd6d65b583547eaba27f8b73594cd/transformed/jetified-firebase-messaging-23.1.1/AndroidManifest.xml:46:13-43
+361            android:exported="false" >
+361-->[com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle/caches/transforms-3/3a9cd6d65b583547eaba27f8b73594cd/transformed/jetified-firebase-messaging-23.1.1/AndroidManifest.xml:47:13-37
+362            <intent-filter android:priority="-500" >
+362-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-25:29
+363                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+363-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-78
+363-->[:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-75
+364            </intent-filter>
+365        </service>
+366
+367        <provider
+367-->[com.google.firebase:firebase-common:20.3.0] /Users/davit/.gradle/caches/transforms-3/ead315f10c85d829e17e3818a03da493/transformed/jetified-firebase-common-20.3.0/AndroidManifest.xml:25:9-30:39
+368            android:name="com.google.firebase.provider.FirebaseInitProvider"
+368-->[com.google.firebase:firebase-common:20.3.0] /Users/davit/.gradle/caches/transforms-3/ead315f10c85d829e17e3818a03da493/transformed/jetified-firebase-common-20.3.0/AndroidManifest.xml:26:13-77
+369            android:authorities="com.mashtoc.mashtoc.firebaseinitprovider"
+369-->[com.google.firebase:firebase-common:20.3.0] /Users/davit/.gradle/caches/transforms-3/ead315f10c85d829e17e3818a03da493/transformed/jetified-firebase-common-20.3.0/AndroidManifest.xml:27:13-72
+370            android:directBootAware="true"
+370-->[com.google.firebase:firebase-common:20.3.0] /Users/davit/.gradle/caches/transforms-3/ead315f10c85d829e17e3818a03da493/transformed/jetified-firebase-common-20.3.0/AndroidManifest.xml:28:13-43
+371            android:exported="false"
+371-->[com.google.firebase:firebase-common:20.3.0] /Users/davit/.gradle/caches/transforms-3/ead315f10c85d829e17e3818a03da493/transformed/jetified-firebase-common-20.3.0/AndroidManifest.xml:29:13-37
+372            android:initOrder="100" />
+372-->[com.google.firebase:firebase-common:20.3.0] /Users/davit/.gradle/caches/transforms-3/ead315f10c85d829e17e3818a03da493/transformed/jetified-firebase-common-20.3.0/AndroidManifest.xml:30:13-36
+373
+374        <receiver
+374-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:29:9-33:20
+375            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+375-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:30:13-85
+376            android:enabled="true"
+376-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:31:13-35
+377            android:exported="false" >
+377-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:32:13-37
+378        </receiver>
+379
+380        <service
+380-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:35:9-38:40
+381            android:name="com.google.android.gms.measurement.AppMeasurementService"
+381-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:36:13-84
+382            android:enabled="true"
+382-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:37:13-35
+383            android:exported="false" />
+383-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:38:13-37
+384        <service
+384-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:39:9-43:72
+385            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+385-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:40:13-87
+386            android:enabled="true"
+386-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:41:13-35
+387            android:exported="false"
+387-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:42:13-37
+388            android:permission="android.permission.BIND_JOB_SERVICE" />
+388-->[com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:43:13-69
+389
+390        <activity
+390-->[com.google.android.gms:play-services-base:18.1.0] /Users/davit/.gradle/caches/transforms-3/2940b1bd790074d5ae22b2537cb2c575/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+391            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+391-->[com.google.android.gms:play-services-base:18.1.0] /Users/davit/.gradle/caches/transforms-3/2940b1bd790074d5ae22b2537cb2c575/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+392            android:exported="false"
+392-->[com.google.android.gms:play-services-base:18.1.0] /Users/davit/.gradle/caches/transforms-3/2940b1bd790074d5ae22b2537cb2c575/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+393            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+393-->[com.google.android.gms:play-services-base:18.1.0] /Users/davit/.gradle/caches/transforms-3/2940b1bd790074d5ae22b2537cb2c575/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+394
+395        <meta-data
+395-->[com.google.android.gms:play-services-basement:18.1.0] /Users/davit/.gradle/caches/transforms-3/1a905d282cb8a9ce8a4da0c99d0ff1d4/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+396            android:name="com.google.android.gms.version"
+396-->[com.google.android.gms:play-services-basement:18.1.0] /Users/davit/.gradle/caches/transforms-3/1a905d282cb8a9ce8a4da0c99d0ff1d4/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+397            android:value="@integer/google_play_services_version" />
+397-->[com.google.android.gms:play-services-basement:18.1.0] /Users/davit/.gradle/caches/transforms-3/1a905d282cb8a9ce8a4da0c99d0ff1d4/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+398
+399        <activity
+399-->[com.twitter.sdk.android:tweet-ui:3.1.1] /Users/davit/.gradle/caches/transforms-3/370c7ec342bd2c9e58292e8a57ed402a/transformed/jetified-tweet-ui-3.1.1/AndroidManifest.xml:28:9-31:49
+400            android:name="com.twitter.sdk.android.tweetui.PlayerActivity"
+400-->[com.twitter.sdk.android:tweet-ui:3.1.1] /Users/davit/.gradle/caches/transforms-3/370c7ec342bd2c9e58292e8a57ed402a/transformed/jetified-tweet-ui-3.1.1/AndroidManifest.xml:29:13-74
+401            android:configChanges="keyboardHidden|orientation|screenSize"
+401-->[com.twitter.sdk.android:tweet-ui:3.1.1] /Users/davit/.gradle/caches/transforms-3/370c7ec342bd2c9e58292e8a57ed402a/transformed/jetified-tweet-ui-3.1.1/AndroidManifest.xml:30:13-74
+402            android:theme="@style/MediaTheme" />
+402-->[com.twitter.sdk.android:tweet-ui:3.1.1] /Users/davit/.gradle/caches/transforms-3/370c7ec342bd2c9e58292e8a57ed402a/transformed/jetified-tweet-ui-3.1.1/AndroidManifest.xml:31:13-46
+403        <activity
+403-->[com.twitter.sdk.android:tweet-ui:3.1.1] /Users/davit/.gradle/caches/transforms-3/370c7ec342bd2c9e58292e8a57ed402a/transformed/jetified-tweet-ui-3.1.1/AndroidManifest.xml:32:9-34:49
+404            android:name="com.twitter.sdk.android.tweetui.GalleryActivity"
+404-->[com.twitter.sdk.android:tweet-ui:3.1.1] /Users/davit/.gradle/caches/transforms-3/370c7ec342bd2c9e58292e8a57ed402a/transformed/jetified-tweet-ui-3.1.1/AndroidManifest.xml:33:13-75
+405            android:theme="@style/MediaTheme" />
+405-->[com.twitter.sdk.android:tweet-ui:3.1.1] /Users/davit/.gradle/caches/transforms-3/370c7ec342bd2c9e58292e8a57ed402a/transformed/jetified-tweet-ui-3.1.1/AndroidManifest.xml:34:13-46
+406        <!--
+407         The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
+408         with the application context. This config is merged in with the host app's manifest,
+409         but there can only be one provider with the same authority activated at any given
+410         point; so if the end user has two or more different apps that use Facebook SDK, only the
+411         first one will be able to use the provider. To work around this problem, we use the
+412         following placeholder in the authority to identify each host application as if it was
+413         a completely different provider.
+414        -->
+415        <provider
+415-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:29:9-32:40
+416            android:name="com.facebook.internal.FacebookInitProvider"
+416-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:30:13-70
+417            android:authorities="com.mashtoc.mashtoc.FacebookInitProvider"
+417-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:31:13-72
+418            android:exported="false" />
+418-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:32:13-37
+419
+420        <receiver
+420-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:34:9-40:20
+421            android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
+421-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:35:13-86
+422            android:exported="false" >
+422-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:36:13-37
+423            <intent-filter>
+423-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:37:13-39:29
+424                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
+424-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:38:17-95
+424-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:38:25-92
+425            </intent-filter>
+426        </receiver>
+427        <receiver
+427-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:41:9-47:20
+428            android:name="com.facebook.AuthenticationTokenManager$CurrentAuthenticationTokenChangedBroadcastReceiver"
+428-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:42:13-118
+429            android:exported="false" >
+429-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:43:13-37
+430            <intent-filter>
+430-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:44:13-46:29
+431                <action android:name="com.facebook.sdk.ACTION_CURRENT_AUTHENTICATION_TOKEN_CHANGED" />
+431-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:45:17-103
+431-->[com.facebook.android:facebook-core:16.0.0] /Users/davit/.gradle/caches/transforms-3/349dc4551f4e4ab9460bea664ea0343a/transformed/jetified-facebook-core-16.0.0/AndroidManifest.xml:45:25-100
+432            </intent-filter>
+433        </receiver>
+434
+435        <service
+435-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/davit/.gradle/caches/transforms-3/b5ee562c2362f613cae79898c0e82368/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:28:9-34:19
+436            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+436-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/davit/.gradle/caches/transforms-3/b5ee562c2362f613cae79898c0e82368/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:29:13-103
+437            android:exported="false" >
+437-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/davit/.gradle/caches/transforms-3/b5ee562c2362f613cae79898c0e82368/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:30:13-37
+438            <meta-data
+438-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/davit/.gradle/caches/transforms-3/b5ee562c2362f613cae79898c0e82368/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:31:13-33:39
+439                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+439-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/davit/.gradle/caches/transforms-3/b5ee562c2362f613cae79898c0e82368/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:32:17-94
+440                android:value="cct" />
+440-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/davit/.gradle/caches/transforms-3/b5ee562c2362f613cae79898c0e82368/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:33:17-36
+441        </service>
+442        <service
+442-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/davit/.gradle/caches/transforms-3/03c29981626e5959452b4e252e58186b/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:26:9-30:19
+443            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+443-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/davit/.gradle/caches/transforms-3/03c29981626e5959452b4e252e58186b/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:27:13-117
+444            android:exported="false"
+444-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/davit/.gradle/caches/transforms-3/03c29981626e5959452b4e252e58186b/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:28:13-37
+445            android:permission="android.permission.BIND_JOB_SERVICE" >
+445-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/davit/.gradle/caches/transforms-3/03c29981626e5959452b4e252e58186b/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:29:13-69
+446        </service>
+447
+448        <receiver
+448-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/davit/.gradle/caches/transforms-3/03c29981626e5959452b4e252e58186b/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:32:9-34:40
+449            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+449-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/davit/.gradle/caches/transforms-3/03c29981626e5959452b4e252e58186b/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:33:13-132
+450            android:exported="false" />
+450-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/davit/.gradle/caches/transforms-3/03c29981626e5959452b4e252e58186b/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:34:13-37
+451
+452        <provider
+452-->[androidx.emoji2:emoji2:1.2.0] /Users/davit/.gradle/caches/transforms-3/1ce57613cf8c76b35479d9bd1ba4a350/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+453            android:name="androidx.startup.InitializationProvider"
+453-->[androidx.emoji2:emoji2:1.2.0] /Users/davit/.gradle/caches/transforms-3/1ce57613cf8c76b35479d9bd1ba4a350/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+454            android:authorities="com.mashtoc.mashtoc.androidx-startup"
+454-->[androidx.emoji2:emoji2:1.2.0] /Users/davit/.gradle/caches/transforms-3/1ce57613cf8c76b35479d9bd1ba4a350/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+455            android:exported="false" >
+455-->[androidx.emoji2:emoji2:1.2.0] /Users/davit/.gradle/caches/transforms-3/1ce57613cf8c76b35479d9bd1ba4a350/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+456            <meta-data
+456-->[androidx.emoji2:emoji2:1.2.0] /Users/davit/.gradle/caches/transforms-3/1ce57613cf8c76b35479d9bd1ba4a350/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+457                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+457-->[androidx.emoji2:emoji2:1.2.0] /Users/davit/.gradle/caches/transforms-3/1ce57613cf8c76b35479d9bd1ba4a350/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+458                android:value="androidx.startup" />
+458-->[androidx.emoji2:emoji2:1.2.0] /Users/davit/.gradle/caches/transforms-3/1ce57613cf8c76b35479d9bd1ba4a350/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+459            <meta-data
+459-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/davit/.gradle/caches/transforms-3/2ea1c5db69a8dde7775795bd9d326604/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+460                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+460-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/davit/.gradle/caches/transforms-3/2ea1c5db69a8dde7775795bd9d326604/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+461                android:value="androidx.startup" />
+461-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/davit/.gradle/caches/transforms-3/2ea1c5db69a8dde7775795bd9d326604/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+462        </provider>
+463
+464        <activity
+464-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/davit/.gradle/caches/transforms-3/0b02d2836bdfa9c6b4b168d5647eb4e7/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:28:9-31:71
+465            android:name="com.twitter.sdk.android.tweetcomposer.ComposerActivity"
+465-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/davit/.gradle/caches/transforms-3/0b02d2836bdfa9c6b4b168d5647eb4e7/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:29:13-82
+466            android:exported="false"
+466-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/davit/.gradle/caches/transforms-3/0b02d2836bdfa9c6b4b168d5647eb4e7/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:30:13-37
+467            android:windowSoftInputMode="adjustResize|stateVisible" />
+467-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/davit/.gradle/caches/transforms-3/0b02d2836bdfa9c6b4b168d5647eb4e7/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:31:13-68
+468
+469        <service
+469-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/davit/.gradle/caches/transforms-3/0b02d2836bdfa9c6b4b168d5647eb4e7/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:33:9-36:40
+470            android:name="com.twitter.sdk.android.tweetcomposer.TweetUploadService"
+470-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/davit/.gradle/caches/transforms-3/0b02d2836bdfa9c6b4b168d5647eb4e7/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:34:13-84
+471            android:enabled="true"
+471-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/davit/.gradle/caches/transforms-3/0b02d2836bdfa9c6b4b168d5647eb4e7/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:35:13-35
+472            android:exported="false" />
+472-->[com.twitter.sdk.android:tweet-composer:3.1.1] /Users/davit/.gradle/caches/transforms-3/0b02d2836bdfa9c6b4b168d5647eb4e7/transformed/jetified-tweet-composer-3.1.1/AndroidManifest.xml:36:13-37
+473
+474        <activity
+474-->[com.twitter.sdk.android:twitter-core:3.1.1] /Users/davit/.gradle/caches/transforms-3/c8260487c0b7ce38bbc52b2429df65d9/transformed/jetified-twitter-core-3.1.1/AndroidManifest.xml:28:9-32:40
+475            android:name="com.twitter.sdk.android.core.identity.OAuthActivity"
+475-->[com.twitter.sdk.android:twitter-core:3.1.1] /Users/davit/.gradle/caches/transforms-3/c8260487c0b7ce38bbc52b2429df65d9/transformed/jetified-twitter-core-3.1.1/AndroidManifest.xml:29:13-79
+476            android:configChanges="orientation|screenSize"
+476-->[com.twitter.sdk.android:twitter-core:3.1.1] /Users/davit/.gradle/caches/transforms-3/c8260487c0b7ce38bbc52b2429df65d9/transformed/jetified-twitter-core-3.1.1/AndroidManifest.xml:30:13-59
+477            android:excludeFromRecents="true"
+477-->[com.twitter.sdk.android:twitter-core:3.1.1] /Users/davit/.gradle/caches/transforms-3/c8260487c0b7ce38bbc52b2429df65d9/transformed/jetified-twitter-core-3.1.1/AndroidManifest.xml:31:13-46
+478            android:exported="false" />
+478-->[com.twitter.sdk.android:twitter-core:3.1.1] /Users/davit/.gradle/caches/transforms-3/c8260487c0b7ce38bbc52b2429df65d9/transformed/jetified-twitter-core-3.1.1/AndroidManifest.xml:32:13-37
+479    </application>
+480
+481</manifest>

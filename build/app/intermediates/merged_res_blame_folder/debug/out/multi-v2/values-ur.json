@@ -1,0 +1,147 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.mashtoc.mashtoc.app-mergeDebugResources-44:/values-ur/values-ur.xml",
+            "map": [
+                {
+                    "source": "/Users/davit/.gradle/caches/transforms-3/2940b1bd790074d5ae22b2537cb2c575/transformed/jetified-play-services-base-18.1.0/res/values-ur/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "193,297,457,579,686,822,945,1053,1153,1301,1407,1575,1699,1841,2006,2065,2128",
+                        "endColumns": "103,159,121,106,135,122,107,99,147,105,167,123,141,164,58,62,83",
+                        "endOffsets": "296,456,578,685,821,944,1052,1152,1300,1406,1574,1698,1840,2005,2064,2127,2211"
+                    },
+                    "to": {
+                        "startLines": "41,42,43,44,45,46,47,48,50,51,52,53,54,55,56,57,58",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "3246,3354,3518,3644,3755,3895,4022,4134,4390,4542,4652,4824,4952,5098,5267,5330,5397",
+                        "endColumns": "107,163,125,110,139,126,111,103,151,109,171,127,145,168,62,66,87",
+                        "endOffsets": "3349,3513,3639,3750,3890,4017,4129,4233,4537,4647,4819,4947,5093,5262,5325,5392,5480"
+                    }
+                },
+                {
+                    "source": "/Users/davit/.gradle/caches/transforms-3/370c7ec342bd2c9e58292e8a57ed402a/transformed/jetified-tweet-ui-3.1.1/res/values-ur/values-ur.xml",
+                    "from": {
+                        "startLines": "2,6,10,14,15,16,17,18,19,20,21,22,23,24,25,26,27",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,197,332,469,527,590,655,699,743,807,872,925,997,1111,1187,1246,1322",
+                        "endLines": "5,9,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27",
+                        "endColumns": "14,14,14,57,62,64,43,43,63,64,52,71,113,75,58,75,59",
+                        "endOffsets": "192,327,464,522,585,650,694,738,802,867,920,992,1106,1182,1241,1317,1377"
+                    },
+                    "to": {
+                        "startLines": "2,6,10,66,67,68,71,72,74,75,76,77,78,79,80,81,82",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,247,382,6153,6211,6274,6458,6502,6594,6658,6723,6776,6848,6962,7038,7097,7173",
+                        "endLines": "5,9,13,66,67,68,71,72,74,75,76,77,78,79,80,81,82",
+                        "endColumns": "14,14,14,57,62,64,43,43,63,64,52,71,113,75,58,75,59",
+                        "endOffsets": "242,377,514,6206,6269,6334,6497,6541,6653,6718,6771,6843,6957,7033,7092,7168,7228"
+                    }
+                },
+                {
+                    "source": "/Users/davit/.gradle/caches/transforms-3/1a905d282cb8a9ce8a4da0c99d0ff1d4/transformed/jetified-play-services-basement-18.1.0/res/values-ur/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "147",
+                        "endOffsets": "342"
+                    },
+                    "to": {
+                        "startLines": "49",
+                        "startColumns": "4",
+                        "startOffsets": "4238",
+                        "endColumns": "151",
+                        "endOffsets": "4385"
+                    }
+                },
+                {
+                    "source": "/Users/davit/.gradle/caches/transforms-3/fdfe8e5e2c95e94bffb48201eb79d9a6/transformed/appcompat-1.5.1/res/values-ur/values-ur.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,219,325,434,520,624,744,821,896,988,1082,1177,1271,1372,1466,1562,1656,1748,1840,1925,2033,2139,2241,2352,2453,2569,2734,2832",
+                        "endColumns": "113,105,108,85,103,119,76,74,91,93,94,93,100,93,95,93,91,91,84,107,105,101,110,100,115,164,97,85",
+                        "endOffsets": "214,320,429,515,619,739,816,891,983,1077,1172,1266,1367,1461,1557,1651,1743,1835,1920,2028,2134,2236,2347,2448,2564,2729,2827,2913"
+                    },
+                    "to": {
+                        "startLines": "14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,63",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "519,633,739,848,934,1038,1158,1235,1310,1402,1496,1591,1685,1786,1880,1976,2070,2162,2254,2339,2447,2553,2655,2766,2867,2983,3148,5905",
+                        "endColumns": "113,105,108,85,103,119,76,74,91,93,94,93,100,93,95,93,91,91,84,107,105,101,110,100,115,164,97,85",
+                        "endOffsets": "628,734,843,929,1033,1153,1230,1305,1397,1491,1586,1680,1781,1875,1971,2065,2157,2249,2334,2442,2548,2650,2761,2862,2978,3143,3241,5986"
+                    }
+                },
+                {
+                    "source": "/Users/davit/.gradle/caches/transforms-3/0b02d2836bdfa9c6b4b168d5647eb4e7/transformed/jetified-tweet-composer-3.1.1/res/values-ur/values-ur.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,116,168",
+                        "endColumns": "60,51,47",
+                        "endOffsets": "111,163,211"
+                    },
+                    "to": {
+                        "startLines": "65,70,73",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "6092,6406,6546",
+                        "endColumns": "60,51,47",
+                        "endOffsets": "6148,6453,6589"
+                    }
+                },
+                {
+                    "source": "/Users/davit/.gradle/caches/transforms-3/cac9ca91a4284a71272b7c6e618c045a/transformed/browser-1.4.0/res/values-ur/values-ur.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,156,257,368",
+                        "endColumns": "100,100,110,106",
+                        "endOffsets": "151,252,363,470"
+                    },
+                    "to": {
+                        "startLines": "59,60,61,62",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "5485,5586,5687,5798",
+                        "endColumns": "100,100,110,106",
+                        "endOffsets": "5581,5682,5793,5900"
+                    }
+                },
+                {
+                    "source": "/Users/davit/.gradle/caches/transforms-3/b7988e2cc7e7e7aed61f41ba5f2c6caa/transformed/core-1.9.0/res/values-ur/values-ur.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "64",
+                        "startColumns": "4",
+                        "startOffsets": "5991",
+                        "endColumns": "100",
+                        "endOffsets": "6087"
+                    }
+                },
+                {
+                    "source": "/Users/davit/.gradle/caches/transforms-3/c8260487c0b7ce38bbc52b2429df65d9/transformed/jetified-twitter-core-3.1.1/res/values-ur/values-ur.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    },
+                    "to": {
+                        "startLines": "69",
+                        "startColumns": "4",
+                        "startOffsets": "6339",
+                        "endColumns": "66",
+                        "endOffsets": "6401"
+                    }
+                }
+            ]
+        }
+    ]
+}
