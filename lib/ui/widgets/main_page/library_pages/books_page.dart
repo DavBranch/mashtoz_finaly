@@ -70,7 +70,7 @@ class _BooksScreenState extends State<BooksScreen> {
       },
       child: ConnectivityBuilder(
         builder: (context,isConnect,state){
-          if(isConnect ==true){
+          if(isConnect == true){
             return Scaffold(
               extendBodyBehindAppBar: true,
               backgroundColor: Palette.textLineOrBackGroundColor,
@@ -208,7 +208,7 @@ class BookCard extends StatelessWidget {
           Navigator.of(context,rootNavigator: true ).push(
             MaterialPageRoute(
               builder: (_) => isFromHomePage ==true?BookInitalScreen(
-                isFromHomaPage: true,
+                isFromHomaPage: isFromHomePage,
                 book: null,
                 idLib: bookId,
               ):BookInitalScreen(

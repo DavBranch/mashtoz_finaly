@@ -13,7 +13,7 @@ import 'books_page.dart';
 
 class LibraryPage extends StatefulWidget {
   final bool? isFromHomePage;
-  const LibraryPage({
+  const  LibraryPage({
     Key? key,
     this.isFromHomePage,
   }) : super(key: key);
@@ -111,6 +111,7 @@ class _LibraryPageState extends State<LibraryPage> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (_) => BooksScreen(
+                                          isFromHomePage: widget.isFromHomePage,
                                           category: categoryList[index],
                                         ),
                                       ),

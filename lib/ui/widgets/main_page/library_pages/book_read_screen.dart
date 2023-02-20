@@ -35,7 +35,8 @@ class BookReadScreen extends StatefulWidget {
         this.searchData,
         this.encyId,
         this.idLib,
-        this.isShowTitle})
+        this.isShowTitle,
+        this.isFromHomePage})
       : super(key: key);
 
   final Data? encyclopediaBody;
@@ -44,6 +45,7 @@ class BookReadScreen extends StatefulWidget {
   final bool? isShowTitle;
   final String? encyId;
   final String? idLib;
+  final bool? isFromHomePage;
 
   @override
   State<BookReadScreen> createState() => _BookReadScreenState(
@@ -101,9 +103,7 @@ class _BookReadScreenState extends State<BookReadScreen> {
             bookDataProvider.getLibrarayYbooksById(nv.id!).then((value) {
               for (var nValue in value) {
                 // print(nValue.id);
-                if (nValue == libId) {
-                  print(nValue.id);
-                }
+
                 // if (nValue == libId) {
                 //   // readScreen = nValue;
                 //   // inspect(readScreen);
@@ -160,7 +160,7 @@ class _BookReadScreenState extends State<BookReadScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ;
+    print(widget.isFromHomePage);
     return searchData != null
         ? FutureBuilder<Data?>(
       future: futureSearchText,
@@ -173,6 +173,7 @@ class _BookReadScreenState extends State<BookReadScreen> {
 
             listText: textList,
             readScreen: readScreen,
+            isFromHomePage: widget.isFromHomePage,
             encyclopediaBody: encyclopediaBody,
             searchDataBody: data,
             searchData: searchData,
@@ -193,7 +194,7 @@ class _BookReadScreenState extends State<BookReadScreen> {
       listText: textList != null ? textList : '',
       readScreen: readScreen,
       encyclopediaBody: encyclopediaBody,
-
+isFromHomePage: widget.isFromHomePage,
       dynamicPageCounts: count,
       isShowTitle: isShowTitle,
       //   isVisiblty: isVisiblty,
@@ -214,12 +215,13 @@ class BookPages extends StatefulWidget {
     this.pageCounts,
     this.dynamicPageCounts,
     this.isShowTitle,
+    this.isFromHomePage
   }) : super(key: key);
 
   final PageController? controller;
   final Data? encyclopediaBody;
   final Data? searchDataBody;
-
+ final bool? isFromHomePage;
   final int? index;
   final String listText;
   final Content? readScreen;
@@ -235,6 +237,7 @@ class BookPages extends StatefulWidget {
       encyclopediaBody: encyclopediaBody,
       controller: controller,
       index: index,
+      isFromHomePage: isFromHomePage,
       searchBodyData: searchDataBody,
       pageCounts: pageCounts,
       dynamicPageCounts: dynamicPageCounts,
@@ -252,6 +255,7 @@ class _BookPagesState extends State<BookPages> {
     this.searchData,
     this.index,
     this.pageCounts,
+    this.isFromHomePage,
     this.dynamicPageCounts,
   });
   final Search? searchData;
@@ -273,6 +277,7 @@ class _BookPagesState extends State<BookPages> {
   bool isShare = false;
   bool isVisiblty = false;
   bool isYoutubeActive = false;
+  bool? isFromHomePage;
   var items = 1;
   String listText;
   Content? readScreen;
@@ -537,7 +542,7 @@ class _BookPagesState extends State<BookPages> {
                                 Expanded(
                                     child: InkWell(
                                       onTap: () async {
-                                        if (!isShare)
+                                        if (!isShare && widget.isFromHomePage == false){
                                           await Share.share(
                                             searchBodyData?.sharurl != null
                                                 ? "${searchBodyData?.sharurl} "
@@ -546,6 +551,11 @@ class _BookPagesState extends State<BookPages> {
                                                 ? "${book?.sharurl}"
                                                 : "${encyclopediaBody?.sharurl}",
                                           );
+                                        }
+                                        if (!isShare && widget.isFromHomePage == true){
+                                        if(readScreen?.sharurl != null) await Share.share("${readScreen?.sharurl} ");
+                                        }
+                                        print('${widget.isFromHomePage}');
                                         setState(() {
                                           isShare = !isShare;
                                           isYoutubeActive = false;

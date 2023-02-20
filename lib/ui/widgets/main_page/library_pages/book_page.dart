@@ -400,6 +400,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                                                 MaterialPageRoute(
                                                                   builder: (_) =>
                                                                       BookReadScreen(
+                                                                        isFromHomePage: widget.isFromHomaPage,
                                                                     readScreen:
                                                                         readContent,
                                                                     isShowTitle:
@@ -474,7 +475,8 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                                   MaterialPageRoute(
                                                     builder: (_) =>
                                                         BookReadScreen(
-                                                      readScreen:
+                                                          isFromHomePage: widget.isFromHomaPage,
+                                                          readScreen:
                                                           subBovandak![index2],
                                                       isShowTitle: true,
                                                     ),
@@ -525,7 +527,8 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (_) => BookReadScreen(
-                                              readScreen: bovandak![index],
+                                          isFromHomePage: widget.isFromHomaPage,
+                                          readScreen: bovandak![index],
                                               isShowTitle: true,
                                             )));
                               },
@@ -567,7 +570,8 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
       );
     } else {
    return  book!=null ?  BookReadScreen(
-        readScreen: book,
+     isFromHomePage: widget.isFromHomaPage,
+     readScreen: book,
         isShowTitle: true,
       ):Scaffold(body: Center(child:CircularProgressIndicator(color: Palette.main,),),);
     }
@@ -682,6 +686,7 @@ class _GlobalBovandakListsState extends State<GlobalBovandakLists> {
                                                         MaterialPageRoute(
                                                           builder: (_) =>
                                                               BookReadScreen(
+
                                                             readScreen:
                                                                 readContent,
                                                             isShowTitle: true,
@@ -743,6 +748,7 @@ class _GlobalBovandakListsState extends State<GlobalBovandakLists> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (_) => BookReadScreen(
+
                                               readScreen: subBovandak![index2],
                                               isShowTitle: true,
                                             ),
