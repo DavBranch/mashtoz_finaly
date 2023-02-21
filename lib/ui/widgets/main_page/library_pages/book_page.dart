@@ -489,8 +489,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                                     right: 20, left: 40.0),
                                                 child: Column(
                                                   children: [
-                                                    Container(
-                                                      height: 80,
+                                                    IntrinsicHeight(
                                                       child: Text(
                                                         '${subBovandak?[index2].title}',
                                                         textAlign:

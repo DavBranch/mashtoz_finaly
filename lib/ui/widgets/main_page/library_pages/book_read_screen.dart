@@ -5,6 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_html/image_properties.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mashtoz_flutter/config/palette.dart';
 import 'package:mashtoz_flutter/domens/models/app_theme.dart/theme_notifire.dart';
@@ -13,6 +14,7 @@ import 'package:mashtoz_flutter/domens/models/book_data/search_data.dart';
 import 'package:mashtoz_flutter/domens/repository/book_data_provdier.dart';
 import 'package:mashtoz_flutter/domens/repository/search_book_data_provider.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/library_pages/book_page.dart';
+import 'package:mashtoz_flutter/ui/widgets/youtube_videos/advanced_overlay.dart';
 import 'package:mashtoz_flutter/ui/widgets/youtube_videos/youtuve_player.dart';
 import 'package:provider/provider.dart';
 import 'package:screen_brightness/screen_brightness.dart';
@@ -338,7 +340,10 @@ class _BookPagesState extends State<BookPages> {
               child: Center(
                 child: InkWell(
                   onTap: () {
-                    Navigator.pop(context);
+                   setState(() {
+                     isVisiblty = !isVisiblty;
+                     isBovandakMenu = false;
+                   });
                   },
                   child: SvgPicture.asset(
                     'assets/images/arrow.svg',
@@ -699,11 +704,13 @@ class _BookPagesState extends State<BookPages> {
                               alignment: Alignment.center,
                               child: GestureDetector(
                                 onTap: () {
+                                  setState(() {
+                                    isYoutubeActive = false;
+                                  });
                                   Navigator.of(context, rootNavigator: true)
                                       .push(MaterialPageRoute(
-                                      builder: (_) => YoutubePlayers(
-                                        isShow: false,
-                                        url: readScreen?.videoLink!,
+                                      builder: (_) => VideoView(
+                                        link: readScreen!.videoLink! ,
                                       )));
                                 },
                                 child: Icon(
@@ -2219,17 +2226,20 @@ class _BookPagesState extends State<BookPages> {
       data: theme,
       child: SafeArea(
         child: Scaffold(
-            body: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: Stack(
-                children: [
-                  GestureDetector(
-                    onTap: () => setState(() {
-                      isVisiblty = !isVisiblty;
-                      isBovandakMenu = false;
-                    }),
-                    child: Container(
+            body: GestureDetector(
+              onTap: (){
+                setState(() {
+                  isVisiblty = false;
+                  isBovandakMenu = false;
+                });
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: Stack(
+                  children: [
+
+                    Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
                       color: appTheme.readBookBackgroundColor != null
@@ -2298,7 +2308,7 @@ class _BookPagesState extends State<BookPages> {
                                                                   alignment:
                                                                   Alignment
                                                                       .center,
-                                                                  child: Container(
+                                                                  child: SizedBox(
                                                                       height: 164.0,
                                                                       width: 122.0,
                                                                       child: CachedNetworkImage(
@@ -2449,9 +2459,32 @@ class _BookPagesState extends State<BookPages> {
                         ],
                       ),
                     ),
-                  ),
-                  isVisiblty ? hideBottomBarMenu() : Container(),
-                ],
+                    Positioned.fill(
+                      right: 20,
+                      top: 8,
+                      child: Align(alignment: Alignment.topRight,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(
+                                onPressed: (){
+                                 Navigator.of(context,rootNavigator: true).pop();
+                                },
+                                icon: Icon(Icons.arrow_back_ios_new_outlined,size: 20,color: Palette.barColor,)),
+                            IconButton(
+                                onPressed: (){
+                                  setState(() {
+                                    isVisiblty = !isVisiblty;
+                                    isBovandakMenu = false;
+                                  });
+                                },
+                                icon: Icon(Icons.menu_book,size: 30,color: Palette.barColor,)),
+                          ],
+                        ),),
+                    ),
+                    isVisiblty ? hideBottomBarMenu() : Container(),
+                  ],
+                ),
               ),
             )
 
