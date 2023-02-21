@@ -488,6 +488,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                                 padding: const EdgeInsets.only(
                                                     right: 20, left: 40.0),
                                                 child: Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
                                                   children: [
                                                     IntrinsicHeight(
                                                       child: Text(
