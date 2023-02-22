@@ -546,29 +546,43 @@ class _BookPagesState extends State<BookPages> {
                                     )),
                                 Expanded(
                                     child: InkWell(
-                                      onTap: () async {
-                                        if (!isShare && widget.isFromHomePage == false){
-                                          await Share.share(
+                                      onTap: ()  {
+                                        if (!isShare && widget.isFromHomePage == null){
+                                           Share.share(
                                             searchBodyData?.sharurl != null
                                                 ? "${searchBodyData?.sharurl} "
                                                 : isShowTitle == true &&
-                                                book?.sharurl != null
-                                                ? "${book?.sharurl}"
+                                                readScreen?.sharurl != null
+                                                ? "${readScreen?.sharurl}"
                                                 : "${encyclopediaBody?.sharurl}",
-                                          );
+                                          ).then((value) {
+                                            setState(() {
+                                              isShare = false;
+                                              isYoutubeActive = false;
+                                              isSettings = false;
+
+                                              isFavorite = false;
+                                              isBovandakMenu = false;
+                                            });
+                                          });
                                         }
                                         if (!isShare && widget.isFromHomePage == true){
-                                        if(readScreen?.sharurl != null) await Share.share("${readScreen?.sharurl} ");
-                                        }
-                                        print('${widget.isFromHomePage}');
-                                        setState(() {
-                                          isShare = !isShare;
-                                          isYoutubeActive = false;
-                                          isSettings = false;
+                                        if(readScreen?.sharurl != null)  Share.share("${readScreen?.sharurl} ").then((value) {
+                                          setState(() {
+                                            isShare = false;
+                                            isYoutubeActive = false;
+                                            isSettings = false;
 
-                                          isFavorite = false;
-                                          isBovandakMenu = false;
+                                            isFavorite = false;
+                                            isBovandakMenu = false;
+                                          });
                                         });
+                                        }
+
+                                          setState(() {
+                                          isShare = true;
+
+                                          });
                                       },
                                       child: SvgPicture.asset(
                                         'assets/images/share.svg',

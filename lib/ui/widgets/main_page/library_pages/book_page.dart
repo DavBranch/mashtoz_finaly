@@ -242,7 +242,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                         children: [
                           InkWell(
                             onTap: () async {
-                              await Share.share(book!.image!);
+                              await Share.share(book!.sharurl!);
                               print('kisvel');
                             },
                             child: Row(
