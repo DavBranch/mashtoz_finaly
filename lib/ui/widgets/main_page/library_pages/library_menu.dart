@@ -8,6 +8,7 @@ import 'package:mashtoz_flutter/globals.dart';
 import 'package:mashtoz_flutter/ui/widgets/helper_widgets/menuShow.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../main.dart';
 import 'book_inherited_widget.dart';
 import 'books_page.dart';
 
@@ -50,7 +51,9 @@ class _LibraryPageState extends State<LibraryPage> {
               statusBarColor: Color.fromRGBO(25, 4, 18, 1),
             ),
             elevation: 0,
-            leading: widget.isFromHomePage==true? IconButton(onPressed: ()=>Navigator.of(context).pop(), icon: Icon(Icons.arrow_back_ios_new_outlined),color: Colors.white,):null,
+
+             leading: widget.isFromHomePage == true || isWhichPlatform ? IconButton(onPressed: ()=>Navigator.of(context).pop(), icon: Icon(Icons.arrow_back_ios_new_outlined),color: Colors.white,):null,
+            leadingWidth: isWhichPlatform ? 20 : null,
             title: Text(
               'Գրադարան',
               style: TextStyle(
@@ -60,7 +63,7 @@ class _LibraryPageState extends State<LibraryPage> {
                   fontWeight: FontWeight.bold,
                   color: Palette.textLineOrBackGroundColor),
             ),
-            automaticallyImplyLeading: false,
+            automaticallyImplyLeading:  false,
             backgroundColor: Palette.barColor,
             actions: [
               Padding(

@@ -393,11 +393,74 @@ hasToken();
         final isFirstRouteInCurrentTab =
             !await _navigatorKeys[_currentPage]!.currentState!.maybePop();
         if (isFirstRouteInCurrentTab) {
-          if (_currentPage != "homepage") {
-            _selectTab("homepage", 1);
+          if (_currentPage ==  "librarypage") {
+            setState(() {
+              context
+                  .read<BottomColorNotifire>()
+                  .setColor(
+                  Palette.textLineOrBackGroundColor);
+              _selectTab(pageKeys[0], 0);
+              setState(() {
+                icons = BottomIcons.home;
+              });
+              isHome = true;
+              isLibrary = false;
+              isSearch = false;
+              isItalian = false;
+              isAccount = false;
+            });
 
             return false;
           }
+          if (_currentPage ==  "searchpage") {
+            setState(() {
+              icons = BottomIcons.library;
+              // onItemTaped(1);
+              context
+                  .read<BottomColorNotifire>()
+                  .setColor(Palette.libraryBacgroundColor);
+              _selectTab(pageKeys[1], 1);
+              isLibrary = true;
+
+              isHome = false;
+              isSearch = false;
+              isItalian = false;
+              isAccount = false;
+            });
+
+            return false;
+          }
+          if (_currentPage ==  "italianpage") {
+            context
+                .read<BottomColorNotifire>()
+                .setColor(Palette.searchBackGroundColor);
+            _selectTab(pageKeys[2], 2);
+            icons = BottomIcons.search;
+            isSearch = true;
+            isHome = false;
+            isLibrary = false;
+            isItalian = false;
+            isAccount = false;
+
+            return false;
+          }
+          if (_currentPage ==  "accountpage") {
+            context.read<BottomColorNotifire>().setColor(
+                Palette.textLineOrBackGroundColor);
+            setState(() {
+              icons = BottomIcons.italian;
+              // _currentIndex = 3;
+              _selectTab(pageKeys[3], 3);
+              isItalian = true;
+              isHome = false;
+              isLibrary = false;
+              isSearch = false;
+              isAccount = false;
+            });
+
+            return false;
+          }
+
         }
         // let system handle back button if we're on the first route
         return isFirstRouteInCurrentTab;

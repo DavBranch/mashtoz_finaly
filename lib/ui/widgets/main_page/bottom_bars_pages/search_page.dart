@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 
 import 'package:mashtoz_flutter/domens/models/book_data/search_data.dart';
 import 'package:mashtoz_flutter/domens/repository/search_book_data_provider.dart';
+import 'package:mashtoz_flutter/main.dart';
 import 'package:responsive_grid_list/responsive_grid_list.dart';
 import 'dart:math' as math;
 
@@ -86,6 +87,11 @@ class _SearchPageState extends State<SearchPage> {
               slivers: [
                 // ),
                 SliverAppBar(
+                  leading:  isWhichPlatform ? IconButton(
+                    padding: EdgeInsets.only(right: 20),
+                    alignment: Alignment.centerRight,
+                    onPressed: ()=>Navigator.of(context).pop(), icon: Icon(Icons.arrow_back_ios_new_outlined),color:Palette.appBarTitleColor,):null,
+                  leadingWidth: isWhichPlatform ? 20 : null,
                   title: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(

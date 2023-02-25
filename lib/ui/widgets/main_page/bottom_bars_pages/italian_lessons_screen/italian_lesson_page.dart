@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/lessons.dart';
 import 'package:mashtoz_flutter/domens/repository/book_data_provdier.dart';
+import 'package:mashtoz_flutter/main.dart';
 import 'package:mashtoz_flutter/ui/widgets/helper_widgets/menuShow.dart';
 import 'package:responsive_grid_list/responsive_grid_list.dart';
 import 'package:rxdart/rxdart.dart';
@@ -65,9 +66,9 @@ class _ItalianPageState extends State<ItalianPage>
         extendBodyBehindAppBar: true,
         body: CustomScrollView(slivers: [
           SliverAppBar(
-            leading:widget.fromHomePage==true? IconButton(
-                color: Palette.appBarTitleColor,
-                onPressed: ()=>Navigator.of(context).pop(), icon: Icon(Icons.arrow_back_ios_new_outlined)):null,
+            leading:isWhichPlatform? IconButton(
+              onPressed: ()=>Navigator.of(context).pop(), icon: Icon(Icons.arrow_back_ios_new_outlined),color:Palette.appBarTitleColor,):null,
+            leadingWidth: isWhichPlatform ? 20 : null,
             title: Align(
               alignment: Alignment.centerLeft,
               child: Text(

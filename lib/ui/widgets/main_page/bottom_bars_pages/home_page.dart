@@ -89,7 +89,7 @@ class HomePageState extends State<HomePage> {
     _userDataProvider.fetchUserInfo().then((value) {
       if(value!=null)_users= value;
     });
-   // wordsOfDayFuture = _bookDataProvider.getWordsOfDay();
+   wordsOfDayFuture = _bookDataProvider.getWordsOfDay();
  if(isFirstCall == false) _fetchHomeData();
     _scrollController.addListener(() {
       if (_scrollController.position.userScrollDirection ==
@@ -416,206 +416,215 @@ class HomePageState extends State<HomePage> {
                                               //   ),
                                               // ),
                                               // const SizedBox(height: 14),
-                                              // Container(
-                                              //   height: 339,
-                                              //   width: SizeConfig.screenWidth! >= 1200
-                                              //       ? 1200
-                                              //       : SizeConfig.screenWidth,
-                                              //   color: Palette.textLineOrBackGroundColor,
-                                              //   child: FutureBuilder<WordOfDay?>(
-                                              //       future: wordsOfDayFuture,
-                                              //       builder: (context, snapshot) {
-                                              //         var data = snapshot.data;
-                                              //
-                                              //         if (snapshot.hasData) {
-                                              //           author = data?.author;
-                                              //           summary = data?.summary;
-                                              //           return Stack(
-                                              //             children: [
-                                              //               Container(
-                                              //                 margin: const EdgeInsets.only(
-                                              //                     right: 20.0, left: 20.0),
-                                              //                 color: const Color.fromRGBO(
-                                              //                     246, 246, 246, 1),
-                                              //                 child: Stack(
-                                              //                   children: [
-                                              //                     Positioned.fill(
-                                              //                         child: Align(
-                                              //                             alignment: Alignment
-                                              //                                 .bottomRight,
-                                              //                             child: Container(
-                                              //                                 padding: const EdgeInsets
-                                              //                                     .only(
-                                              //                                     left:
-                                              //                                     16.0,
-                                              //                                     right:
-                                              //                                     16.0),
-                                              //                                 height: 50,
-                                              //                                 child: Align(
-                                              //                                   alignment:
-                                              //                                   Alignment
-                                              //                                       .center,
-                                              //                                   child: Text(
-                                              //                                     '${data?.author}',
-                                              //                                     textAlign:
-                                              //                                     TextAlign
-                                              //                                         .center,
-                                              //                                   ),
-                                              //                                 )))),
-                                              //                     Positioned.fill(
-                                              //                       top: 14.0,
-                                              //                       left: 16.0,
-                                              //                       right: 7.0,
-                                              //                       bottom: 61,
-                                              //                       child: Align(
-                                              //                         alignment:
-                                              //                         Alignment.topCenter,
-                                              //                         child: Container(
-                                              //                             color: const Color.fromRGBO(
-                                              //                                 246, 246, 246, 1),
-                                              //                             width:
-                                              //                             double.infinity,
-                                              //                             height: 264,
-                                              //                             child: Scrollbar(
-                                              //                                 thickness: 1.5,
-                                              //                                 radius: const Radius
-                                              //                                     .circular(12),
-                                              //                                 thumbVisibility:
-                                              //                                 false,
-                                              //                                 showTrackOnHover:
-                                              //                                 true,
-                                              //                                 child: Center(
-                                              //                                     child:
-                                              //                                     ListView(
-                                              //                                       scrollDirection:
-                                              //                                       Axis.vertical,
-                                              //                                       shrinkWrap:
-                                              //                                       true,
-                                              //                                       children: [
-                                              //                                         Padding(
-                                              //                                             padding: const EdgeInsets
-                                              //                                                 .all(
-                                              //                                                 12.0),
-                                              //                                             child: Text(
-                                              //                                                 '${data?.summary}'))
-                                              //                                       ],
-                                              //                                     )))),
-                                              //                       ),
-                                              //                     ),
-                                              //                     const Positioned.fill(
-                                              //                         bottom: 40,
-                                              //                         child: Align(
-                                              //                           alignment: Alignment
-                                              //                               .bottomCenter,
-                                              //                           child: Padding(
-                                              //                             padding:
-                                              //                             EdgeInsets
-                                              //                                 .only(
-                                              //                                 right: 20.0,
-                                              //                                 left: 20.0),
-                                              //                             child: Divider(
-                                              //                               thickness: 1,
-                                              //                             ),
-                                              //                           ),
-                                              //                         )),
-                                              //                   ],
-                                              //                 ),
-                                              //               ),
-                                              //             ],
-                                              //           );
-                                              //         }
-                                              //
-                                              //         return Stack(
-                                              //           children: [
-                                              //             Container(
-                                              //               margin: const EdgeInsets.only(
-                                              //                   right: 20.0, left: 20.0),
-                                              //               color: const Color.fromRGBO(
-                                              //                   246, 246, 246, 1),
-                                              //               child: Stack(
-                                              //                 children: [
-                                              //                   Positioned.fill(
-                                              //                       child: Align(
-                                              //                           alignment: Alignment
-                                              //                               .bottomRight,
-                                              //                           child: Container(
-                                              //                               padding:
-                                              //                               const EdgeInsets.only(
-                                              //                                   left: 16.0,
-                                              //                                   right:
-                                              //                                   16.0),
-                                              //                               height: 50,
-                                              //                               child: Align(
-                                              //                                 alignment:
-                                              //                                 Alignment
-                                              //                                     .center,
-                                              //                                 child: Text(
-                                              //                                   '${author??''}',
-                                              //                                   textAlign:
-                                              //                                   TextAlign
-                                              //                                       .center,
-                                              //                                 ),
-                                              //                               )))),
-                                              //                   Positioned.fill(
-                                              //                     top: 14.0,
-                                              //                     left: 16.0,
-                                              //                     right: 7.0,
-                                              //                     bottom: 61,
-                                              //                     child: Align(
-                                              //                       alignment:
-                                              //                       Alignment.topCenter,
-                                              //                       child: Container(
-                                              //                           color: const Color.fromRGBO(
-                                              //                               246, 246, 246, 1),
-                                              //                           width: double.infinity,
-                                              //                           height: 264,
-                                              //                           child: Scrollbar(
-                                              //                               thickness: 1.5,
-                                              //                               radius: const Radius
-                                              //                                   .circular(12),
-                                              //                               thumbVisibility:
-                                              //                               false,
-                                              //                               showTrackOnHover:
-                                              //                               true,
-                                              //                               child: Center(
-                                              //                                   child: ListView(
-                                              //                                     scrollDirection:
-                                              //                                     Axis.vertical,
-                                              //                                     shrinkWrap: true,
-                                              //                                     children: [
-                                              //                                       Padding(
-                                              //                                           padding: const EdgeInsets
-                                              //                                               .all(
-                                              //                                               12.0),
-                                              //                                           child: Text(
-                                              //                                               '${summary??''}'))
-                                              //                                     ],
-                                              //                                   )))),
-                                              //                     ),
-                                              //                   ),
-                                              //                   const Positioned.fill(
-                                              //                       bottom: 40,
-                                              //                       child: Align(
-                                              //                         alignment: Alignment
-                                              //                             .bottomCenter,
-                                              //                         child: Padding(
-                                              //                           padding:
-                                              //                           EdgeInsets
-                                              //                               .only(
-                                              //                               right: 20.0,
-                                              //                               left: 20.0),
-                                              //                           child: Divider(
-                                              //                             thickness: 1,
-                                              //                           ),
-                                              //                         ),
-                                              //                       )),
-                                              //                 ],
-                                              //               ),
-                                              //             ),
-                                              //           ],
-                                              //         );
-                                              //       }),
-                                              // ),
+                                              Container(
+                                                height: 339,
+                                                width: SizeConfig.screenWidth! >= 1200
+                                                    ? 1200
+                                                    : SizeConfig.screenWidth,
+                                                color: Palette.textLineOrBackGroundColor,
+                                                child: FutureBuilder<WordOfDay?>(
+                                                    future: wordsOfDayFuture,
+                                                    builder: (context, snapshot) {
+                                                      var data = snapshot.data;
+
+                                                      if (snapshot.hasData) {
+                                                        author = data?.author;
+                                                        summary = data?.summary;
+                                                        return Stack(
+                                                          children: [
+                                                            Container(
+                                                              margin: const EdgeInsets.only(
+                                                                  right: 20.0, left: 20.0),
+                                                              color: const Color.fromRGBO(
+                                                                  246, 246, 246, 1),
+                                                              child: Stack(
+                                                                children: [
+                                                                  Positioned.fill(
+                                                                      child: Align(
+                                                                          alignment: Alignment
+                                                                              .bottomRight,
+                                                                          child: Container(
+                                                                              padding: const EdgeInsets
+                                                                                  .only(
+                                                                                  left:
+                                                                                  16.0,
+                                                                                  right:
+                                                                                  16.0),
+                                                                              height: 50,
+                                                                              child: Row(
+                                                      mainAxisAlignment : MainAxisAlignment.spaceBetween,
+                                                                                children: [
+                                                                                  Text(
+                                                                                    '${data?.author}',
+                                                                                    textAlign:
+                                                                                    TextAlign
+                                                                                        .center,
+                                                                                  ),
+                                                                                  TextButton(
+                                                                                    onPressed:(){},
+                                                                                    child: Text(
+                                                                                      'Նախորդ խոսքեր',
+                                                                                      textAlign:
+                                                                                      TextAlign
+                                                                                          .center,
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              )))),
+                                                                  Positioned.fill(
+                                                                    top: 14.0,
+                                                                    left: 16.0,
+                                                                    right: 7.0,
+                                                                    bottom: 61,
+                                                                    child: Align(
+                                                                      alignment:
+                                                                      Alignment.topCenter,
+                                                                      child: Container(
+                                                                          color: const Color.fromRGBO(
+                                                                              246, 246, 246, 1),
+                                                                          width:
+                                                                          double.infinity,
+                                                                          height: 264,
+                                                                          child: Scrollbar(
+                                                                              thickness: 1.5,
+                                                                              radius: const Radius
+                                                                                  .circular(12),
+                                                                              thumbVisibility:
+                                                                              false,
+                                                                              showTrackOnHover:
+                                                                              true,
+                                                                              child: Center(
+                                                                                  child:
+                                                                                  ListView(
+                                                                                    scrollDirection:
+                                                                                    Axis.vertical,
+                                                                                    shrinkWrap:
+                                                                                    true,
+                                                                                    children: [
+                                                                                      Padding(
+                                                                                          padding: const EdgeInsets
+                                                                                              .all(
+                                                                                              12.0),
+                                                                                          child: Text(
+                                                                                              '${data?.summary}'))
+                                                                                    ],
+                                                                                  )))),
+                                                                    ),
+                                                                  ),
+                                                                  const Positioned.fill(
+                                                                      bottom: 40,
+                                                                      child: Align(
+                                                                        alignment: Alignment
+                                                                            .bottomCenter,
+                                                                        child: Padding(
+                                                                          padding:
+                                                                          EdgeInsets
+                                                                              .only(
+                                                                              right: 20.0,
+                                                                              left: 20.0),
+                                                                          child: Divider(
+                                                                            thickness: 1,
+                                                                          ),
+                                                                        ),
+                                                                      )),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        );
+                                                      }
+
+                                                      return Stack(
+                                                        children: [
+                                                          Container(
+                                                            margin: const EdgeInsets.only(
+                                                                right: 20.0, left: 20.0),
+                                                            color: const Color.fromRGBO(
+                                                                246, 246, 246, 1),
+                                                            child: Stack(
+                                                              children: [
+                                                                Positioned.fill(
+                                                                    child: Align(
+                                                                        alignment: Alignment
+                                                                            .bottomRight,
+                                                                        child: Container(
+                                                                            padding:
+                                                                            const EdgeInsets.only(
+                                                                                left: 16.0,
+                                                                                right:
+                                                                                16.0),
+                                                                            height: 50,
+                                                                            child: Align(
+                                                                              alignment:
+                                                                              Alignment
+                                                                                  .center,
+                                                                              child: Text(
+                                                                                '${author??''}',
+                                                                                textAlign:
+                                                                                TextAlign
+                                                                                    .center,
+                                                                              ),
+                                                                            )))),
+                                                                Positioned.fill(
+                                                                  top: 14.0,
+                                                                  left: 16.0,
+                                                                  right: 7.0,
+                                                                  bottom: 61,
+                                                                  child: Align(
+                                                                    alignment:
+                                                                    Alignment.topCenter,
+                                                                    child: Container(
+                                                                        color: const Color.fromRGBO(
+                                                                            246, 246, 246, 1),
+                                                                        width: double.infinity,
+                                                                        height: 264,
+                                                                        child: Scrollbar(
+                                                                            thickness: 1.5,
+                                                                            radius: const Radius
+                                                                                .circular(12),
+                                                                            thumbVisibility:
+                                                                            false,
+                                                                            showTrackOnHover:
+                                                                            true,
+                                                                            child: Center(
+                                                                                child: ListView(
+                                                                                  scrollDirection:
+                                                                                  Axis.vertical,
+                                                                                  shrinkWrap: true,
+                                                                                  children: [
+                                                                                    Padding(
+                                                                                        padding: const EdgeInsets
+                                                                                            .all(
+                                                                                            12.0),
+                                                                                        child: Text(
+                                                                                            '${summary??''}'))
+                                                                                  ],
+                                                                                )))),
+                                                                  ),
+                                                                ),
+                                                                const Positioned.fill(
+                                                                    bottom: 40,
+                                                                    child: Align(
+                                                                      alignment: Alignment
+                                                                          .bottomCenter,
+                                                                      child: Padding(
+                                                                        padding:
+                                                                        EdgeInsets
+                                                                            .only(
+                                                                            right: 20.0,
+                                                                            left: 20.0),
+                                                                        child: Divider(
+                                                                          thickness: 1,
+                                                                        ),
+                                                                      ),
+                                                                    )),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      );
+                                                    }),
+                                              ),
                                               Container(
                                                 // height:
                                                 //     SizeConfig.orentation == Orientation.landscape
