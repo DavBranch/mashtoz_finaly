@@ -2472,10 +2472,22 @@ class _BookPagesState extends State<BookPages> {
                                               SizedBox(height: 20),
                                               Padding(
                                                 padding: const EdgeInsets.only(left: 20,right: 20),
-                                                child: Text(
-                                                    readScreen?.explanation != null  ?
-                                                '${readScreen?.explanation}': searchBodyData?.explanation != null ?
-                                                '${searchBodyData?.explanation}' : encyclopediaBody?.explanation != null ? '${encyclopediaBody?.explanation}' : ''),
+                                                child: Html(
+                                                    showImages: true,
+                                                    // onLinkTap: (url) async {
+                                                    //   if (await canLaunch(url)) {
+                                                    //     await launch(
+                                                    //       url,
+                                                    //     );
+                                                    //   } else {
+                                                    //     throw 'Could not launch $url';
+                                                    //   }
+                                                    // },
+                                                    useRichText: true,
+                                                    defaultTextStyle: TextStyle(fontSize: 17,letterSpacing: 1),
+                                                    data:readScreen?.explanation != null  ?
+                                                    """${readScreen?.explanation}""": searchBodyData?.explanation != null ?
+                                                    """${searchBodyData?.explanation}""" : encyclopediaBody?.explanation != null ? """${encyclopediaBody?.explanation}""" :  """"""),
                                               ),
                                               SizedBox(height: 20),
 

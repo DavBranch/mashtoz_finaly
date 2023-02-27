@@ -206,31 +206,34 @@ class BookDataProvider {
     }
   }
 
-  Future<WordOfDay?> getWordsOfDayByDate(String date) async {
+  Future<List<WordOfDay>> getAfterWordsOfDay() async {
+    var listDaysWord = <WordOfDay>[];
     var response = await http.get(
-      Uri.parse(Api.wordsOfDayByDate(date)),
+      Uri.parse(Api.afterWordsOfDay),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
     );
     var body = json.decode(response.body);
     var success = body['success'];
-    var datas = body['data'];
-    if (success == true && response.statusCode == 200) {
-      if (datas is List) {
-        var newData =
-            datas.map((e) => WordOfDay.fromJson(e)).toList().length < 0
-                ? datas.map((e) => WordOfDay.fromJson(e)).toList().first
-                : WordOfDay();
-        return newData;
-      } else {
-        var newData = WordOfDay.fromJson(datas);
-        return newData;
+    var data = body['data'];
+    try{
+      if (success == true && response.statusCode == 200) {
+        Map.from(data).forEach((key, value) {
+          if(value != null ){
+            var iData = WordOfDay.fromJson(value);
+            listDaysWord.add(iData);
+          }
+        });
+          return  listDaysWord ;
+
       }
-    } else {
-      print("failed");
-      return WordOfDay(summary: 'dadas');
     }
+    catch(e){
+      print(e);
+    }
+
+    return listDaysWord;
   }
 
   //Lessons

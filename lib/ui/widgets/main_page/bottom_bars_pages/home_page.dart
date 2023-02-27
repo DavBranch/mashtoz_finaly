@@ -24,6 +24,7 @@ import 'package:mashtoz_flutter/ui/widgets/helper_widgets/menuShow.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/bottom_bars_pages/bottom_bar_menu_pages.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/library_pages/book_read_screen.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/library_pages/books_page.dart';
+import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/allwordsofday/words_of_day_screen.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/audio_library/audio_library_by_characters.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/dialect/diaelct_by_characters.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/dialect/dialect.dart';
@@ -36,6 +37,7 @@ import 'package:responsive_grid_list/responsive_grid_list.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 import '../../../../domens/models/book_data/content_list.dart';
+import '../../../../domens/models/bottom_bar_color_notifire.dart';
 import '../../helper_widgets/size_config.dart';
 import '../main_menu_pages/audio_library/audio_library.dart';
 
@@ -461,12 +463,18 @@ class HomePageState extends State<HomePage> {
                                                                                         .center,
                                                                                   ),
                                                                                   TextButton(
-                                                                                    onPressed:(){},
+                                                                                    onPressed:(){
+                                                                                      context
+                                                                                          .read<BottomColorNotifire>()
+                                                                                          .setColor(Palette.searchBackGroundColor);
+                                                                                      Navigator.push(context, MaterialPageRoute(builder: (_)=> const AfterWordsOfDayScreen()));
+                                                                                    },
                                                                                     child: Text(
                                                                                       'Նախորդ խոսքեր',
                                                                                       textAlign:
                                                                                       TextAlign
                                                                                           .center,
+                                                                                      style: TextStyle(color: Colors.grey.shade600),
                                                                                     ),
                                                                                   ),
                                                                                 ],

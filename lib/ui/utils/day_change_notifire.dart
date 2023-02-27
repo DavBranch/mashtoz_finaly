@@ -32,7 +32,7 @@ class FocuseDay extends ChangeNotifier {
   void setWordsDate(String? date) {
     //2022-04-21
     _focuseDate = date ?? '';
-    getDataByDate();
+   // getDataByDate();
     notifyListeners();
   }
 
@@ -42,14 +42,14 @@ class FocuseDay extends ChangeNotifier {
         _focusDayText = value.summary!;
         return value;
       });
-  Future<WordOfDay> getDataByDate() async {
-    return bookDataProvider.getWordsOfDayByDate(_focuseDate).then((value) {
-      _focusDayAuthor = value!.author!;
-      _focusDayText = value.summary!;
-      return value;
-    });
-
-  }
+  // Future<WordOfDay> getDataByDate() async {
+  //   return bookDataProvider.getWordsOfDayByDate(_focuseDate).then((value) {
+  //     _focusDayAuthor = value!.author!;
+  //     _focusDayText = value.summary!;
+  //     return value;
+  //   });
+  //
+  // }
 }
 
 

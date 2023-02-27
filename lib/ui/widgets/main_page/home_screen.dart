@@ -392,6 +392,12 @@ hasToken();
       onWillPop: () async {
         final isFirstRouteInCurrentTab =
             !await _navigatorKeys[_currentPage]!.currentState!.maybePop();
+        if(!isFirstRouteInCurrentTab){
+          context
+              .read<BottomColorNotifire>()
+              .setColor(
+              Palette.textLineOrBackGroundColor);
+        }
         if (isFirstRouteInCurrentTab) {
           if (_currentPage ==  "librarypage") {
             setState(() {

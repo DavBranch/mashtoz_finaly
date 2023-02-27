@@ -97,8 +97,8 @@ class _TableComplexExampleState extends State<TableComplexExample> {
 
             context.read<FocuseDay>().setDays(_focusedDay.value.day.toInt(),focusedDay);
             _focusedDay.value = focusedDay;
-            HomePageState.wordsOfDayFuture =
-                context.read<FocuseDay>().getDataByDate();
+            // HomePageState.wordsOfDayFuture =
+            //     context.read<FocuseDay>().getDataByDate();
 
             _rangeStart = null;
 
