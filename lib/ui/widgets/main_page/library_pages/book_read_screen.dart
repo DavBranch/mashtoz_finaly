@@ -20,6 +20,8 @@ import 'package:provider/provider.dart';
 import 'package:screen_brightness/screen_brightness.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:youtube/youtube_thumbnail.dart';
+import 'package:youtube_parser/youtube_parser.dart';
 import '../../../../domens/models/book_data/content_list.dart';
 import '../../../../domens/models/user.dart';
 import '../../../../domens/repository/user_data_provider.dart';
@@ -446,10 +448,10 @@ class _BookPagesState extends State<BookPages> {
                                 alignment: Alignment.topCenter,
                                 child: Text(
                                   searchData?.title != null
-                                      ? "${searchData?.title} "
+                                      ? '${searchData?.title} '
                                       : isShowTitle == true && book?.title != null
-                                      ? "${book?.title}"
-                                      : "${encyclopediaBody?.title}",
+                                      ? '${book?.title}'
+                                      : '${encyclopediaBody?.title}',
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                       fontSize: 12,
@@ -468,10 +470,10 @@ class _BookPagesState extends State<BookPages> {
                                 alignment: Alignment.topCenter,
                                 child: Text(
                                   searchBodyData?.author != null
-                                      ? "${searchBodyData?.author}"
+                                      ? '${searchBodyData?.author}'
                                       : isShowTitle == true && book?.title != null
-                                      ? "${book?.author}"
-                                      : "",
+                                      ? '${book?.author}'
+                                      : '',
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                       fontSize: 12,
@@ -550,11 +552,11 @@ class _BookPagesState extends State<BookPages> {
                                         if (!isShare && widget.isFromHomePage == null){
                                            Share.share(
                                             searchBodyData?.sharurl != null
-                                                ? "${searchBodyData?.sharurl} "
+                                                ? '${searchBodyData?.sharurl} '
                                                 : isShowTitle == true &&
                                                 readScreen?.sharurl != null
-                                                ? "${readScreen?.sharurl}"
-                                                : "${encyclopediaBody?.sharurl}",
+                                                ? '${readScreen?.sharurl}'
+                                                : '${encyclopediaBody?.sharurl}',
                                           ).then((value) {
                                             setState(() {
                                               isShare = false;
@@ -567,7 +569,7 @@ class _BookPagesState extends State<BookPages> {
                                           });
                                         }
                                         if (!isShare && widget.isFromHomePage == true){
-                                        if(readScreen?.sharurl != null)  Share.share("${readScreen?.sharurl} ").then((value) {
+                                        if(readScreen?.sharurl != null)  Share.share('${readScreen?.sharurl} ').then((value) {
                                           setState(() {
                                             isShare = false;
                                             isYoutubeActive = false;
@@ -662,6 +664,7 @@ class _BookPagesState extends State<BookPages> {
   }
 
   Widget youtubeShow() {
+
     final mediaQuery = MediaQuery.of(context).size;
     final theme = context.read<ThemeNotifier>();
     final orentation = MediaQuery.of(context).orientation;
@@ -688,7 +691,11 @@ class _BookPagesState extends State<BookPages> {
                         Navigator.of(context, rootNavigator: true)
                             .push(MaterialPageRoute(
                             builder: (_) => VideoView(
-                              link: readScreen!.videoLink! ,
+                              link:  readScreen?.videoLink!= null
+                                  ? '${readScreen?.videoLink!}'
+                                  : searchBodyData?.video_link != null
+                                  ? '${searchBodyData?.video_link!}'
+                                  : "${encyclopediaBody?.video_link!}"
                             )));
                       },
                       child: Container(
@@ -709,11 +716,11 @@ class _BookPagesState extends State<BookPages> {
                                   alignment: Alignment.center,
                                   child: CachedNetworkImage(
                                     useOldImageOnUrlChange: true,
-                                    imageUrl: readScreen?.image != null
-                                        ? "${readScreen?.image!}"
-                                        : searchData?.image != null
-                                        ? "${readScreen?.image!}"
-                                        : "${encyclopediaBody?.image!}",
+                                    imageUrl: YoutubeThumbnail(youtubeId: getIdFromUrl(readScreen?.videoLink!= null
+                                        ? '${readScreen?.videoLink!}'
+                                        : searchBodyData?.video_link != null
+                                        ? '${searchBodyData?.video_link!}'
+                                        : "${encyclopediaBody?.video_link!}")).hd(),
                                     fit: BoxFit.contain,
                                   )),
                             Positioned.fill(
@@ -1403,7 +1410,7 @@ class _BookPagesState extends State<BookPages> {
                                                                   177,
                                                                   1),
                                                               fontFamily:
-                                                              "GHEAGrapalat",
+                                                              'GHEAGrapalat',
                                                               fontSize:
                                                               12.0,
                                                               fontWeight:
@@ -1465,7 +1472,7 @@ class _BookPagesState extends State<BookPages> {
                                                                   177,
                                                                   1),
                                                               fontFamily:
-                                                              "GHEAGrapalat",
+                                                              'GHEAGrapalat',
                                                               fontSize:
                                                               12.0,
                                                               fontWeight:
@@ -2013,7 +2020,7 @@ class _BookPagesState extends State<BookPages> {
                                                               177,
                                                               1),
                                                           fontFamily:
-                                                          "GHEAGrapalat",
+                                                          'GHEAGrapalat',
                                                           fontSize:
                                                           12.0,
                                                           fontWeight:
@@ -2075,7 +2082,7 @@ class _BookPagesState extends State<BookPages> {
                                                               177,
                                                               1),
                                                           fontFamily:
-                                                          "GHEAGrapalat",
+                                                          'GHEAGrapalat',
                                                           fontSize:
                                                           12.0,
                                                           fontWeight:
@@ -2431,7 +2438,7 @@ class _BookPagesState extends State<BookPages> {
                                                     :readScreen?.title != null ? '${readScreen?.title }' : '${searchBodyData?.title ?? ''}',
                                                 style: TextStyle(
                                                     fontFamily:
-                                                    "GHEAGrapalat",
+                                                    'GHEAGrapalat',
                                                     fontSize: 16.0,
                                                     fontWeight:
                                                     FontWeight.w700,
@@ -2454,7 +2461,7 @@ class _BookPagesState extends State<BookPages> {
                                             },
                                           useRichText: true,
                                             defaultTextStyle: TextStyle(fontSize: 17,letterSpacing: 1),
-                                            data: """$listText"""),
+                                            data: '''$listText'''),
 
                                       ),
                                     if(readScreen?.explanation != null || searchBodyData?.explanation != null || encyclopediaBody?.explanation != null)
@@ -2474,20 +2481,21 @@ class _BookPagesState extends State<BookPages> {
                                                 padding: const EdgeInsets.only(left: 20,right: 20),
                                                 child: Html(
                                                     showImages: true,
-                                                    // onLinkTap: (url) async {
-                                                    //   if (await canLaunch(url)) {
-                                                    //     await launch(
-                                                    //       url,
-                                                    //     );
-                                                    //   } else {
-                                                    //     throw 'Could not launch $url';
-                                                    //   }
-                                                    // },
-                                                    useRichText: true,
+                                                    onLinkTap: (url) async {
+                                                      print(url);
+                                                      // if (await canLaunch(url)) {
+                                                      //   await launch(
+                                                      //     url,
+                                                      //   );
+                                                      // } else {
+                                                      //   throw 'Could not launch $url';
+                                                      // }
+                                                    },
+                                                    useRichText: false,
                                                     defaultTextStyle: TextStyle(fontSize: 17,letterSpacing: 1),
                                                     data:readScreen?.explanation != null  ?
-                                                    """${readScreen?.explanation}""": searchBodyData?.explanation != null ?
-                                                    """${searchBodyData?.explanation}""" : encyclopediaBody?.explanation != null ? """${encyclopediaBody?.explanation}""" :  """"""),
+                                                    '''${readScreen?.explanation}''': searchBodyData?.explanation != null ?
+                                                    '''${searchBodyData?.explanation}''' : encyclopediaBody?.explanation != null ? '''${encyclopediaBody?.explanation}''' :  ''''''),
                                               ),
                                               SizedBox(height: 20),
 
@@ -2588,50 +2596,50 @@ class _BookPagesState extends State<BookPages> {
               //   ),
               // ),
                     Positioned.fill(
-                      top: MediaQuery.of(context).size.height /2,
-                      right: 10,
+                      bottom: 10,
                       child:  Align(
-                        alignment: Alignment.topRight,
-                        child: IconButton(
-                          iconSize: 30,
-                          onPressed: ()  {
-                            if (!isShare && widget.isFromHomePage == null){
-                              Share.share(
-                                searchBodyData?.sharurl != null
-                                    ? "${searchBodyData?.sharurl} "
-                                    : isShowTitle == true &&
-                                    readScreen?.sharurl != null
-                                    ? "${readScreen?.sharurl}"
-                                    : "${encyclopediaBody?.sharurl}",
-                              );
-                            }
-                            if (!isShare && widget.isFromHomePage == true){
-                              if(readScreen?.sharurl != null)  Share.share("${readScreen?.sharurl} ");
-                            }
-                          },
-                          color: Palette.barColor,
-                          icon: Icon(Icons.share),
+                        alignment: Alignment.bottomCenter,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(
+                              iconSize: 30,
+                              onPressed: ()  {
+
+                                youtubeSheetBody();
+                              },
+                              color: Palette.barColor,
+                              icon:  Image.asset(
+                                'assets/images/youtube_icon.png',
+                                width: 50,
+                                height: 50,
+                              ),
 
 
-                        ),
-                      ),),
-                    Positioned.fill(
-                      child:  Align(
-                        alignment: Alignment.bottomLeft,
-                        child: IconButton(
-                          iconSize: 30,
-                          onPressed: ()  {
+                            ),
+                            IconButton(
+                              iconSize: 30,
+                              onPressed: ()  {
+                                if (!isShare && widget.isFromHomePage == null){
+                                  Share.share(
+                                    searchBodyData?.sharurl != null
+                                        ? '${searchBodyData?.sharurl} '
+                                        : isShowTitle == true &&
+                                        readScreen?.sharurl != null
+                                        ? '${readScreen?.sharurl}'
+                                        : '${encyclopediaBody?.sharurl}',
+                                  );
+                                }
+                                if (!isShare && widget.isFromHomePage == true){
+                                  if(readScreen?.sharurl != null)  Share.share('${readScreen?.sharurl} ');
+                                }
+                              },
+                              color: Palette.barColor,
+                              icon: Icon(Icons.share),
 
-                            youtubeSheetBody();
-                          },
-                          color: Palette.barColor,
-                          icon:  Image.asset(
-                            'assets/images/youtube_icon.png',
-                            width: 50,
-                            height: 50,
-                          ),
 
-
+                            ),
+                          ],
                         ),
                       ),)
                 ],
@@ -2660,7 +2668,7 @@ class _BookPagesState extends State<BookPages> {
         children: [
       TextSpan(
       text:
-      " $fullText",
+      ' $fullText',
     style: TextStyle(
     color: Colors.black,
     height: 2.5,

@@ -229,7 +229,7 @@ class _DelegateChildState extends State<DelegateChild>
                         children: [
                           InkWell(
                             onTap: () async {
-                              await Share.share(data![index].body!);
+                              await Share.share(data![index].sharurl!);
                               // showDialog(
                               //     context: context,
                               //     barrierDismissible: true,
