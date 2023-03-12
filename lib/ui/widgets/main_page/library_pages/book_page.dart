@@ -46,27 +46,54 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
   @override
   void initState() {
     userDataProvider.fetchUserInfo().then((value) => custemerId = value?.id??0);
-    findBook();
+   // if(idLib != null) getLibrarayYbooksById(idLib!);
 
     super.initState();
   }
-  void findBook()async{
-    await bookDataProvider.getCategoryLists(Api.categoryListUrl).then((value) {
-      for (var nv in value) {
-        print("Iddddddddd${nv.id}");
-        bookDataProvider.getLibrarayYbooksById(nv.id!).then((value) {
-          for (var nValue in value) {
-            if ("(${nValue.id})".toString().contains(idLib.toString())) {
-              book = nValue;
-              setState(() {});
-              break;
-            }
-          }
-        });
-      }
-    });
+  // void findBook()async{
+  //   await bookDataProvider.getCategoryLists(Api.categoryListUrl).then((value) {
+  //     for (var nv in value) {
+  //       print("Iddddddddd${nv.id}");
+  //       bookDataProvider.getLibrarayYbooksByCategory(nv.id!).then((value) {
+  //
+  //         for (var nValue in value!) {
+  //           if ("(${nValue.id})".toString().contains(idLib.toString())) {
+  //             book = nValue;
+  //             setState(() {});
+  //             break;
+  //           }
+  //         }
+  //       });
+  //     }
+  //   });
+  //
+  // }
+//   Future<void> getLibrarayYbooksById(int idLib) async {
+//     List<BookCategory> categoryList = await bookDataProvider.getCategoryLists(Api.categoryListUrl);
+//     bool isFound = false;
+// try{
+//   for (var nv in categoryList) {
+//     print("Iddddddddd${nv.id}");
+//     List<dynamic>? librarayYbooks = await bookDataProvider.getLibrarayYbooksByCategory(nv.id!);
+//     for (var nValue in librarayYbooks!) {
+//       if ("(${nValue.id})".toString().contains(idLib.toString())) {
+//         book = nValue;
+//         isFound = true;
+//         break;
+//       }
+//     }
+//     if(isFound){
+//       break;
+//     }
+//   }
+//   setState(() {});
+// }catch(e){
+//   if(isFound){
+//     //break;
+//   }
+// }
 
-  }
+  //}
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;

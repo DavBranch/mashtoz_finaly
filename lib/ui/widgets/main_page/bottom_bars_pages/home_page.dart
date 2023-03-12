@@ -39,6 +39,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import '../../../../domens/models/book_data/content_list.dart';
 import '../../../../domens/models/bottom_bar_color_notifire.dart';
 import '../../helper_widgets/size_config.dart';
+import '../../youtube_videos/advanced_overlay.dart';
 import '../main_menu_pages/audio_library/audio_library.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -133,7 +134,7 @@ class HomePageState extends State<HomePage> {
     dialects = value.dialects;
 
     _bookDataProvider
-        .getDataByCharacters(
+        .getDataByCharactersForHome(
         Api.encyclopediasByCharacters(value.encyclopedias?.first))
         .then((value) {
       setState(() {
@@ -142,14 +143,14 @@ class HomePageState extends State<HomePage> {
     });
 
     _bookDataProvider
-        .getDataByCharacters(Api.dialectBYCharacters(value.dialects?.first))
+        .getDataByCharactersForHome(Api.dialectBYCharacters(value.dialects?.first))
         .then((value) {
       setState(() {
         d = value;
       });
     });
     _bookDataProvider
-        .getDataByCharacters(
+        .getDataByCharactersForHome(
         Api.audioLibrariesByCharacters(value.audiolibraries))
         .then((value) {
       setState(() {
@@ -706,7 +707,12 @@ class HomePageState extends State<HomePage> {
                                                                     maxItemsPerRow:
                                                                     2, // The m
                                                                     gridItems:
-                                                                    List.generate(2,
+                                                                    List.generate(libraries!
+                                                                        .content!
+                                                                        .values
+                                                                        .map((e) =>
+                                                                    e)
+                                                                        .toList().length,
                                                                             (index) {
                                                                           var bookData;
 
@@ -722,6 +728,8 @@ class HomePageState extends State<HomePage> {
                                                                             books =
                                                                             bookData[index];
 
+                                                                            //var bookContent = Content.fromJson(books!.content.values.map((e) => e.content)!);
+                                                                            print(libraries?.content?.values?.map((e) => e.id));
                                                                             return index % 2 !=
                                                                                 0
                                                                                 ? Transform(
@@ -764,12 +772,12 @@ class HomePageState extends State<HomePage> {
                                                                                   20),
                                                                               child:
                                                                               BookCard(
-                                                                                isOdd:
-                                                                                false,
+
+                                                                                isOdd: false,
                                                                                 isFromHomePage: true,
                                                                                 categorys: BookCategory(
-                                                                                    categoryTitle: books?.title ??
-                                                                                        '',
+                                                                                    categoryTitle: books?.title ??'',
+
                                                                                     id: books?.id ??
                                                                                         0,
                                                                                     title:
@@ -778,7 +786,8 @@ class HomePageState extends State<HomePage> {
                                                                                     'libraries'),
 
                                                                                 bookId:
-                                                                                books?.id, book: books!,
+                                                                                books?.id,
+                                                                                book: books!,
                                                                               ),
                                                                             );
                                                                           } else {
@@ -1745,9 +1754,9 @@ class HomePageState extends State<HomePage> {
                                                                                   rootNavigator:
                                                                                   true)
                                                                                   .push(MaterialPageRoute(
-                                                                                  builder: (_) => YoutubePlayers(
-                                                                                    dataCharacters:
-                                                                                    a?.first,
+                                                                                  builder: (_) => VideoView(
+                                                                                    link:
+                                                                                    a?.first.link,
                                                                                   )));
                                                                             },
                                                                             child: const Icon(

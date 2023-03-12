@@ -26,7 +26,7 @@ class Data {
   final String? explanation;
   final String? summary;
   final String? sharurl;
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
+  factory Data.fromJson(Map<dynamic, dynamic> json) => Data(
         id: json["id"] == null ? null : json["id"],
         image: json["image"] == null ? null : json["image"],
         title: json["title"] == null ? null : json["title"],

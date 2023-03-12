@@ -46,12 +46,12 @@ class _BooksScreenState extends State<BooksScreen> {
   });
   final bool? isFromHomePage;
   final bookDataProvider = BookDataProvider();
-  Future<List<Content>>? contentFuture;
+  Future<List<dynamic>?>? contentFuture;
   final BookCategory? category;
 
   @override
   void initState() {
-    contentFuture = bookDataProvider.getLibrarayYbooksById(category?.id ?? 0);
+    contentFuture = bookDataProvider.getLibrarayYbooksByCategory(category?.id ?? 0);
     super.initState();
   }
 
@@ -121,14 +121,14 @@ class _BooksScreenState extends State<BooksScreen> {
                     ],
                   ),
                   SliverFillRemaining(
-                    child: FutureBuilder<List<Content?>?>(
+                    child: FutureBuilder<List<dynamic>?>(
                       future: contentFuture,
                       builder: ((context, snapshot) {
-                        List conentList ;
+                        List? conentList ;
 
                         if (snapshot.hasData) {
-                          conentList = snapshot.data as List<Content>;
-                          return   conentList.isNotEmpty?  ResponsiveGridList(
+                          conentList = snapshot.data ;
+                          return   conentList!.isNotEmpty?  ResponsiveGridList(
                             horizontalGridSpacing:
                             16, // Horizontal space between grid items
 
@@ -209,7 +209,7 @@ class BookCard extends StatelessWidget {
             MaterialPageRoute(
               builder: (_) => isFromHomePage ==true?BookInitalScreen(
                 isFromHomaPage: isFromHomePage,
-                book: null,
+                book: book,
                 idLib: bookId,
               ):BookInitalScreen(
                 book: book,

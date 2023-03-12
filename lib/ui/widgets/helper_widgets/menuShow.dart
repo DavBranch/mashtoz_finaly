@@ -686,18 +686,16 @@ class _MenuShowState extends State<MenuShow>
   void userIsSign() async {
     Users? hasId = await userDataProvider.fetchUserInfo();
     if(mounted){
-      if(hasId!=null){
-        if (hasId.fullName!.isNotEmpty &&
-            hasId.email!.isNotEmpty &&
-            hasId.email!.length > 2) {
-          setState(() {
-            isture = true;
-          });
-        } else {
-          setState(() {
-            isture = false;
-          });
-        }
+      if (hasId != null && hasId.fullName != null && hasId.fullName!.isNotEmpty &&
+          hasId.email != null && hasId!.email!.isNotEmpty &&
+          hasId!.email!.length > 2) {
+        setState(() {
+          isture = true;
+        });
+      } else {
+        setState(() {
+          isture = false;
+        });
       }
 
     }

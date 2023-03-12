@@ -33,30 +33,30 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.5
   flip_card: ^0.7.0
   bloc: ^8.1.1
   flutter_bloc: ^8.1.2
-  shared_preferences: ^2.0.12
-  provider: ^6.0.3
-  http: ^0.13.4
-  equatable: ^2.0.3
-  flutter_svg: ^2.0.0+1
+  shared_preferences: ^2.0.18
+  provider: ^6.0.5
+  http: ^0.13.5
+  equatable: ^2.0.5
+  flutter_svg: ^2.0.2
   eva_icons_flutter: ^3.1.0
   backdrop: ^0.8.1
   formz: ^0.4.1
-  flutter_secure_storage: ^7.0.1
-  cached_network_image: ^3.2.0
+  flutter_secure_storage: ^8.0.0
+  cached_network_image: ^3.2.3
   google_fonts: ^4.0.3
   tab_indicator_styler: ^2.0.0
   pin_code_fields: ^7.3.0
   word_break_text: ^0.1.0
-  youtube_player_flutter: ^8.0.0
-  photo_view:
-    git:
-      url: https://github.com/bluefireteam/photo_view
-      ref: master
-  jsonml: ^0.1.9
+  youtube_player_flutter: ^8.1.2
+  photo_view: ^0.14.0
+#    git:
+#      url: https://github.com/bluefireteam/photo_view
+#      ref: master
+#  jsonml: ^0.1.9
   
   screen_brightness: ^0.2.0
   
@@ -94,21 +94,25 @@ dependencies:
     version: ^0.0.0
   localization: ^2.1.0
   from_css_color: ^2.0.0
-  rive: ^0.10.1
-  rive_splash_screen: ^0.1.0
+  rive: ^0.10.2
+  rive_splash_screen: ^0.1.1
   flare_flutter: ^3.0.2
   
   cross_connectivity: ^3.0.5
-  velocity_x: ^3.5.1
-  google_sign_in: ^5.4.1
+  velocity_x: ^3.6.0
+  google_sign_in: ^6.0.2
   json_helpers: ^0.1.5
   platform_device_id: ^1.0.1
-  fluttertoast: ^8.1.2
+  fluttertoast: ^8.2.1
   loading_overlay: ^0.3.0
-  flutter_html: ^0.11.1
-  webview_flutter: ^2.8.0
+  flutter_html: ^3.0.0-alpha.6
+  webview_flutter: ^4.0.6
   youtube: ^1.0.1
   youtube_parser: ^2.0.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  webview_flutter_android: ^3.4.1
+  webview_flutter_wkwebview: ^3.2.0
 
   
   

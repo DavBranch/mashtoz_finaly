@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:mashtoz_flutter/domens/data_providers/session_data_provider.dart';
@@ -46,44 +47,48 @@ class BookDataProvider {
     }
     return libraryList;
   }
-
-  //Fetch Library Book By Id
-  Future<List<Content>> getLibrarayYbooksById(int idCategory) async {
-    var libraryList = <Content>[];
-    var response = await http.get(
-      Uri.parse(Api.libraryCategoryById(idCategory.toString())),
-      headers: <String, String>{
-        'Content-Type': 'application/json',
-      },
-    );
-
+  Future<List?> getLibrarayYbooksByCategory(
+      int idCategory) async {
+    List<dynamic>? libraryList = [];
     try {
-      print('Fetching from the network');
-      var body = json.decode(response.body);
-      var content = body['data']['content'];
-      var success = body['success'];
-      if (success == true) {
-        Map.from(content).forEach((key, value) {
-          if (key
-              .toString()
-              .contains(Map.from(value).values.first.toString())) {
-            var data = Content.fromJson(value);
-            if(data!=null){
-              libraryList.add(data);
-            }
+      final box = await Hive.openBox('category');
+      print('Fetching from Hive');
+      libraryList =
+      (box.get(idCategory.toString()) != null ? box.get(idCategory.toString())  : []) ;
+      if (libraryList?.length == 0) {
+        print('Fetching from the network');
+        var response = await http.get(
+          Uri.parse(Api.libraryCategoryById(idCategory.toString())),
+          headers: <String, String>{
+            'Content-Type': 'application/json',
+          },
+        );
+        var body = json.decode(response.body);
+        var content = body['data']['content'];
+        var success = body['success'];
+        if (success == true) {
+          Map.from(content).forEach((key, value) {
+            if (key
+                .toString()
+                .contains(Map.
+            from(value).values.first.toString())) {
+              var data = Content.fromJson(value);
+              if(data!=null){
+                libraryList?.add(data);
+              }
 
-          }
-        });
-        //cacheManager?.putFile('url', fileBytes)
-        // file.writeAsBytesSync(body, flush: true, mode: FileMode.write);
-      } else {
-        print("failed");
-        return libraryList;
+            }
+          });
+          await box.put(idCategory.toString(), libraryList);
+        } else {
+          print('failed');
+          return libraryList;
+        }
       }
     } catch (e) {
-      print("Imherreeeeeee ${e}");
+      print('Imherreeeeeee ${e}');
     }
-    return libraryList;
+    return libraryList!;
   }
 
   //Fetch Gallery List
@@ -185,7 +190,44 @@ class BookDataProvider {
     }
     return dialects;
   }
+  Future<List<Data>> getDataByCharactersForHome(String url) async {
+    var dialects = <Data>[];
+    // check if box exist
+    var box = await Hive.openBox('data');
+    var hiveData = box.get('data');
+    if(hiveData != null){
+      // call hive
 
+      Map.from(hiveData).values.forEach((element) {
+        //print(element);
+        var dat = Data.fromJson(element);
+        dialects.add(dat);
+      });
+
+    } else {
+      //call api
+      var response = await http.get(
+        Uri.parse(url),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+      );
+      var body = json.decode(response.body);
+      var success = body['success'];
+      var datas = body['data'];
+      if (success == true) {
+        Map.from(datas).values.forEach((element) {
+          //print(element);
+          var dat = Data.fromJson(element);
+          dialects.add(dat);
+        });
+        //add to box
+        box.put('data', dialects);
+      } else {
+      }
+    }
+    return dialects;
+  }
   //Words of Day
   Future<WordOfDay?> getWordsOfDay() async {
     var response = await http.get(
@@ -265,23 +307,51 @@ class BookDataProvider {
       throw Exception(e);
     }
   }
-
+  // Future<HomeData> getHomeData() async {
+  //   try {
+  //     var response = await http.get(
+  //       Uri.parse(Api.getHomeData),
+  //       headers: <String, String>{
+  //         'Content-Type': 'application/json; charset=UTF-8',
+  //       },
+  //     );
+  //     var body = json.decode(response.body);
+  //     var success = body['success'];
+  //     if (success == true) {
+  //       var data = body['data'] as Map<String, dynamic>;
+  //
+  //       var newData = HomeData.fromJson(data);
+  //
+  //       return newData;
+  //     }
+  //   } catch (e) {
+  //     print(e);
+  //     // throw Exception(e);
+  //   }
+  //   return HomeData();
+  // }
   Future<HomeData> getHomeData() async {
     try {
-      var response = await http.get(
-        Uri.parse(Api.getHomeData),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-      );
-      var body = json.decode(response.body);
-      var success = body['success'];
-      if (success == true) {
-        var data = body['data'] as Map<String, dynamic>;
-
+      var box = await Hive.openBox('UserData');
+      var data = box.get('userData');
+      if(data != null){
         var newData = HomeData.fromJson(data);
-
         return newData;
+      }else{
+        var response = await http.get(
+          Uri.parse(Api.getHomeData),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+          },
+        );
+        var body = json.decode(response.body);
+        var success = body['success'];
+        if (success == true) {
+          var data = body['data'] as Map<String, dynamic>;
+          await box.put('userData', data);
+          var newData = HomeData.fromJson(data);
+          return newData;
+        }
       }
     } catch (e) {
       print(e);

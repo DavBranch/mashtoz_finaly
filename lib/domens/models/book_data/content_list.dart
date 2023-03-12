@@ -28,7 +28,7 @@ class Content {
 
   final Map<String, Content>? content;
 
-  factory Content.fromJson(Map<String, dynamic> json) {
+  factory Content.fromJson(Map<dynamic, dynamic> json) {
     return Content(
       id: json["id"] == null ? null : json["id"],
       title: json["title"] == null ? null : json["title"],

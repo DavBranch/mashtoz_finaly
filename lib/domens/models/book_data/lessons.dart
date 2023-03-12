@@ -13,7 +13,7 @@ class Lessons {
   final String? link;
   final String? number;
 
-  factory Lessons.fromJson(Map<String, dynamic> json) => Lessons(
+  factory Lessons.fromJson(Map<dynamic, dynamic> json) => Lessons(
         id: json["id"] == null ? null : json["id"],
         image: json["image"] == null ? null : json["image"],
         title: json["title"] == null ? null : json["title"],
