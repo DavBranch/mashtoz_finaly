@@ -1,19 +1,15 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:http/http.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/book_channgeNotifire.dart';
-
 import 'package:mashtoz_flutter/domens/models/book_data/data.dart';
 import 'package:mashtoz_flutter/domens/repository/book_data_provdier.dart';
 import 'package:mashtoz_flutter/globals.dart';
-
 import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/audio_library/audio_librar_data_show.dart';
 import 'package:provider/provider.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
-import '../../../helper_widgets/menuShow.dart';
+
 import '/config/palette.dart';
+import '../../../helper_widgets/menuShow.dart';
 
 class AudioLibraryByCharacters extends StatefulWidget {
   const AudioLibraryByCharacters({
@@ -106,7 +102,7 @@ class _AudioLibraryByCharactersState extends State<AudioLibraryByCharacters>
               child: IconButton(
                 onPressed: () {
 
-                  Navigator.pop(context);
+                  Navigator.of(context).pop();
                   Provider.of<BookNotifire>(context, listen: true).resetDatas();
 
                 },

@@ -1,6 +1,8 @@
+import 'dart:math' as math;
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cross_connectivity/cross_connectivity.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -12,14 +14,12 @@ import 'package:mashtoz_flutter/domens/models/book_data/category_lsit.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/data.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/lessons.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/word_of_day.dart';
+import 'package:mashtoz_flutter/domens/models/user.dart';
 import 'package:mashtoz_flutter/domens/repository/book_data_provdier.dart';
 import 'package:mashtoz_flutter/domens/repository/user_data_provider.dart';
 import 'package:mashtoz_flutter/globals.dart';
-import 'package:mashtoz_flutter/ui/utils/complex.dart';
-import 'package:mashtoz_flutter/ui/utils/day_change_notifire.dart';
 import 'package:mashtoz_flutter/ui/utils/log_out_changenotifire.dart';
 import 'package:mashtoz_flutter/ui/utils/url_data_lounch.dart';
-import 'dart:math' as math;
 import 'package:mashtoz_flutter/ui/widgets/helper_widgets/menuShow.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/bottom_bars_pages/bottom_bar_menu_pages.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/library_pages/book_read_screen.dart';
@@ -29,12 +29,10 @@ import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/audio_libra
 import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/dialect/diaelct_by_characters.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/dialect/dialect.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/encyclopedia/encyclopedia.dart';
+import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/encyclopedia/encyclopedia_by_characters.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/italian_lesson/italian_data_show.dart';
-import 'package:mashtoz_flutter/domens/models/user.dart';
-import 'package:mashtoz_flutter/ui/widgets/youtube_videos/youtuve_player.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_grid_list/responsive_grid_list.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 
 import '../../../../domens/models/book_data/content_list.dart';
 import '../../../../domens/models/bottom_bar_color_notifire.dart';
@@ -1113,7 +1111,7 @@ class HomePageState extends State<HomePage> {
                                                                                       onTap:(){
                                                                                         if(encyclopedias!=null)
                                                                                           Navigator.of(context).push(MaterialPageRoute(builder:(_)=>
-                                                                                              DialectByCharacters(
+                                                                                              EcyclopediaByCharacters(
                                                                                                   characters: charEncyc,
                                                                                                   characterByindex: "${encyclopedias?[index]}",
                                                                                                   characterIndex: charEncyc.indexOf("${encyclopedias?[index]}"))));

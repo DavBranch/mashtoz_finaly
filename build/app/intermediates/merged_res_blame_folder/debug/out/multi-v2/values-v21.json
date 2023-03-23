@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.mashtoc.mashtoc.app-mergeDebugResources-44:/values-v21/values-v21.xml",
+            "outputFile": "com.mashtoc.mashtoc.app-mergeDebugResources-45:/values-v21/values-v21.xml",
             "map": [
                 {
                     "source": "/Users/davit/.gradle/caches/transforms-3/0b02d2836bdfa9c6b4b168d5647eb4e7/transformed/jetified-tweet-composer-3.1.1/res/values-v21/values-v21.xml",

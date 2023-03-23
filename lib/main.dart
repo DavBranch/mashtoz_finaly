@@ -7,34 +7,25 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:loading_overlay/loading_overlay.dart';
+import 'package:mashtoz_flutter/contentAdapter.dart';
+import 'package:mashtoz_flutter/data_character.dart';
 import 'package:mashtoz_flutter/domens/blocs/Login/login_bloc.dart';
 import 'package:mashtoz_flutter/domens/blocs/register_bloc/register_bloc.dart';
 import 'package:mashtoz_flutter/domens/models/app_theme.dart/theme_notifire.dart';
 import 'package:mashtoz_flutter/domens/models/bottom_bar_color_notifire.dart';
-
 import 'package:mashtoz_flutter/domens/models/user_sign_or_not.dart';
-
 import 'package:mashtoz_flutter/domens/repository/user_data_provider.dart';
 import 'package:mashtoz_flutter/firebase_options.dart';
+import 'package:mashtoz_flutter/homeAdapter.dart';
+import 'package:mashtoz_flutter/lessonAdapter.dart';
 import 'package:mashtoz_flutter/ui/utils/day_change_notifire.dart';
 import 'package:mashtoz_flutter/ui/utils/splash_screen.dart';
-import 'package:mashtoz_flutter/ui/widgets/login_sign/login_screen/login_screen.dart';
-import 'package:mashtoz_flutter/ui/widgets/login_sign/singup_screen/singup_screen.dart';
-import 'package:mashtoz_flutter/ui/widgets/main_page/bottom_bars_pages/bottom_bar_menu_pages.dart';
-
-import 'package:mashtoz_flutter/ui/widgets/main_page/home_screen.dart';
-
 import 'package:mashtoz_flutter/ui/widgets/main_page/library_pages/book_inherited_widget.dart';
-import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/audio_library/audio_library.dart';
-import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/dialect/dialect.dart';
-import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/encyclopedia/encyclopedia.dart';
-
 import 'package:provider/provider.dart';
 
 import 'domens/models/book_data/book_channgeNotifire.dart';
-import 'domens/models/book_data/lessons.dart';
 import 'ui/utils/log_out_changenotifire.dart';
 
 bool isWhichPlatform = false;
@@ -53,8 +44,13 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print('A bg message just showed up :  ${message.messageId}');
 }
 void main() async {
+ await Hive.initFlutter();
+ Hive.registerAdapter(ContentAdapter());
+ Hive.registerAdapter(DataAdapter());
+ Hive.registerAdapter(HomeDataAdapter());
+ Hive.registerAdapter(LessonsAdapter());
 
-  Platform.isIOS ? isWhichPlatform = true : isWhichPlatform;
+ Platform.isIOS ? isWhichPlatform = true : isWhichPlatform;
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

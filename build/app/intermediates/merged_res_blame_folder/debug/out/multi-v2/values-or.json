@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.mashtoc.mashtoc.app-mergeDebugResources-44:/values-or/values-or.xml",
+            "outputFile": "com.mashtoc.mashtoc.app-mergeDebugResources-45:/values-or/values-or.xml",
             "map": [
                 {
                     "source": "/Users/davit/.gradle/caches/transforms-3/cac9ca91a4284a71272b7c6e618c045a/transformed/browser-1.4.0/res/values-or/values-or.xml",

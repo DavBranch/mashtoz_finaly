@@ -1,4 +1,4 @@
-#Sun Feb 19 04:04:03 PST 2023
+#Mon Mar 20 15:27:12 PDT 2023
 base.0=/Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/app/intermediates/dex/debug/mergeLibDexDebug/0/classes.dex
 base.2=/Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex

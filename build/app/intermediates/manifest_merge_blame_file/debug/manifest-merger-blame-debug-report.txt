@@ -289,11 +289,11 @@
 182                android:value="com.google.firebase.components.ComponentRegistrar" />
 182-->[com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:33:17-82
 183            <meta-data
-183-->[com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:17:13-19:85
+183-->[com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:17:13-19:85
 184                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-184-->[com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:18:17-127
+184-->[com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:18:17-127
 185                android:value="com.google.firebase.components.ComponentRegistrar" />
-185-->[com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:19:17-82
+185-->[com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:19:17-82
 186            <meta-data
 186-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/davit/.gradle/caches/transforms-3/6ca0c6ce61bb900f7ccb404d92d9b304/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
 187                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"

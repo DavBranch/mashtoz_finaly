@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.mashtoc.mashtoc.app-mergeDebugResources-44:/values-es-rES/values-es-rES.xml",
+            "outputFile": "com.mashtoc.mashtoc.app-mergeDebugResources-45:/values-es-rES/values-es-rES.xml",
             "map": [
                 {
                     "source": "/Users/davit/.gradle/caches/transforms-3/d62c5e092aaf9364a24da08b40e24c41/transformed/jetified-facebook-login-16.0.0/res/values-es-rES/values-es-rES.xml",

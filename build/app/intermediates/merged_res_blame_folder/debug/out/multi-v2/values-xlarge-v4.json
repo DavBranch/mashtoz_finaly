@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.mashtoc.mashtoc.app-mergeDebugResources-44:/values-xlarge-v4/values-xlarge-v4.xml",
+            "outputFile": "com.mashtoc.mashtoc.app-mergeDebugResources-45:/values-xlarge-v4/values-xlarge-v4.xml",
             "map": [
                 {
                     "source": "/Users/davit/.gradle/caches/transforms-3/fdfe8e5e2c95e94bffb48201eb79d9a6/transformed/appcompat-1.5.1/res/values-xlarge-v4/values-xlarge-v4.xml",

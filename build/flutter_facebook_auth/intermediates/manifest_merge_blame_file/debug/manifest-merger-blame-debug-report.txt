@@ -4,8 +4,8 @@
 4
 5    <uses-sdk
 6        android:minSdkVersion="21"
-6-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_facebook_auth-5.0.7/android/src/main/AndroidManifest.xml
+6-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_facebook_auth-5.0.8/android/src/main/AndroidManifest.xml
 7        android:targetSdkVersion="21" />
-7-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_facebook_auth-5.0.7/android/src/main/AndroidManifest.xml
+7-->/Users/davit/.pub-cache/hosted/pub.dev/flutter_facebook_auth-5.0.8/android/src/main/AndroidManifest.xml
 8
 9</manifest>

@@ -41,8 +41,8 @@ MERGED from [com.google.firebase:firebase-analytics:21.2.0] /Users/davit/.gradle
 MERGED from [com.google.firebase:firebase-analytics:21.2.0] /Users/davit/.gradle/caches/transforms-3/179534c8632ab828ca4337a5a6413b5f/transformed/jetified-firebase-analytics-21.2.0/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:27:5-35:19
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:27:5-35:19
-MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:13:5-21:19
-MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:13:5-21:19
+MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:13:5-21:19
+MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:13:5-21:19
 MERGED from [com.google.firebase:firebase-datatransport:18.1.7] /Users/davit/.gradle/caches/transforms-3/6ca0c6ce61bb900f7ccb404d92d9b304/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:23:5-31:19
 MERGED from [com.google.firebase:firebase-datatransport:18.1.7] /Users/davit/.gradle/caches/transforms-3/6ca0c6ce61bb900f7ccb404d92d9b304/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:23:5-31:19
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.1.1] /Users/davit/.gradle/caches/transforms-3/80cf2f9a90f8bda0262e563ee419d715/transformed/jetified-firebase-appcheck-interop-16.1.1/AndroidManifest.xml:23:5-20
@@ -124,6 +124,7 @@ MERGED from [:cloud_functions] /Users/davit/StudioProjects/mashtoz_finaly/mashto
 MERGED from [:firebase_auth] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-17:12
 MERGED from [:firebase_core] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-17:12
 MERGED from [:platform_device_id] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/platform_device_id/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:webview_flutter] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/webview_flutter/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-34:12
 MERGED from [:path_provider_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_secure_storage] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_secure_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-11:12
@@ -132,9 +133,9 @@ MERGED from [:wakelock] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build
 MERGED from [:shared_preferences_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-28:12
 MERGED from [:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-50:12
-MERGED from [:video_player] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/video_player/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:share_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-37:12
 MERGED from [:fluttertoast] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:video_player_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:native_device_orientation] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/native_device_orientation/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:sqflite] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/sqflite/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:url_launcher_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-16:12
@@ -143,7 +144,6 @@ MERGED from [:google_sign_in_android] /Users/davit/StudioProjects/mashtoz_finaly
 MERGED from [:screen_brightness_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/screen_brightness_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_native_splash] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_native_splash/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:connectivity_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:webview_flutter_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/webview_flutter_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:device_info] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/device_info/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.android:facebook-login:16.0.0] /Users/davit/.gradle/caches/transforms-3/d62c5e092aaf9364a24da08b40e24c41/transformed/jetified-facebook-login-16.0.0/AndroidManifest.xml:9:1-19:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/davit/.gradle/caches/transforms-3/365ca49d091659d1d8dcc050d3fb8f80/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
@@ -159,7 +159,7 @@ MERGED from [com.google.firebase:firebase-iid:21.1.0] /Users/davit/.gradle/cache
 MERGED from [com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle/caches/transforms-3/3a9cd6d65b583547eaba27f8b73594cd/transformed/jetified-firebase-messaging-23.1.1/AndroidManifest.xml:17:1-61:12
 MERGED from [com.google.firebase:firebase-analytics:21.2.0] /Users/davit/.gradle/caches/transforms-3/179534c8632ab828ca4337a5a6413b5f/transformed/jetified-firebase-analytics-21.2.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:17:1-37:12
-MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:2:1-23:12
+MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:2:1-23:12
 MERGED from [com.google.firebase:firebase-datatransport:18.1.7] /Users/davit/.gradle/caches/transforms-3/6ca0c6ce61bb900f7ccb404d92d9b304/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:15:1-33:12
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.1.1] /Users/davit/.gradle/caches/transforms-3/80cf2f9a90f8bda0262e563ee419d715/transformed/jetified-firebase-appcheck-interop-16.1.1/AndroidManifest.xml:15:1-25:12
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /Users/davit/.gradle/caches/transforms-3/12a002afc03609187f9a7d825c86bdc7/transformed/jetified-firebase-auth-interop-20.0.0/AndroidManifest.xml:2:1-10:12
@@ -202,11 +202,11 @@ MERGED from [androidx.security:security-crypto:1.1.0-alpha04] /Users/davit/.grad
 MERGED from [androidx.webkit:webkit:1.5.0] /Users/davit/.gradle/caches/transforms-3/a1870b2c8d5a0d42de5703fa66571cc7/transformed/webkit-1.5.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.browser:browser:1.4.0] /Users/davit/.gradle/caches/transforms-3/cac9ca91a4284a71272b7c6e618c045a/transformed/browser-1.4.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /Users/davit/.gradle/caches/transforms-3/294b5b8f89839515f5a2580529d84008/transformed/swiperefreshlayout-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.exoplayer:exoplayer-hls:2.14.1] /Users/davit/.gradle/caches/transforms-3/2b95d2247988f094fa8f00a7f1b71270/transformed/jetified-exoplayer-hls-2.14.1/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.exoplayer:exoplayer-dash:2.14.1] /Users/davit/.gradle/caches/transforms-3/1d33d6d44bb02ffc99819ffb1c4ac979/transformed/jetified-exoplayer-dash-2.14.1/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.14.1] /Users/davit/.gradle/caches/transforms-3/a47eaab8da9bda2d606ecdfdd45ee50d/transformed/jetified-exoplayer-smoothstreaming-2.14.1/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] /Users/davit/.gradle/caches/transforms-3/5153bf7187d292ddc6fe8ea2aae0945d/transformed/jetified-exoplayer-core-2.14.1/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.media:media:1.1.0] /Users/davit/.gradle/caches/transforms-3/40aa95439ea6086bf57e4cb3adb92d10/transformed/media-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.4] /Users/davit/.gradle/caches/transforms-3/cde758f27379e99e255e30b84616b301/transformed/jetified-exoplayer-hls-2.18.4/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.4] /Users/davit/.gradle/caches/transforms-3/f39ecc07be4f9179bfc1979af24d356f/transformed/jetified-exoplayer-dash-2.18.4/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.4] /Users/davit/.gradle/caches/transforms-3/0ab35b376e650e27446674c0eb094ced/transformed/jetified-exoplayer-smoothstreaming-2.18.4/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.4] /Users/davit/.gradle/caches/transforms-3/7d2cf8953a7aecf50a5299df5ddac280/transformed/jetified-exoplayer-core-2.18.4/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/davit/.gradle/caches/transforms-3/8d51efa0419aafaa91341088d8621f7e/transformed/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/davit/.gradle/caches/transforms-3/0936e8ce8288970a4763396b14e2a71f/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/davit/.gradle/caches/transforms-3/1ce57613cf8c76b35479d9bd1ba4a350/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:17:1-35:12
@@ -230,8 +230,11 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/davit/.gradle/cach
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /Users/davit/.gradle/caches/transforms-3/06f60a88537b64c1426f793e500d9069/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/davit/.gradle/caches/transforms-3/b8dfba9d6df167e812e6983d4b8e9d71/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.2.0] /Users/davit/.gradle/caches/transforms-3/b5f3596c951c8069eeac21ed6d2be008/transformed/jetified-savedstate-1.2.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.14.1] /Users/davit/.gradle/caches/transforms-3/0bb6308bfd26f4492607f122917aa1a1/transformed/jetified-exoplayer-extractor-2.14.1/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] /Users/davit/.gradle/caches/transforms-3/68275a6c20c7a2e40ffd785f9e8bc485/transformed/jetified-exoplayer-common-2.14.1/AndroidManifest.xml:17:1-26:12
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.4] /Users/davit/.gradle/caches/transforms-3/3d1d688202a17036e3f2ffd3370fce3b/transformed/jetified-exoplayer-datasource-2.18.4/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.4] /Users/davit/.gradle/caches/transforms-3/2d7b5edbc0d31552c01611730c2e228b/transformed/jetified-exoplayer-extractor-2.18.4/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.4] /Users/davit/.gradle/caches/transforms-3/de0595b095d206a0ad47607904a802e5/transformed/jetified-exoplayer-decoder-2.18.4/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.4] /Users/davit/.gradle/caches/transforms-3/ed3ea03cbf0470ba309951f3de5a6e60/transformed/jetified-exoplayer-database-2.18.4/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.4] /Users/davit/.gradle/caches/transforms-3/8774bafd1f67599e179638445b2062d9/transformed/jetified-exoplayer-common-2.18.4/AndroidManifest.xml:17:1-26:12
 MERGED from [com.google.android.datatransport:transport-api:3.0.0] /Users/davit/.gradle/caches/transforms-3/0c6d49260538ee71bfaa3113f5071787/transformed/jetified-transport-api-3.0.0/AndroidManifest.xml:15:1-22:12
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/davit/.gradle/caches/transforms-3/819b49ac4bc2aa6c14344aedc3696d56/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/davit/.gradle/caches/transforms-3/f64c3d4d64e2007dcf54d298be62bc78/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
@@ -278,8 +281,8 @@ MERGED from [com.google.firebase:firebase-iid:21.1.0] /Users/davit/.gradle/cache
 MERGED from [com.google.firebase:firebase-iid:21.1.0] /Users/davit/.gradle/caches/transforms-3/1cc9e0d9cd32e95a1c47daefcad3b5be/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:22:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:22:5-67
-MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:10:5-67
-MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:10:5-67
+MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:10:5-67
+MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:10:5-67
 MERGED from [com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] /Users/davit/.gradle/caches/transforms-3/500b2a8b2cebc9af863d2f32d1ed4477/transformed/jetified-play-services-cloud-messaging-17.0.1/AndroidManifest.xml:8:5-67
@@ -336,6 +339,8 @@ MERGED from [:firebase_core] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/
 MERGED from [:firebase_core] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:platform_device_id] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/platform_device_id/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:platform_device_id] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/platform_device_id/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:webview_flutter] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/webview_flutter/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:webview_flutter] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/webview_flutter/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_local_notifications] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
@@ -352,12 +357,12 @@ MERGED from [:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/masht
 MERGED from [:flutter_share_me] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_share_me/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_inappwebview] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_inappwebview/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:video_player] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/video_player/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:video_player] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/video_player/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:share_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:share_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/share_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:fluttertoast] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:fluttertoast] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:video_player_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:video_player_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/video_player_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:native_device_orientation] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/native_device_orientation/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:native_device_orientation] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/native_device_orientation/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:sqflite] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/sqflite/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
@@ -374,8 +379,6 @@ MERGED from [:flutter_native_splash] /Users/davit/StudioProjects/mashtoz_finaly/
 MERGED from [:flutter_native_splash] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/flutter_native_splash/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:connectivity_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:connectivity_plus] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:webview_flutter_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/webview_flutter_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [:webview_flutter_android] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/webview_flutter_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:device_info] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/device_info/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:device_info] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/device_info/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.android:facebook-login:16.0.0] /Users/davit/.gradle/caches/transforms-3/d62c5e092aaf9364a24da08b40e24c41/transformed/jetified-facebook-login-16.0.0/AndroidManifest.xml:12:5-14:41
@@ -406,8 +409,8 @@ MERGED from [com.google.firebase:firebase-analytics:21.2.0] /Users/davit/.gradle
 MERGED from [com.google.firebase:firebase-analytics:21.2.0] /Users/davit/.gradle/caches/transforms-3/179534c8632ab828ca4337a5a6413b5f/transformed/jetified-firebase-analytics-21.2.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-datatransport:18.1.7] /Users/davit/.gradle/caches/transforms-3/6ca0c6ce61bb900f7ccb404d92d9b304/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.firebase:firebase-datatransport:18.1.7] /Users/davit/.gradle/caches/transforms-3/6ca0c6ce61bb900f7ccb404d92d9b304/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.1.1] /Users/davit/.gradle/caches/transforms-3/80cf2f9a90f8bda0262e563ee419d715/transformed/jetified-firebase-appcheck-interop-16.1.1/AndroidManifest.xml:18:5-20:41
@@ -492,16 +495,16 @@ MERGED from [androidx.browser:browser:1.4.0] /Users/davit/.gradle/caches/transfo
 MERGED from [androidx.browser:browser:1.4.0] /Users/davit/.gradle/caches/transforms-3/cac9ca91a4284a71272b7c6e618c045a/transformed/browser-1.4.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /Users/davit/.gradle/caches/transforms-3/294b5b8f89839515f5a2580529d84008/transformed/swiperefreshlayout-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /Users/davit/.gradle/caches/transforms-3/294b5b8f89839515f5a2580529d84008/transformed/swiperefreshlayout-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-hls:2.14.1] /Users/davit/.gradle/caches/transforms-3/2b95d2247988f094fa8f00a7f1b71270/transformed/jetified-exoplayer-hls-2.14.1/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-hls:2.14.1] /Users/davit/.gradle/caches/transforms-3/2b95d2247988f094fa8f00a7f1b71270/transformed/jetified-exoplayer-hls-2.14.1/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-dash:2.14.1] /Users/davit/.gradle/caches/transforms-3/1d33d6d44bb02ffc99819ffb1c4ac979/transformed/jetified-exoplayer-dash-2.14.1/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-dash:2.14.1] /Users/davit/.gradle/caches/transforms-3/1d33d6d44bb02ffc99819ffb1c4ac979/transformed/jetified-exoplayer-dash-2.14.1/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.14.1] /Users/davit/.gradle/caches/transforms-3/a47eaab8da9bda2d606ecdfdd45ee50d/transformed/jetified-exoplayer-smoothstreaming-2.14.1/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.14.1] /Users/davit/.gradle/caches/transforms-3/a47eaab8da9bda2d606ecdfdd45ee50d/transformed/jetified-exoplayer-smoothstreaming-2.14.1/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] /Users/davit/.gradle/caches/transforms-3/5153bf7187d292ddc6fe8ea2aae0945d/transformed/jetified-exoplayer-core-2.14.1/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] /Users/davit/.gradle/caches/transforms-3/5153bf7187d292ddc6fe8ea2aae0945d/transformed/jetified-exoplayer-core-2.14.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.media:media:1.1.0] /Users/davit/.gradle/caches/transforms-3/40aa95439ea6086bf57e4cb3adb92d10/transformed/media-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.media:media:1.1.0] /Users/davit/.gradle/caches/transforms-3/40aa95439ea6086bf57e4cb3adb92d10/transformed/media-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.4] /Users/davit/.gradle/caches/transforms-3/cde758f27379e99e255e30b84616b301/transformed/jetified-exoplayer-hls-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.4] /Users/davit/.gradle/caches/transforms-3/cde758f27379e99e255e30b84616b301/transformed/jetified-exoplayer-hls-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.4] /Users/davit/.gradle/caches/transforms-3/f39ecc07be4f9179bfc1979af24d356f/transformed/jetified-exoplayer-dash-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.4] /Users/davit/.gradle/caches/transforms-3/f39ecc07be4f9179bfc1979af24d356f/transformed/jetified-exoplayer-dash-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.4] /Users/davit/.gradle/caches/transforms-3/0ab35b376e650e27446674c0eb094ced/transformed/jetified-exoplayer-smoothstreaming-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.4] /Users/davit/.gradle/caches/transforms-3/0ab35b376e650e27446674c0eb094ced/transformed/jetified-exoplayer-smoothstreaming-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.4] /Users/davit/.gradle/caches/transforms-3/7d2cf8953a7aecf50a5299df5ddac280/transformed/jetified-exoplayer-core-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.4] /Users/davit/.gradle/caches/transforms-3/7d2cf8953a7aecf50a5299df5ddac280/transformed/jetified-exoplayer-core-2.18.4/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/davit/.gradle/caches/transforms-3/8d51efa0419aafaa91341088d8621f7e/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/davit/.gradle/caches/transforms-3/8d51efa0419aafaa91341088d8621f7e/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/davit/.gradle/caches/transforms-3/0936e8ce8288970a4763396b14e2a71f/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
@@ -548,10 +551,16 @@ MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/davit/.gradle/ca
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/davit/.gradle/caches/transforms-3/b8dfba9d6df167e812e6983d4b8e9d71/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.2.0] /Users/davit/.gradle/caches/transforms-3/b5f3596c951c8069eeac21ed6d2be008/transformed/jetified-savedstate-1.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.2.0] /Users/davit/.gradle/caches/transforms-3/b5f3596c951c8069eeac21ed6d2be008/transformed/jetified-savedstate-1.2.0/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.14.1] /Users/davit/.gradle/caches/transforms-3/0bb6308bfd26f4492607f122917aa1a1/transformed/jetified-exoplayer-extractor-2.14.1/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.14.1] /Users/davit/.gradle/caches/transforms-3/0bb6308bfd26f4492607f122917aa1a1/transformed/jetified-exoplayer-extractor-2.14.1/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] /Users/davit/.gradle/caches/transforms-3/68275a6c20c7a2e40ffd785f9e8bc485/transformed/jetified-exoplayer-common-2.14.1/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] /Users/davit/.gradle/caches/transforms-3/68275a6c20c7a2e40ffd785f9e8bc485/transformed/jetified-exoplayer-common-2.14.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.4] /Users/davit/.gradle/caches/transforms-3/3d1d688202a17036e3f2ffd3370fce3b/transformed/jetified-exoplayer-datasource-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.4] /Users/davit/.gradle/caches/transforms-3/3d1d688202a17036e3f2ffd3370fce3b/transformed/jetified-exoplayer-datasource-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.4] /Users/davit/.gradle/caches/transforms-3/2d7b5edbc0d31552c01611730c2e228b/transformed/jetified-exoplayer-extractor-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.4] /Users/davit/.gradle/caches/transforms-3/2d7b5edbc0d31552c01611730c2e228b/transformed/jetified-exoplayer-extractor-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.4] /Users/davit/.gradle/caches/transforms-3/de0595b095d206a0ad47607904a802e5/transformed/jetified-exoplayer-decoder-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.4] /Users/davit/.gradle/caches/transforms-3/de0595b095d206a0ad47607904a802e5/transformed/jetified-exoplayer-decoder-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.4] /Users/davit/.gradle/caches/transforms-3/ed3ea03cbf0470ba309951f3de5a6e60/transformed/jetified-exoplayer-database-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.4] /Users/davit/.gradle/caches/transforms-3/ed3ea03cbf0470ba309951f3de5a6e60/transformed/jetified-exoplayer-database-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.4] /Users/davit/.gradle/caches/transforms-3/8774bafd1f67599e179638445b2062d9/transformed/jetified-exoplayer-common-2.18.4/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.4] /Users/davit/.gradle/caches/transforms-3/8774bafd1f67599e179638445b2062d9/transformed/jetified-exoplayer-common-2.18.4/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.datatransport:transport-api:3.0.0] /Users/davit/.gradle/caches/transforms-3/0c6d49260538ee71bfaa3113f5071787/transformed/jetified-transport-api-3.0.0/AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.android.datatransport:transport-api:3.0.0] /Users/davit/.gradle/caches/transforms-3/0c6d49260538ee71bfaa3113f5071787/transformed/jetified-transport-api-3.0.0/AndroidManifest.xml:18:5-20:41
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/davit/.gradle/caches/transforms-3/819b49ac4bc2aa6c14344aedc3696d56/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
@@ -596,8 +605,8 @@ MERGED from [com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle
 MERGED from [com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle/caches/transforms-3/3a9cd6d65b583547eaba27f8b73594cd/transformed/jetified-firebase-messaging-23.1.1/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:9:5-79
-MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:9:5-79
+MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:9:5-79
+MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:9:5-79
 MERGED from [com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement:21.2.0] /Users/davit/.gradle/caches/transforms-3/d7362325d8e2168d4d1bea932802931a/transformed/jetified-play-services-measurement-21.2.0/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] /Users/davit/.gradle/caches/transforms-3/500b2a8b2cebc9af863d2f32d1ed4477/transformed/jetified-play-services-cloud-messaging-17.0.1/AndroidManifest.xml:7:5-79
@@ -610,10 +619,10 @@ MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] /User
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/davit/.gradle/caches/transforms-3/b5ee562c2362f613cae79898c0e82368/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] /Users/davit/.gradle/caches/transforms-3/03c29981626e5959452b4e252e58186b/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:22:5-79
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.8] /Users/davit/.gradle/caches/transforms-3/03c29981626e5959452b4e252e58186b/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:22:5-79
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] /Users/davit/.gradle/caches/transforms-3/5153bf7187d292ddc6fe8ea2aae0945d/transformed/jetified-exoplayer-core-2.14.1/AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] /Users/davit/.gradle/caches/transforms-3/5153bf7187d292ddc6fe8ea2aae0945d/transformed/jetified-exoplayer-core-2.14.1/AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] /Users/davit/.gradle/caches/transforms-3/68275a6c20c7a2e40ffd785f9e8bc485/transformed/jetified-exoplayer-common-2.14.1/AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] /Users/davit/.gradle/caches/transforms-3/68275a6c20c7a2e40ffd785f9e8bc485/transformed/jetified-exoplayer-common-2.14.1/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.4] /Users/davit/.gradle/caches/transforms-3/7d2cf8953a7aecf50a5299df5ddac280/transformed/jetified-exoplayer-core-2.18.4/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.4] /Users/davit/.gradle/caches/transforms-3/7d2cf8953a7aecf50a5299df5ddac280/transformed/jetified-exoplayer-core-2.18.4/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.4] /Users/davit/.gradle/caches/transforms-3/8774bafd1f67599e179638445b2062d9/transformed/jetified-exoplayer-common-2.18.4/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.4] /Users/davit/.gradle/caches/transforms-3/8774bafd1f67599e179638445b2062d9/transformed/jetified-exoplayer-common-2.18.4/AndroidManifest.xml:24:5-79
 	android:name
 		ADDED from [:firebase_messaging] /Users/davit/StudioProjects/mashtoz_finaly/mashtoz/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:11:22-76
 uses-permission#android.permission.POST_NOTIFICATIONS
@@ -676,8 +685,8 @@ MERGED from [com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle
 MERGED from [com.google.firebase:firebase-messaging:23.1.1] /Users/davit/.gradle/caches/transforms-3/3a9cd6d65b583547eaba27f8b73594cd/transformed/jetified-firebase-messaging-23.1.1/AndroidManifest.xml:52:9-58:19
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:28:9-34:19
 MERGED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:28:9-34:19
-MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:14:9-20:19
-MERGED from [com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:14:9-20:19
+MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:14:9-20:19
+MERGED from [com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:14:9-20:19
 MERGED from [com.google.firebase:firebase-datatransport:18.1.7] /Users/davit/.gradle/caches/transforms-3/6ca0c6ce61bb900f7ccb404d92d9b304/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:24:9-30:19
 MERGED from [com.google.firebase:firebase-datatransport:18.1.7] /Users/davit/.gradle/caches/transforms-3/6ca0c6ce61bb900f7ccb404d92d9b304/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:24:9-30:19
 MERGED from [com.google.firebase:firebase-common:20.3.0] /Users/davit/.gradle/caches/transforms-3/ead315f10c85d829e17e3818a03da493/transformed/jetified-firebase-common-20.3.0/AndroidManifest.xml:32:9-36:35
@@ -1071,11 +1080,11 @@ ADDED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/
 	android:name
 		ADDED from [com.google.android.gms:play-services-measurement-api:21.2.0] /Users/davit/.gradle/caches/transforms-3/11dea8ba87709348c284a8d204ae85ad/transformed/jetified-play-services-measurement-api-21.2.0/AndroidManifest.xml:32:17-139
 meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar
-ADDED from [com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:17:13-19:85
+ADDED from [com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:17:13-19:85
 	android:value
-		ADDED from [com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:19:17-82
+		ADDED from [com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:19:17-82
 	android:name
-		ADDED from [com.google.firebase:firebase-installations:17.1.0] /Users/davit/.gradle/caches/transforms-3/b4f6bd51492c865ca9e081d34db9f580/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:18:17-127
+		ADDED from [com.google.firebase:firebase-installations:17.1.2] /Users/davit/.gradle/caches/transforms-3/4bd1732fd5eb087737740247c6dddc1d/transformed/jetified-firebase-installations-17.1.2/AndroidManifest.xml:18:17-127
 meta-data#com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar
 ADDED from [com.google.firebase:firebase-datatransport:18.1.7] /Users/davit/.gradle/caches/transforms-3/6ca0c6ce61bb900f7ccb404d92d9b304/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
 	android:value

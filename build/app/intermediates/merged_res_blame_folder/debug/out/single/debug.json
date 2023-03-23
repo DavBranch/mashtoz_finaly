@@ -1,86 +1,86 @@
 [
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable-xxxhdpi_launch_logo.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable-xxxhdpi/launch_logo.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/mipmap-mdpi/ic_launcher.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable-night-v21_launch_background.xml.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable-night-v21/launch_background.xml"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable-xxxhdpi_launch_logo.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable-xxxhdpi/launch_logo.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable_launch_logo.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable/launch_logo.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable-xxxhdpi_logo_mashtoz.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable-xxxhdpi/logo_mashtoz.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable-mdpi_logo_mashtoz.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable-mdpi/logo_mashtoz.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable-night-v21_background.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable-night-v21/background.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable-xxhdpi_logo_mashtoz.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable-xxhdpi/logo_mashtoz.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable-mdpi_logo_mashtoz.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable-mdpi/logo_mashtoz.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable-mdpi_launch_logo.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable-mdpi/launch_logo.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable-v21_background.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable-v21/background.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/mipmap-xhdpi/ic_launcher.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable-xxhdpi_logo_mashtoz.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable-xxhdpi/logo_mashtoz.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable-v21_launch_background.xml.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable-v21/launch_background.xml"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable-hdpi_launch_logo.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable-hdpi/launch_logo.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable-v21_background.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable-v21/background.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable-v21_launch_background.xml.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable-v21/launch_background.xml"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable-xxhdpi_launch_logo.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable-xxhdpi/launch_logo.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable-xxhdpi_launch_logo.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable-xxhdpi/launch_logo.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable-xxxhdpi_logo_mashtoz.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable-xxxhdpi/logo_mashtoz.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable-xhdpi_launch_logo.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable-xhdpi/launch_logo.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable-hdpi_launch_logo.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable-hdpi/launch_logo.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable-xhdpi_logo_mashtoz.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable-xhdpi/logo_mashtoz.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable-mdpi_launch_logo.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable-mdpi/launch_logo.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable-xhdpi_launch_logo.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable-xhdpi/launch_logo.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable_launch_logo.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable/launch_logo.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable_logo_mashtoz.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable/logo_mashtoz.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable_logo_mashtoz.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable/logo_mashtoz.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/mipmap-hdpi/ic_launcher.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable-hdpi_logo_mashtoz.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable-hdpi/logo_mashtoz.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable-hdpi_logo_mashtoz.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable-hdpi/logo_mashtoz.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable-xhdpi_logo_mashtoz.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable-xhdpi/logo_mashtoz.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/mipmap-mdpi/ic_launcher.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.mashtoc.mashtoc.app-merged_res-46:/drawable-night-v21_background.png.flat",
-        "source": "com.mashtoc.mashtoc.app-main-39:/drawable-night-v21/background.png"
+        "merged": "com.mashtoc.mashtoc.app-merged_res-47:/drawable-night-v21_launch_background.xml.flat",
+        "source": "com.mashtoc.mashtoc.app-main-40:/drawable-night-v21/launch_background.xml"
     }
 ]

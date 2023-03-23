@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.mashtoc.mashtoc.app-mergeDebugResources-44:/values-en-rSS/values-en-rSS.xml",
+            "outputFile": "com.mashtoc.mashtoc.app-mergeDebugResources-45:/values-en-rSS/values-en-rSS.xml",
             "map": [
                 {
                     "source": "/Users/davit/.gradle/caches/transforms-3/370c7ec342bd2c9e58292e8a57ed402a/transformed/jetified-tweet-ui-3.1.1/res/values-en-rSS/values-en-rSS.xml",

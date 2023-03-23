@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mashtoz_flutter/config/palette.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:webview_flutter_android/webview_flutter_android.dart';
-import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 class VideoView extends StatefulWidget {
   final String link;
@@ -19,32 +17,32 @@ class _VideoViewState extends State<VideoView> {
   
   @override
   void initState() {
-    late final PlatformWebViewControllerCreationParams params;
-    if (WebViewPlatform.instance is WebKitWebViewPlatform) {
-      params = WebKitWebViewControllerCreationParams(
-        allowsInlineMediaPlayback: true,
-        mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
-      );
-    } else {
-      params = const PlatformWebViewControllerCreationParams();
-    }
-    final WebViewController controller =
-    WebViewController.fromPlatformCreationParams(params);
-    controller
-      ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..loadRequest(
-      Uri.parse('${widget.link}'),
-    );
 
-    // #docregion platform_features
-    if (controller.platform is AndroidWebViewController) {
-      AndroidWebViewController.enableDebugging(true);
-      (controller.platform as AndroidWebViewController)
-          .setMediaPlaybackRequiresUserGesture(false);
-    }
+    // late final PlatformWebViewControllerCreationParams params;
+    // if (WebViewPlatform.instance is WebKitWebViewPlatform) {
+    //   params = WebKitWebViewControllerCreationParams(
+    //     allowsInlineMediaPlayback: true,
+    //     mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
+    //   );
+    // } else {
+    //   params = const PlatformWebViewControllerCreationParams();
+    // }
+    // final WebViewController controller =
+    // WebViewController.fromPlatformCreationParams(params);
+    // controller
+    //   ..setJavaScriptMode(JavaScriptMode.unrestricted)
+    //   ..loadRequest(
+    //   Uri.parse('${widget.link}'),
+    // );
+    //
+    // // #docregion platform_features
+    // if (controller.platform is AndroidWebViewController) {
+    //   AndroidWebViewController.enableDebugging(true);
+    //   (controller.platform as AndroidWebViewController)
+    //       .setMediaPlaybackRequiresUserGesture(false);
+    // }
     // #enddocregion platform_features
 
-    _controller = controller;
     super.initState();
     makeLoading();
   }
@@ -73,9 +71,13 @@ class _VideoViewState extends State<VideoView> {
         body: Center(
     child:!isLoading? Center(child: CircularProgressIndicator(color: Palette.main,),) : Container(
       color: Colors.black,
-      child: WebViewWidget(
+      child: WebView(
+        initialUrl: widget.link,
+        javascriptMode: JavascriptMode.unrestricted,
+        onWebViewCreated: (controller){
+           _controller = controller;
+        },
 
-         controller: _controller,
       ),
     ),
 

@@ -2,13 +2,15 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/data.dart';
 import 'package:mashtoz_flutter/domens/repository/info_data_provider.dart';
 import 'package:mashtoz_flutter/globals.dart';
-
 import 'package:mashtoz_flutter/ui/widgets/helper_widgets/menuShow.dart';
 import 'package:mashtoz_flutter/ui/widgets/helper_widgets/size_config.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/main_menu_pages/contact_page.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import '../../../../config/palette.dart';
 
 class InfoPage extends StatefulWidget {
@@ -118,96 +120,102 @@ class _InfoPageState extends State<InfoPage> {
                           shrinkWrap: true,
                           physics: NeverScrollableScrollPhysics(),
                           children: [
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        right: 20.0, left: 20.0),
-                                    child: Text(
-                                      '${characters?.body?.replaceAll('&nbsp;', ' ')}',
-                                      style: TextStyle(
-                                        fontFamily: 'GHEAGpalat',
-                                        fontWeight: FontWeight.w400,
-                                        letterSpacing: 1.2,
-                                        fontSize: 14,
-                                        color: isShow
-                                            ? Palette.textLineOrBackGroundColor
-                                            : Color.fromRGBO(51, 51, 51, 1),
-                                      ),
-                                      textAlign: TextAlign.justify,
-                                    ),
+                            Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: 20.0, left: 20.0),
+                                  child: Html(
+                                    shrinkWrap: true,
+                                    onLinkTap: (url, _, __, ___) async{
+                                      print("Opening $url...");
+                                      if(url!=null){
+                                        if(url.contains('http') || url.contains('https') ){
+                                          if (await canLaunch(url)) {
+                                            await launch(
+                                              url,
+                                            );
+                                          } else {
+                                            throw 'Could not launch $url';
+                                          }
+                                        }
+
+
+                                      }
+                                    },
+                                    data:"${characters?.body}",
+
                                   ),
-                                  isShow &&
-                                          SizeConfig.orentation ==
-                                              Orientation.portrait
-                                      ? SizedBox(height: 30)
-                                      : isShow
-                                          ? SizedBox(height: 300)
-                                          : SizedBox(height: 0.1),
-                                  isShow
-                                      ? Container(
-                                          padding: EdgeInsets.only(top: 20),
-                                          alignment: Alignment(0.0, -1.0),
-                                          color:
-                                              Color.fromRGBO(226, 224, 224, 1),
-                                          height: 100,
-                                          width: double.infinity,
-                                          child: Expanded(
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                RichText(
-                                                  textAlign: TextAlign.center,
-                                                  text: TextSpan(
-                                                    style: TextStyle(
-                                                        fontFamily:
-                                                            'GHEAGpalat',
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        letterSpacing: 1.2,
-                                                        fontSize: 14,
-                                                        color: Colors.black),
-                                                    children: <TextSpan>[
-                                                      TextSpan(
+                                ),
+                                isShow &&
+                                        SizeConfig.orentation ==
+                                            Orientation.portrait
+                                    ? SizedBox(height: 30)
+                                    : isShow
+                                        ? SizedBox(height: 300)
+                                        : SizedBox(height: 0.1),
+                                isShow
+                                    ? Container(
+                                        padding: EdgeInsets.only(top: 20),
+                                        alignment: Alignment(0.0, -1.0),
+                                        color:
+                                            Color.fromRGBO(226, 224, 224, 1),
+                                        height: 100,
+                                        width: double.infinity,
+                                        child: Expanded(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              RichText(
+                                                textAlign: TextAlign.center,
+                                                text: TextSpan(
+                                                  style: TextStyle(
+                                                      fontFamily:
+                                                          'GHEAGpalat',
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      letterSpacing: 1.2,
+                                                      fontSize: 14,
+                                                      color: Colors.black),
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text:
+                                                          'Հուսով եմ, այս կայքի էջերը օգտակար\n',
+                                                    ),
+                                                    TextSpan(
+                                                      text:
+                                                          'են լինում Ձեզ։\n',
+                                                    ),
+                                                    TextSpan(
                                                         text:
-                                                            'Հուսով եմ, այս կայքի էջերը օգտակար\n',
-                                                      ),
-                                                      TextSpan(
-                                                        text:
-                                                            'են լինում Ձեզ։\n',
-                                                      ),
-                                                      TextSpan(
-                                                          text:
-                                                              'Որևէ հարցով, '),
-                                                      TextSpan(
-                                                        text: ' գրեցեք ինձ:',
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                        recognizer:
-                                                            TapGestureRecognizer()
-                                                              ..onTap = () {
-                                                                Navigator.push(
-                                                                    context,
-                                                                    MaterialPageRoute(
-                                                                        builder:
-                                                                            (_) =>
-                                                                                Contact()));
-                                                              },
-                                                      ),
-                                                    ],
-                                                  ),
-                                                )
-                                              ],
-                                            ),
+                                                            'Որևէ հարցով, '),
+                                                    TextSpan(
+                                                      text: ' գրեցեք ինձ:',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight
+                                                                  .bold),
+                                                      recognizer:
+                                                          TapGestureRecognizer()
+                                                            ..onTap = () {
+                                                              Navigator.push(
+                                                                  context,
+                                                                  MaterialPageRoute(
+                                                                      builder:
+                                                                          (_) =>
+                                                                              Contact()));
+                                                            },
+                                                    ),
+                                                  ],
+                                                ),
+                                              )
+                                            ],
                                           ),
-                                        )
-                                      : Container(),
-                                ],
-                              ),
+                                        ),
+                                      )
+                                    : Container(),
+                              ],
                             ),
                           ],
                         ),

@@ -3,7 +3,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:loading_overlay/loading_overlay.dart';
-
 import 'package:mashtoz_flutter/config/palette.dart';
 import 'package:mashtoz_flutter/domens/data_providers/session_data_provider.dart';
 import 'package:mashtoz_flutter/domens/models/bottom_bar_color_notifire.dart';
@@ -13,11 +12,9 @@ import 'package:provider/provider.dart';
 
 import '../../../auth_service.dart';
 import '../buttons/bottom_navigation_bar/bottom_app_bar.dart';
-
-import '../login_sign/login_screen/login_screen.dart';
 import '../notifications/notification_service.dart';
 
-enum BottomIcons {
+ enum BottomIcons {
   home,
   library,
   search,
@@ -40,15 +37,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
-  BottomIcons? icons = BottomIcons.home;
+ static BottomIcons? icons = BottomIcons.home;
   final _sessionProvider=SessionDataProvider();
-  bool isAccount = false;
-  bool isHome = false;
-  bool isItalian = false;
-  bool isLibrary = false;
-  bool isSearch = false;
-  bool isSign = false;
-  List<String> pageKeys = [
+ static bool isAccount = false;
+  static bool isHome = false;
+  static bool isItalian = false;
+  static bool isLibrary = false;
+  static bool isSearch = false;
+  static bool isSign = false;
+ static List<String> pageKeys = [
     'homepage',
     'librarypage',
     'searchpage',
@@ -58,9 +55,9 @@ class HomeScreenState extends State<HomeScreen> {
 
   ScreenName secrenName = ScreenName.book;
 
-  var _currentIndex = 0;
-  String _currentPage = "homepage";
-  Map<String, GlobalKey<NavigatorState>> _navigatorKeys = {
+ static var currentIndex = 0;
+ static String _currentPage = "homepage";
+ static Map<String, GlobalKey<NavigatorState>> _navigatorKeys = {
     "homepage": GlobalKey<NavigatorState>(),
     "librarypage": GlobalKey<NavigatorState>(),
     "searchpage": GlobalKey<NavigatorState>(),
@@ -212,7 +209,7 @@ hasToken();
                                         .read<BottomColorNotifire>()
                                         .setColor(
                                             Palette.textLineOrBackGroundColor);
-                                    _selectTab(pageKeys[0], 0);
+                                    selectTab(pageKeys[0], 0);
                                     setState(() {
                                       icons = BottomIcons.home;
                                     });
@@ -245,7 +242,7 @@ hasToken();
                                   context
                                       .read<BottomColorNotifire>()
                                       .setColor(Palette.libraryBacgroundColor);
-                                  _selectTab(pageKeys[1], 1);
+                                  selectTab(pageKeys[1], 1);
                                   isLibrary = true;
 
                                   isHome = false;
@@ -274,7 +271,7 @@ hasToken();
                                   context
                                       .read<BottomColorNotifire>()
                                       .setColor(Palette.searchBackGroundColor);
-                                  _selectTab(pageKeys[2], 2);
+                                  selectTab(pageKeys[2], 2);
                                   icons = BottomIcons.search;
                                   isSearch = true;
                                   isHome = false;
@@ -301,7 +298,7 @@ hasToken();
                                 setState(() {
                                   icons = BottomIcons.italian;
                                   // _currentIndex = 3;
-                                  _selectTab(pageKeys[3], 3);
+                                  selectTab(pageKeys[3], 3);
                                   isItalian = true;
                                   isHome = false;
                                   isLibrary = false;
@@ -327,7 +324,7 @@ hasToken();
                                   //    onItemTaped(4);
                                   context.read<BottomColorNotifire>().setColor(
                                       Palette.textLineOrBackGroundColor);
-                                 isSign? _selectTab(pageKeys[4], 4): Navigator.of(context,rootNavigator: true).push(MaterialPageRoute(
+                                 isSign? selectTab(pageKeys[4], 4): Navigator.of(context,rootNavigator: true).push(MaterialPageRoute(
                                    builder: (_) => AuthService().handleAuthState(),
                                  ),).whenComplete(()=>setState((){
                                    icons = null;
@@ -365,16 +362,7 @@ hasToken();
     );
   }
 
-  void _selectTab(String tabItem, int index) {
-    if (tabItem == _currentIndex) {
-      _navigatorKeys[tabItem]?.currentState?.popUntil((route) => route.isFirst);
-    } else {
-      setState(() {
-        _currentPage = pageKeys[index];
-        _currentIndex = index;
-      });
-    }
-  }
+
 
   Widget _buildOffstageNavigator(String tabItem) {
     return Offstage(
@@ -392,6 +380,8 @@ hasToken();
       onWillPop: () async {
         final isFirstRouteInCurrentTab =
             !await _navigatorKeys[_currentPage]!.currentState!.maybePop();
+        print(currentIndex);
+
         if(!isFirstRouteInCurrentTab){
           context
               .read<BottomColorNotifire>()
@@ -405,7 +395,7 @@ hasToken();
                   .read<BottomColorNotifire>()
                   .setColor(
                   Palette.textLineOrBackGroundColor);
-              _selectTab(pageKeys[0], 0);
+              selectTab(pageKeys[0], 0);
               setState(() {
                 icons = BottomIcons.home;
               });
@@ -425,7 +415,7 @@ hasToken();
               context
                   .read<BottomColorNotifire>()
                   .setColor(Palette.libraryBacgroundColor);
-              _selectTab(pageKeys[1], 1);
+              selectTab(pageKeys[1], 1);
               isLibrary = true;
 
               isHome = false;
@@ -440,7 +430,7 @@ hasToken();
             context
                 .read<BottomColorNotifire>()
                 .setColor(Palette.searchBackGroundColor);
-            _selectTab(pageKeys[2], 2);
+            selectTab(pageKeys[2], 2);
             icons = BottomIcons.search;
             isSearch = true;
             isHome = false;
@@ -456,7 +446,7 @@ hasToken();
             setState(() {
               icons = BottomIcons.italian;
               // _currentIndex = 3;
-              _selectTab(pageKeys[3], 3);
+              selectTab(pageKeys[3], 3);
               isItalian = true;
               isHome = false;
               isLibrary = false;
@@ -483,7 +473,7 @@ hasToken();
                  return Stack(
                     children: [
                       _buildOffstageNavigator(
-                          _navigatorKeys.keys.elementAt(_currentIndex)),
+                          _navigatorKeys.keys.elementAt(currentIndex)),
                     ],
                   );
                 }
@@ -500,5 +490,15 @@ hasToken();
             bottomNavigationBar: buildMyNavBar(context)),
       ),
     );
+  }
+ static void selectTab(String tabItem, int index) {
+    if (tabItem == currentIndex) {
+      _navigatorKeys[tabItem]?.currentState?.popUntil((route) => route.isFirst);
+    } else {
+
+        _currentPage = pageKeys[index];
+        currentIndex = index;
+
+    }
   }
 }

@@ -1,21 +1,21 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mashtoz_flutter/config/palette.dart';
-
 import 'package:mashtoz_flutter/domens/models/book_data/data.dart';
 import 'package:mashtoz_flutter/domens/repository/book_data_provdier.dart';
-
-import 'package:mashtoz_flutter/ui/widgets/youtube_videos/youtuve_player.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:youtube/youtube_thumbnail.dart';
+import 'package:youtube_parser/youtube_parser.dart';
 
 import '../../../../../domens/models/user.dart';
 import '../../../../../domens/repository/user_data_provider.dart';
 import '../../../../../globals.dart';
 import '../../../helper_widgets/menuShow.dart';
 import '../../../helper_widgets/save_show_dialog.dart';
-import '../../../helper_widgets/size_config.dart';
+import '../../../youtube_videos/advanced_overlay.dart';
 
 class AudioLibraryDataShow extends StatefulWidget {
   final Data? dataCharacter;
@@ -63,7 +63,7 @@ class _AudioLibraryDataShowState extends State<AudioLibraryDataShow> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
-
+ print("Ciki${dataCharacter?.video_link}");
     return dataCharacter != null
         ? Container(
             // width: mediaQuery.width,
@@ -303,12 +303,13 @@ class _AudioLibraryDataShowState extends State<AudioLibraryDataShow> {
                           Container(
                             child: Stack(
                               children: [
-                                if (dataCharacter?.image != null &&
-                                    dataCharacter!.image!.isNotEmpty)
+                                if (dataCharacter?.link != null &&
+                                    dataCharacter!.link!.isNotEmpty)
                                   Align(
                                     alignment: Alignment.topCenter,
                                     child: CachedNetworkImage(
-                                      imageUrl: dataCharacter!.image!,
+                                      useOldImageOnUrlChange: true,
+                                      imageUrl: YoutubeThumbnail(youtubeId: getIdFromUrl(dataCharacter!.link!)).hd(),
                                       width: double.infinity,
                                       fit: BoxFit.contain,
                                       // height: SizeConfig
@@ -330,10 +331,8 @@ class _AudioLibraryDataShowState extends State<AudioLibraryDataShow> {
                                         Navigator.of(context,
                                                 rootNavigator: true)
                                             .push(MaterialPageRoute(
-                                                builder: (_) => YoutubePlayers(
-                                                      isShow: false,
-                                                      dataCharacters:
-                                                          dataCharacter,
+                                                builder: (_) => VideoView(
+                                                   link: widget.dataCharacter?.link,
                                                     )));
                                       },
                                       child: Icon(
@@ -353,15 +352,10 @@ class _AudioLibraryDataShowState extends State<AudioLibraryDataShow> {
                           Align(
                             alignment: Alignment.topLeft,
                             child: Container(
-                              child: Text(
-                                '${dataCharacter?.summary}',
-                                style: TextStyle(
-                                    fontFamily: 'GHEAGrapalat',
-                                    fontSize: 14.0,
-                                    letterSpacing: 1,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.black),
-                                textAlign: TextAlign.start,
+                              child: Html(
+                                shrinkWrap: true,
+                                data: """${dataCharacter?.summary}
+                                """,
                               ),
                             ),
                           )

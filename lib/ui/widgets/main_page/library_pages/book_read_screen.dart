@@ -1,11 +1,8 @@
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:flutter_html/image_properties.dart';
+import 'package:flutter_html_all/flutter_html_all.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mashtoz_flutter/config/palette.dart';
 import 'package:mashtoz_flutter/domens/models/app_theme.dart/theme_notifire.dart';
@@ -15,19 +12,19 @@ import 'package:mashtoz_flutter/domens/repository/book_data_provdier.dart';
 import 'package:mashtoz_flutter/domens/repository/search_book_data_provider.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/library_pages/book_page.dart';
 import 'package:mashtoz_flutter/ui/widgets/youtube_videos/advanced_overlay.dart';
-import 'package:mashtoz_flutter/ui/widgets/youtube_videos/youtuve_player.dart';
 import 'package:provider/provider.dart';
 import 'package:screen_brightness/screen_brightness.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube/youtube_thumbnail.dart';
 import 'package:youtube_parser/youtube_parser.dart';
+
 import '../../../../domens/models/book_data/content_list.dart';
-import '../../../../domens/models/user.dart';
 import '../../../../domens/repository/user_data_provider.dart';
 import '../../../../globals.dart';
 import '../../helper_widgets/save_show_dialog.dart';
 import 'book_inherited_widget.dart';
+import 'book_utils/book_setings.dart';
 
 String? eId, libId;
 
@@ -104,8 +101,8 @@ class _BookReadScreenState extends State<BookReadScreen> {
       bookDataProvider.getCategoryLists(Api.categoryListUrl).then((value) {
         for (var nv in value) {
           Future.delayed(Duration(microseconds: 1500), () {
-            bookDataProvider.getLibrarayYbooksById(nv.id!).then((value) {
-              for (var nValue in value) {
+            bookDataProvider.getLibrarayYbooksByCategory(nv.id!).then((value) {
+              for (var nValue in value!) {
                 // print(nValue.id);
 
                 // if (nValue == libId) {
@@ -286,7 +283,7 @@ class _BookPagesState extends State<BookPages> {
   String listText;
   Content? readScreen;
   double selectedValue = 0;
-  double textSize = 18.0;
+  FontSize textSize = FontSize.medium;
   final userDataProvider = UserDataProvider();
   final bookDataProvider = BookDataProvider();
   @override
@@ -876,1239 +873,7 @@ class _BookPagesState extends State<BookPages> {
     );
   }
 
-  Widget settingsShow() {
-    final mediaQuery = MediaQuery.of(context).size;
-    final theme = context.read<ThemeNotifier>();
-    final orentation = MediaQuery.of(context).orientation;
-    return Container(
-      color: theme.backgroundColor != null
-          ? theme.backgroundColor
-          : Palette.textLineOrBackGroundColor,
-      width: mediaQuery.width,
-      height: mediaQuery.height,
-      child: orentation == Orientation.landscape
-          ? SingleChildScrollView(
-          child: Column(children: [
-            SizedBox(height: 10,),
-            Expanded(
-              child: Container(
-                width: mediaQuery.width,
-                height: mediaQuery.height,
-                child: Column(children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20.0, left: 20.0),
-                    child: Text(
-                      'Կարգավորումներ',
-                      style: TextStyle(
-                          fontSize: 14, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  SizedBox(height: 10.0),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20.0, left: 20.0),
-                    child: Divider(
-                      color: Color.fromRGBO(226, 224, 224, 1),
-                      thickness: 1,
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                        height: MediaQuery.of(context).size.height - 250,
-                        width: MediaQuery.of(context).size.width,
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment
-                                      .start, //  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Padding(
-                                      padding:
-                                      const EdgeInsets.only(left: 20.0),
-                                      child: Expanded(
-                                        child: Text(
-                                          'Պայծառություն',
-                                          textAlign: TextAlign.start,
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w400,
-                                            letterSpacing: 1,
-                                            color: Color.fromRGBO(
-                                                122, 108, 115, 1),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Container(
-                                        width: MediaQuery.of(context)
-                                            .size
-                                            .width,
-                                        height: 70,
-                                        child: SliderTheme(
-                                            data: SliderTheme.of(context)
-                                                .copyWith(
-                                              activeTrackColor:
-                                              Palette.main,
-                                              inactiveTrackColor:
-                                              Color.fromRGBO(
-                                                  226, 224, 224, 1),
-                                              trackShape:
-                                              RoundedRectSliderTrackShape(),
-                                              trackHeight: 4.0,
-                                              thumbShape:
-                                              RoundSliderThumbShape(
-                                                  enabledThumbRadius:
-                                                  12.0),
-                                              thumbColor: Palette.main,
-                                              overlayColor: Palette.disable,
-                                              overlayShape:
-                                              RoundSliderOverlayShape(
-                                                  overlayRadius: 18.0),
-                                              tickMarkShape:
-                                              RoundSliderTickMarkShape(),
-                                              activeTickMarkColor:
-                                              Palette.main,
-                                              inactiveTickMarkColor:
-                                              Color.fromRGBO(
-                                                  226, 224, 224, 1),
-                                              valueIndicatorShape:
-                                              PaddleSliderValueIndicatorShape(),
-                                              valueIndicatorColor:
-                                              Palette.main,
-                                              valueIndicatorTextStyle:
-                                              TextStyle(
-                                                  color: Palette.main),
-                                            ),
-                                            child: FutureBuilder(
-                                                future: ScreenBrightness()
-                                                    .current,
-                                                builder:
-                                                    (BuildContext context,
-                                                    AsyncSnapshot
-                                                    snapshot) {
-                                                  double currentBrightness =
-                                                  0;
-                                                  if (snapshot.hasData) {
-                                                    currentBrightness =
-                                                    snapshot.data!;
-                                                  }
-                                                  return StreamBuilder<
-                                                      double>(
-                                                    stream: ScreenBrightness()
-                                                        .onCurrentBrightnessChanged,
-                                                    builder: (context,
-                                                        snapshot) {
-                                                      double
-                                                      changedBrightness =
-                                                          currentBrightness;
-                                                      if (snapshot
-                                                          .hasData) {
-                                                        changedBrightness =
-                                                        snapshot.data!;
-                                                      }
 
-                                                      return Slider
-                                                          .adaptive(
-                                                        value:
-                                                        changedBrightness,
-                                                        onChanged: (value) {
-                                                          setBrightness(
-                                                              value);
-                                                        },
-                                                      );
-                                                    },
-                                                  );
-                                                })),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 20.0, left: 20.0),
-                                child: Divider(
-                                  color: Color.fromRGBO(226, 224, 224, 1),
-                                  thickness: 1,
-                                ),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Padding(
-                                      padding:
-                                      const EdgeInsets.only(left: 20.0),
-                                      child: Text(
-                                        'Տառաչափ',
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 1,
-                                          color: Color.fromRGBO(
-                                              122, 108, 115, 1),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: orentation ==
-                                          Orientation.landscape
-                                          ? 10.0
-                                          : 20.0,
-                                    ),
-                                    Expanded(
-                                      child: Container(
-                                        height: 50.0,
-                                        color: Colors.amber,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            GestureDetector(
-                                              onTap: () {
-                                                //!!!!
-                                                if (textSize >= 12.0) {
-                                                  setState(() {
-                                                    textSize =
-                                                        textSize - 2.0;
-                                                  });
-                                                }
-                                              },
-                                              child: SvgPicture.asset(
-                                                'assets/images/VectorLine.svg',
-                                              ),
-                                            ),
-                                            Text(
-                                              'Աա',
-                                              style: TextStyle(
-                                                  fontSize: textSize),
-                                            ),
-                                            GestureDetector(
-                                              onTap: () {
-                                                if (textSize <= 20.0) {
-                                                  setState(() {
-                                                    textSize =
-                                                        textSize + 2.0;
-                                                  });
-                                                }
-                                              },
-                                              child: Padding(
-                                                padding:
-                                                const EdgeInsets.only(
-                                                    right: 22.0),
-                                                child: SvgPicture.asset(
-                                                    'assets/images/plusik.svg'),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 20.0, left: 20.0),
-                                child: Divider(
-                                  color: Color.fromRGBO(226, 224, 224, 1),
-                                  thickness: 1,
-                                ),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Padding(
-                                      padding:
-                                      const EdgeInsets.only(left: 20.0),
-                                      child: Text(
-                                        'Ռեժիմ',
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 1,
-                                          color: Color.fromRGBO(
-                                              122, 108, 115, 1),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: orentation ==
-                                          Orientation.landscape
-                                          ? 0.1
-                                          : 10.0,
-                                    ),
-                                    Expanded(
-                                      child: Container(
-                                        height: 85.0,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Expanded(
-                                              child: GestureDetector(
-                                                onTap: () {
-                                                  setState(() {
-                                                    isLisghtTheme =
-                                                    !isLisghtTheme;
-                                                    isDarkTheme = false;
-                                                    context
-                                                        .read<
-                                                        ThemeNotifier>()
-                                                        .lightThemeData();
-                                                  });
-                                                },
-                                                child: Container(
-                                                    width: 60,
-                                                    height: 70,
-                                                    child: Column(
-                                                      children: [
-                                                        Expanded(
-                                                          child: Container(
-                                                            height: orentation ==
-                                                                Orientation
-                                                                    .landscape
-                                                                ? 27.0
-                                                                : 37.0,
-                                                            width: orentation ==
-                                                                Orientation
-                                                                    .landscape
-                                                                ? 27.0
-                                                                : 37.0,
-                                                            child: Stack(
-                                                              children: [
-                                                                Container(
-                                                                  height:
-                                                                  37,
-                                                                  width: 37,
-                                                                  color: !isLisghtTheme
-                                                                      ? Color.fromRGBO(
-                                                                      226,
-                                                                      224,
-                                                                      224,
-                                                                      1)
-                                                                      : Palette
-                                                                      .whenTapedButton,
-                                                                  child: Container(
-                                                                      height:
-                                                                      37,
-                                                                      width:
-                                                                      37,
-                                                                      color: Color.fromRGBO(
-                                                                          226,
-                                                                          224,
-                                                                          224,
-                                                                          1)),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        SizedBox(
-                                                          height: orentation ==
-                                                              Orientation
-                                                                  .landscape
-                                                              ? 0.1
-                                                              : 10.0,
-                                                        ),
-                                                        Text(
-                                                          'Ցերեկ',
-                                                          style: TextStyle(
-                                                            fontSize: 12,
-                                                            fontWeight:
-                                                            FontWeight
-                                                                .w400,
-                                                            letterSpacing:
-                                                            1,
-                                                            color: !isLisghtTheme
-                                                                ? Color
-                                                                .fromRGBO(
-                                                                186,
-                                                                166,
-                                                                177,
-                                                                1)
-                                                                : Palette
-                                                                .whenTapedButton,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    )),
-                                              ),
-                                            ),
-                                            Expanded(
-                                              child: GestureDetector(
-                                                onTap: () {
-                                                  setState(() {
-                                                    isDarkTheme =
-                                                    !isDarkTheme;
-                                                    isLisghtTheme = false;
-                                                    context
-                                                        .read<
-                                                        ThemeNotifier>()
-                                                        .darkThemeData();
-                                                  });
-                                                },
-                                                child: Container(
-                                                    width: 60,
-                                                    height: 70,
-                                                    child: Column(
-                                                      children: [
-                                                        Expanded(
-                                                          child: Container(
-                                                            height: orentation ==
-                                                                Orientation
-                                                                    .landscape
-                                                                ? 27.0
-                                                                : 37.0,
-                                                            width: orentation ==
-                                                                Orientation
-                                                                    .landscape
-                                                                ? 27.0
-                                                                : 37.0,
-                                                            child:
-                                                            Container(
-                                                              color: Colors
-                                                                  .black,
-                                                              width: 37,
-                                                              height: 37,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        SizedBox(
-                                                          height: orentation ==
-                                                              Orientation
-                                                                  .landscape
-                                                              ? 0.0
-                                                              : 10.0,
-                                                        ),
-                                                        Text(
-                                                          'Գիշեր',
-                                                          style: TextStyle(
-                                                            fontSize: 12,
-                                                            fontWeight:
-                                                            FontWeight
-                                                                .w400,
-                                                            letterSpacing:
-                                                            1,
-                                                            color: !isDarkTheme
-                                                                ? Color
-                                                                .fromRGBO(
-                                                                186,
-                                                                166,
-                                                                177,
-                                                                1)
-                                                                : Palette
-                                                                .whenTapedButton,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    )),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 20.0, left: 20.0),
-                                child: Divider(
-                                  color: Color.fromRGBO(226, 224, 224, 1),
-                                  thickness: 1.2,
-                                ),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Padding(
-                                      padding:
-                                      const EdgeInsets.only(left: 20.0),
-                                      child: Text(
-                                        'Էկրան',
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 1,
-                                          color: Color.fromRGBO(
-                                              122, 108, 115, 1),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: orentation ==
-                                          Orientation.landscape
-                                          ? 0.1
-                                          : 10.0,
-                                    ),
-                                    Expanded(
-                                      child: Container(
-                                        height: 85.0,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Expanded(
-                                              child: GestureDetector(
-                                                onTap: () {
-                                                  setState(() {
-                                                    isPhoneturnHorizontal =
-                                                    !isPhoneturnHorizontal;
-                                                    isPhoneturnVertical =
-                                                    false;
-                                                  });
-                                                  SystemChrome
-                                                      .setPreferredOrientations([
-                                                    DeviceOrientation
-                                                        .landscapeRight,
-                                                    DeviceOrientation
-                                                        .landscapeLeft,
-                                                  ]);
-                                                },
-                                                child: Container(
-                                                    width: 50,
-                                                    height: double.infinity,
-                                                    child: Column(
-                                                      children: [
-                                                        SvgPicture.asset(
-                                                          'assets/images/phone1.svg',
-                                                          color: !isPhoneturnHorizontal
-                                                              ? null
-                                                              : Palette
-                                                              .whenTapedButton,
-                                                        ),
-                                                        SizedBox(
-                                                          height: orentation ==
-                                                              Orientation
-                                                                  .landscape
-                                                              ? 0.1
-                                                              : 15.0,
-                                                        ),
-                                                        Text(
-                                                          'Հորիզոնական',
-                                                          style: TextStyle(
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                  186,
-                                                                  166,
-                                                                  177,
-                                                                  1),
-                                                              fontFamily:
-                                                              'GHEAGrapalat',
-                                                              fontSize:
-                                                              12.0,
-                                                              fontWeight:
-                                                              FontWeight
-                                                                  .w400),
-                                                        )
-                                                      ],
-                                                    )),
-                                              ),
-                                            ),
-                                            Expanded(
-                                              child: GestureDetector(
-                                                onTap: () {
-                                                  // print('dark theme');
-                                                  setState(() {
-                                                    isPhoneturnVertical =
-                                                    !isPhoneturnVertical;
-                                                    isPhoneturnHorizontal =
-                                                    false;
-                                                    SystemChrome
-                                                        .setPreferredOrientations([
-                                                      DeviceOrientation
-                                                          .portraitUp,
-                                                      DeviceOrientation
-                                                          .portraitDown,
-                                                    ]);
-                                                  });
-                                                },
-                                                child: Container(
-                                                    width: 50,
-                                                    height: double.infinity,
-                                                    child: Column(
-                                                      children: [
-                                                        SvgPicture.asset(
-                                                            'assets/images/phone2.svg',
-                                                            height: orentation ==
-                                                                Orientation
-                                                                    .landscape
-                                                                ? 19
-                                                                : null,
-                                                            color: !isPhoneturnVertical
-                                                                ? null
-                                                                : Palette
-                                                                .whenTapedButton),
-                                                        SizedBox(
-                                                          height: orentation ==
-                                                              Orientation
-                                                                  .landscape
-                                                              ? 0.1
-                                                              : 10.0,
-                                                        ),
-                                                        Text(
-                                                          'Ուղղահայաց',
-                                                          style: TextStyle(
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                  186,
-                                                                  166,
-                                                                  177,
-                                                                  1),
-                                                              fontFamily:
-                                                              'GHEAGrapalat',
-                                                              fontSize:
-                                                              12.0,
-                                                              fontWeight:
-                                                              FontWeight
-                                                                  .w400),
-                                                        )
-                                                      ],
-                                                    )),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              //!!!!
-                            ])),
-                  )
-                ]),
-              ),
-            ),
-          ]))
-          : Column(children: [
-            SizedBox(height: 10,),
-        Expanded(
-          child: Container(
-            width: mediaQuery.width,
-            height: mediaQuery.height,
-            child: Column(children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 20.0, left: 20.0),
-                child: Text(
-                  'Կարգավորումներ',
-                  style: TextStyle(
-                      fontSize: 14, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              SizedBox(height: 10.0),
-              Padding(
-                padding: const EdgeInsets.only(right: 20.0, left: 20.0),
-                child: Divider(
-                  color: Color.fromRGBO(226, 224, 224, 1),
-                  thickness: 1,
-                ),
-              ),
-              Expanded(
-                child: Container(
-                    height: MediaQuery.of(context).size.height - 250,
-                    width: MediaQuery.of(context).size.width,
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment
-                                  .start, //  mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Padding(
-                                  padding:
-                                  const EdgeInsets.only(left: 20.0),
-                                  child: Expanded(
-                                    child: Text(
-                                      'Պայծառություն',
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        letterSpacing: 1,
-                                        color: Color.fromRGBO(
-                                            122, 108, 115, 1),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    width: MediaQuery.of(context)
-                                        .size
-                                        .width,
-                                    height: 70,
-                                    child: SliderTheme(
-                                        data: SliderTheme.of(context)
-                                            .copyWith(
-                                          activeTrackColor:
-                                          Palette.main,
-                                          inactiveTrackColor:
-                                          Color.fromRGBO(
-                                              226, 224, 224, 1),
-                                          trackShape:
-                                          RoundedRectSliderTrackShape(),
-                                          trackHeight: 4.0,
-                                          thumbShape:
-                                          RoundSliderThumbShape(
-                                              enabledThumbRadius:
-                                              12.0),
-                                          thumbColor: Palette.main,
-                                          overlayColor:
-                                          Palette.whenTapedButton,
-                                          overlayShape:
-                                          RoundSliderOverlayShape(
-                                              overlayRadius: 18.0),
-                                          tickMarkShape:
-                                          RoundSliderTickMarkShape(),
-                                          activeTickMarkColor:
-                                          Palette.main,
-                                          inactiveTickMarkColor:
-                                          Color.fromRGBO(
-                                              226, 224, 224, 1),
-                                          valueIndicatorShape:
-                                          PaddleSliderValueIndicatorShape(),
-                                          valueIndicatorColor:
-                                          Palette.main,
-                                          valueIndicatorTextStyle:
-                                          TextStyle(
-                                              color: Palette.main),
-                                        ),
-                                        child: FutureBuilder(
-                                            future: ScreenBrightness()
-                                                .current,
-                                            builder:
-                                                (BuildContext context,
-                                                AsyncSnapshot
-                                                snapshot) {
-                                              double currentBrightness =
-                                              0;
-                                              if (snapshot.hasData) {
-                                                currentBrightness =
-                                                snapshot.data!;
-                                              }
-                                              return StreamBuilder<
-                                                  double>(
-                                                stream: ScreenBrightness()
-                                                    .onCurrentBrightnessChanged,
-                                                builder: (context,
-                                                    snapshot) {
-                                                  double
-                                                  changedBrightness =
-                                                      currentBrightness;
-                                                  if (snapshot
-                                                      .hasData) {
-                                                    changedBrightness =
-                                                    snapshot.data!;
-                                                  }
-
-                                                  return Slider
-                                                      .adaptive(
-                                                    value:
-                                                    changedBrightness,
-                                                    onChanged: (value) {
-                                                      setBrightness(
-                                                          value);
-                                                    },
-                                                  );
-                                                },
-                                              );
-                                            })),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                right: 20.0, left: 20.0),
-                            child: Divider(
-                              color: Color.fromRGBO(226, 224, 224, 1),
-                              thickness: 1,
-                            ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment:
-                              CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Padding(
-                                  padding:
-                                  const EdgeInsets.only(left: 20.0),
-                                  child: Text(
-                                    'Տառաչափ',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                      letterSpacing: 1,
-                                      color: Color.fromRGBO(
-                                          122, 108, 115, 1),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: orentation ==
-                                      Orientation.landscape
-                                      ? 10.0
-                                      : 20.0,
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    height: 50.0,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        GestureDetector(
-                                          onTap: () {
-                                            if (textSize >= 12.0) {
-                                              setState(() {
-                                                textSize =
-                                                    textSize - 2.0;
-                                              });
-                                            }
-                                          },
-                                          child: SvgPicture.asset(
-                                            'assets/images/VectorLine.svg',
-                                          ),
-                                        ),
-                                        Text(
-                                          'Աա',
-                                          style: TextStyle(
-                                              fontSize: textSize),
-                                        ),
-                                        GestureDetector(
-                                          onTap: () {
-                                            if (textSize <= 20.0) {
-                                              setState(() {
-                                                textSize =
-                                                    textSize + 2.0;
-                                              });
-                                            }
-                                            // print(
-                                            //     "kolikolkioki$textSize");
-                                          },
-                                          child: Padding(
-                                            padding:
-                                            const EdgeInsets.only(
-                                                right: 22.0),
-                                            child: SvgPicture.asset(
-                                                'assets/images/plusik.svg'),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                right: 20.0, left: 20.0),
-                            child: Divider(
-                              color: Color.fromRGBO(226, 224, 224, 1),
-                              thickness: 1,
-                            ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment:
-                              CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Padding(
-                                  padding:
-                                  const EdgeInsets.only(left: 20.0),
-                                  child: Text(
-                                    'Ռեժիմ',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                      letterSpacing: 1,
-                                      color: Color.fromRGBO(
-                                          122, 108, 115, 1),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: orentation ==
-                                      Orientation.landscape
-                                      ? 0.1
-                                      : 10.0,
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    height: 85.0,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Expanded(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              setState(() {
-                                                isLisghtTheme =
-                                                !isLisghtTheme;
-                                                isDarkTheme = false;
-                                                context
-                                                    .read<
-                                                    ThemeNotifier>()
-                                                    .lightThemeData();
-                                              });
-                                            },
-                                            child: Container(
-                                                width: 60,
-                                                height: 70,
-                                                child: Column(
-                                                  children: [
-                                                    Expanded(
-                                                      child: Container(
-                                                        height: orentation ==
-                                                            Orientation
-                                                                .landscape
-                                                            ? 27.0
-                                                            : 37.0,
-                                                        width: orentation ==
-                                                            Orientation
-                                                                .landscape
-                                                            ? 27.0
-                                                            : 37.0,
-                                                        child: Stack(
-                                                          children: [
-                                                            Container(
-                                                              height:
-                                                              37,
-                                                              width: 37,
-                                                              color: !isLisghtTheme
-                                                                  ? Color.fromRGBO(
-                                                                  226,
-                                                                  224,
-                                                                  224,
-                                                                  1)
-                                                                  : Palette
-                                                                  .whenTapedButton,
-                                                              child: Container(
-                                                                  height:
-                                                                  37,
-                                                                  width:
-                                                                  37,
-                                                                  color: Color.fromRGBO(
-                                                                      226,
-                                                                      224,
-                                                                      224,
-                                                                      1)),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    SizedBox(
-                                                      height: orentation ==
-                                                          Orientation
-                                                              .landscape
-                                                          ? 0.1
-                                                          : 10.0,
-                                                    ),
-                                                    Text(
-                                                      'Ցերեկ',
-                                                      style: TextStyle(
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                        FontWeight
-                                                            .w400,
-                                                        letterSpacing:
-                                                        1,
-                                                        color: !isLisghtTheme
-                                                            ? Color
-                                                            .fromRGBO(
-                                                            186,
-                                                            166,
-                                                            177,
-                                                            1)
-                                                            : Palette
-                                                            .whenTapedButton,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                )),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              setState(() {
-                                                isDarkTheme =
-                                                !isDarkTheme;
-                                                isLisghtTheme = false;
-                                                context
-                                                    .read<
-                                                    ThemeNotifier>()
-                                                    .darkThemeData();
-                                              });
-                                            },
-                                            child: Container(
-                                                width: 60,
-                                                height: 70,
-                                                child: Column(
-                                                  children: [
-                                                    Expanded(
-                                                      child: Container(
-                                                        height: orentation ==
-                                                            Orientation
-                                                                .landscape
-                                                            ? 27.0
-                                                            : 37.0,
-                                                        width: orentation ==
-                                                            Orientation
-                                                                .landscape
-                                                            ? 27.0
-                                                            : 37.0,
-                                                        child:
-                                                        Container(
-                                                          color: Colors
-                                                              .black,
-                                                          width: 37,
-                                                          height: 37,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    SizedBox(
-                                                      height: orentation ==
-                                                          Orientation
-                                                              .landscape
-                                                          ? 0.0
-                                                          : 10.0,
-                                                    ),
-                                                    Text(
-                                                      'Գիշեր',
-                                                      style: TextStyle(
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                        FontWeight
-                                                            .w400,
-                                                        letterSpacing:
-                                                        1,
-                                                        color: !isDarkTheme
-                                                            ? Color
-                                                            .fromRGBO(
-                                                            186,
-                                                            166,
-                                                            177,
-                                                            1)
-                                                            : Palette
-                                                            .whenTapedButton,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                )),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                right: 20.0, left: 20.0),
-                            child: Divider(
-                              color: Color.fromRGBO(226, 224, 224, 1),
-                              thickness: 1.2,
-                            ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment:
-                              CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Padding(
-                                  padding:
-                                  const EdgeInsets.only(left: 20.0),
-                                  child: Text(
-                                    'Էկրան',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                      letterSpacing: 1,
-                                      color: Color.fromRGBO(
-                                          122, 108, 115, 1),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: orentation ==
-                                      Orientation.landscape
-                                      ? 0.1
-                                      : 10.0,
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    height: 85.0,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Expanded(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              setState(() {
-                                                isPhoneturnHorizontal =
-                                                !isPhoneturnHorizontal;
-                                                isPhoneturnVertical =
-                                                false;
-                                              });
-                                              SystemChrome
-                                                  .setPreferredOrientations([
-                                                DeviceOrientation
-                                                    .landscapeRight,
-                                                DeviceOrientation
-                                                    .landscapeLeft,
-                                              ]);
-                                            },
-                                            child: Container(
-                                                width: 50,
-                                                height: double.infinity,
-                                                child: Column(
-                                                  children: [
-                                                    SvgPicture.asset(
-                                                      'assets/images/phone1.svg',
-                                                      color: !isPhoneturnHorizontal
-                                                          ? null
-                                                          : Palette
-                                                          .whenTapedButton,
-                                                    ),
-                                                    SizedBox(
-                                                      height: orentation ==
-                                                          Orientation
-                                                              .landscape
-                                                          ? 0.1
-                                                          : 15.0,
-                                                    ),
-                                                    Text(
-                                                      'Հորիզոնական',
-                                                      style: TextStyle(
-                                                          color: Color
-                                                              .fromRGBO(
-                                                              186,
-                                                              166,
-                                                              177,
-                                                              1),
-                                                          fontFamily:
-                                                          'GHEAGrapalat',
-                                                          fontSize:
-                                                          12.0,
-                                                          fontWeight:
-                                                          FontWeight
-                                                              .w400),
-                                                    )
-                                                  ],
-                                                )),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              //print('dark theme');
-                                              setState(() {
-                                                isPhoneturnVertical =
-                                                !isPhoneturnVertical;
-                                                isPhoneturnHorizontal =
-                                                false;
-                                                SystemChrome
-                                                    .setPreferredOrientations([
-                                                  DeviceOrientation
-                                                      .portraitUp,
-                                                  DeviceOrientation
-                                                      .portraitDown,
-                                                ]);
-                                              });
-                                            },
-                                            child: Container(
-                                                width: 50,
-                                                height: double.infinity,
-                                                child: Column(
-                                                  children: [
-                                                    SvgPicture.asset(
-                                                        'assets/images/phone2.svg',
-                                                        height: orentation ==
-                                                            Orientation
-                                                                .landscape
-                                                            ? 19
-                                                            : null,
-                                                        color: !isPhoneturnVertical
-                                                            ? null
-                                                            : Palette
-                                                            .whenTapedButton),
-                                                    SizedBox(
-                                                      height: orentation ==
-                                                          Orientation
-                                                              .landscape
-                                                          ? 0.1
-                                                          : 7.0,
-                                                    ),
-                                                    Text(
-                                                      'Ուղղահայաց',
-                                                      style: TextStyle(
-                                                          color: Color
-                                                              .fromRGBO(
-                                                              186,
-                                                              166,
-                                                              177,
-                                                              1),
-                                                          fontFamily:
-                                                          'GHEAGrapalat',
-                                                          fontSize:
-                                                          12.0,
-                                                          fontWeight:
-                                                          FontWeight
-                                                              .w400),
-                                                    )
-                                                  ],
-                                                )),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          //!!!!
-                        ])),
-              )
-            ]),
-          ),
-        ),
-      ]),
-    );
-  }
 
   Widget shareShow() {
     final mediaQuery = MediaQuery.of(context).size;
@@ -2233,7 +998,6 @@ class _BookPagesState extends State<BookPages> {
   Widget build(BuildContext context) {
     final appTheme = context.read<ThemeNotifier>();
     var theme = appTheme.theme != null ? appTheme.theme : appTheme.lightTheme;
-
     return readScreen != null || encyclopediaBody != null || searchData != null
         ? Theme(
       data: theme,
@@ -2268,7 +1032,9 @@ class _BookPagesState extends State<BookPages> {
                                 crossAxisMargin: 5,
                                 radius: const Radius.circular(12),
                                 thumbVisibility: true,
-                                child: ListView(children: [
+                                child: ListView(
+                                    shrinkWrap: true,
+                                    children: [
                                   Column(
                                     children: [
                                       Container(
@@ -2449,58 +1215,126 @@ class _BookPagesState extends State<BookPages> {
                                         padding: EdgeInsets.only(
                                             left: 16.0, right: 16.0),
                                         child: Html(
-                                          showImages: true,
-                                            onLinkTap: (url) async {
-                                              if (await canLaunch(url)) {
-                                                await launch(
-                                                  url,
-                                                );
-                                              } else {
-                                                throw 'Could not launch $url';
+                                           data: listText,
+                                          // document: dom.Document.html(listText),
+                                          onCssParseError: (css, messages) {
+                                            debugPrint("css that errored: $css");
+                                            debugPrint("error messages:");
+                                            for (var element in messages) {
+                                              debugPrint(element.toString());
+                                            }
+                                            return '';
+                                          },
+                                          customRenders: {
+                                            tagMatcher("table"):CustomRender.widget(
+                                                widget: (contexts, buildChildren) => Container(
+                                                  child: SingleChildScrollView(
+                                                    padding: EdgeInsets.only(right: MediaQuery.of(context).size.width),
+                                                    scrollDirection: Axis.horizontal,
+
+                                                    child: tableRender.call().widget!.call(contexts, buildChildren),
+                                                  ),
+                                                )
+                                            ),
+                                          },
+                                          shrinkWrap: true,
+                                            onLinkTap: (url, _, __, ___) async{
+                                              print("Opening $url...");
+                                              if(url!=null){
+                                                if(url.contains('http') || url.contains('https') ){
+                                                  if (await canLaunch(url)) {
+                                                    await launch(
+                                                      url,
+                                                    );
+                                                  } else {
+                                                    throw 'Could not launch $url';
+                                                  }
                                               }
+
+
+                                            }
                                             },
-                                          useRichText: true,
-                                            defaultTextStyle: TextStyle(fontSize: 17,letterSpacing: 1),
-                                            data: '''$listText'''),
+                                            onImageTap: (src, _, __, ___) {
+                                              print(src);
+                                            },
+                                            onImageError: (exception, stackTrace) {
+                                              print(exception);
+                                            },
+
+                                          style: {
+                                            'body': Style(
+                                              fontSize: textSize,
+                                            ),
+
+
+
+                                            'table': Style(
+
+                                              width: Width(MediaQuery.of(context).size.width-70),
+
+                                              lineHeight: LineHeight.em(1.3),
+
+
+                                                  ),
+                                            'td': Style(
+                                              width: Width(MediaQuery.of(context).size.width),
+
+                                              alignment: Alignment.topLeft,
+
+                                            ),
+
+
+                                          },
+
+                                        ),
 
                                       ),
-                                    if(readScreen?.explanation != null || searchBodyData?.explanation != null || encyclopediaBody?.explanation != null)
+                                      //Container(padding: EdgeInsets.only(left: 16.0,right: 16.0),child: RichText(text: textSpan),),
+                                      if(readScreen != null && readScreen?.explanation != null || searchData != null &&  searchBodyData?.explanation != null ||  encyclopediaBody != null && encyclopediaBody?.explanation != null)
                                       SizedBox(height: 20,),
                                       Container(
                                         padding: EdgeInsets.only(top: 10,bottom: 5),
                                         color: Colors.white,
-                                        child: IntrinsicHeight(
-                                          child: Column(
-                                            children: [
-                                              const Divider(
-                                                  indent: 20,
-                                                  endIndent:20,
-                                                  thickness: 2,color: Palette.main),
-                                              SizedBox(height: 20),
-                                              Padding(
-                                                padding: const EdgeInsets.only(left: 20,right: 20),
-                                                child: Html(
-                                                    showImages: true,
-                                                    onLinkTap: (url) async {
-                                                      print(url);
-                                                      // if (await canLaunch(url)) {
-                                                      //   await launch(
-                                                      //     url,
-                                                      //   );
-                                                      // } else {
-                                                      //   throw 'Could not launch $url';
-                                                      // }
-                                                    },
-                                                    useRichText: false,
-                                                    defaultTextStyle: TextStyle(fontSize: 17,letterSpacing: 1),
-                                                    data:readScreen?.explanation != null  ?
-                                                    '''${readScreen?.explanation}''': searchBodyData?.explanation != null ?
-                                                    '''${searchBodyData?.explanation}''' : encyclopediaBody?.explanation != null ? '''${encyclopediaBody?.explanation}''' :  ''''''),
-                                              ),
-                                              SizedBox(height: 20),
+                                        child: Column(
+                                          children: [
+                                            const Divider(
+                                                indent: 20,
+                                                endIndent:20,
+                                                thickness: 2,color: Palette.main),
+                                            SizedBox(height: 20),
+                                            Padding(
+                                              padding: const EdgeInsets.only(left: 20,right: 20),
+                                              child: Html(
+                                                shrinkWrap: true,
+                                                  onLinkTap: (url, _, __, ___) async {
+                                                    print("Opening $url...");
+                                              if(url!=null){
+                                              if(url.contains('http') || url.contains('https') ){
+                                              if (await canLaunch(url)) {
+                                              await launch(
+                                              url,
+                                              );
+                                              } else {
+                                              throw 'Could not launch $url';
+                                              }
+                                              }
 
-                                            ],
-                                          ),
+                                                  }},
+                                                  onImageTap: (src, _, __, ___) {
+                                                    print(src);
+                                                  },
+                                                  onImageError: (exception, stackTrace) {
+                                                    print(exception);
+                                                  },
+                                                  data:readScreen != null && readScreen?.explanation != null  ?
+                                                  '''${readScreen?.explanation}''': searchBodyData != null && searchBodyData?.explanation != null ?
+                                                  '''${searchBodyData?.explanation}''' : encyclopediaBody != null &&  encyclopediaBody?.explanation != null ? '''${encyclopediaBody?.explanation}''' :  ''''''),
+
+
+                                            ),
+                                            SizedBox(height: 20),
+
+                                          ],
                                         ),
                                       )
                                     ],
@@ -2673,7 +1507,6 @@ class _BookPagesState extends State<BookPages> {
     color: Colors.black,
     height: 2.5,
     fontWeight: FontWeight.w200,
-    fontSize: textSize,
     fontFamily: 'GHEAGrapalat',
     letterSpacing: 1),
     ),
@@ -2703,7 +1536,7 @@ class _BookPagesState extends State<BookPages> {
           color: Colors.black,
           height: 2.5,
           fontWeight: FontWeight.w200,
-          fontSize: textSize,
+          //fontSize: textSize,
           fontFamily: 'GHEAGrapalat',
           letterSpacing: 1),
     );
@@ -2723,7 +1556,52 @@ void settingsSheetBody(){
   showModalBottomSheet(
     context: context,
     builder: (context) {
-      return settingsShow();
+      return  BookSetings(
+          sizeChange: (){
+       if(textSize == FontSize.medium){
+         setState(() {
+           textSize = FontSize.large;
+         });
+       }
+       else if(textSize == FontSize.large){
+         setState(() {
+           textSize = FontSize.larger;
+         });
+       }
+       else if(textSize == FontSize.smaller){
+         setState(() {
+           textSize = FontSize.medium;
+         });
+       }
+       else if(textSize == FontSize.large){
+         setState(() {
+           textSize = FontSize.larger;
+         });
+       }else if(textSize == FontSize.small){
+         setState(() {
+           textSize = FontSize.medium;
+         });
+       }
+      },
+      sizeChangeSmall: (){
+
+        if(textSize == FontSize.medium){
+          setState(() {
+            textSize = FontSize.small;
+          });
+        }else if(textSize == FontSize.small){
+          setState(() {
+            textSize = FontSize.smaller;
+          });
+      }else if(textSize == FontSize.large){
+            textSize = FontSize.medium;
+        } else if(textSize == FontSize.larger){
+          textSize = FontSize.large;
+        }
+
+      }
+
+      );
     },
   );
 }

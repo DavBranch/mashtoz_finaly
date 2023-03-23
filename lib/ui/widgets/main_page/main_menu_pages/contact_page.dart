@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mashtoz_flutter/domens/repository/user_data_provider.dart';
-import 'package:mashtoz_flutter/ui/widgets/main_page/home_screen.dart';
 
 import '../../../../config/palette.dart';
 import '../../helper_widgets/menuShow.dart';
@@ -14,10 +13,10 @@ class Contact extends StatefulWidget {
 }
 
 class _ContactState extends State<Contact> {
-  final emailController = TextEditingController();
-  final messageConttroller = TextEditingController();
-  final nameController = TextEditingController();
-  final userDataProvider = UserDataProvider();
+    String emailController  = ' ';
+   String messageConttroller = '';
+   String nameController = '';
+  final   userDataProvider = UserDataProvider();
   bool? isTap= false;
   final _formKey = GlobalKey<FormState>();
 
@@ -118,7 +117,12 @@ class _ContactState extends State<Contact> {
 
   Widget email() {
     return TextFormField(
-      controller: emailController,
+      initialValue: '',
+      onChanged: (value){
+        setState(() {
+          emailController = value!;
+        });
+      },
       cursorColor: Colors.black,
       decoration: const InputDecoration(
           fillColor: Colors.white,
@@ -155,7 +159,12 @@ class _ContactState extends State<Contact> {
 
   Widget fullName() {
     return TextFormField(
-      controller: nameController,
+      initialValue: '',
+      onChanged: (value){
+        setState(() {
+          nameController = value!;
+        });
+      },
       cursorColor: Colors.black,
       decoration: InputDecoration(
           fillColor: Colors.white,
@@ -190,8 +199,13 @@ class _ContactState extends State<Contact> {
 
   Widget message() {
     return TextFormField(
-      controller: messageConttroller,
+      initialValue: '',
       maxLines: 10,
+      onChanged: (value){
+        setState(() {
+          messageConttroller = value!;
+        });
+      },
       cursorColor: Colors.black,
       textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(
@@ -235,9 +249,9 @@ class _ContactState extends State<Contact> {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
             ),
             onPressed:isTap ==false? () async {
-              final email = emailController.text;
-              final name = nameController.text;
-              final message = messageConttroller.text;
+              final email = emailController;
+              final name = nameController;
+              final message = messageConttroller;
               Map parameter = {
                 "name": name,
                 "email": email,
@@ -267,11 +281,18 @@ class _ContactState extends State<Contact> {
                     const SnackBar(content: Text('Message Sent')),
                   );
                   setState(() {
+                    resetForm();
+
                     isTap=false;
                   });
                 }
+
               }
             }:null,
             child: Text('Ուղարկել')));
   }
+  void resetForm() {
+    _formKey.currentState?.reset();
+  }
+
 }

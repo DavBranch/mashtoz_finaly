@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:mashtoz_flutter/config/palette.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/book_channgeNotifire.dart';
 import 'package:mashtoz_flutter/domens/repository/book_data_provdier.dart';
 import 'package:mashtoz_flutter/globals.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../globals.dart';
 import '../../../helper_widgets/menuShow.dart';
-
 import 'audio_library_by_characters.dart';
 
 class AudioLibrary extends StatefulWidget {
@@ -50,7 +47,7 @@ class _AudioLibraryState extends State<AudioLibrary>
             //       statusBarColor: Color.fromRGBO(25, 4, 18, 1)),
             // ),
             SliverAppBar(
-              leading: IconButton(onPressed: ()=>Navigator.of(context).pop(), icon: Icon(Icons.arrow_back_ios_new_outlined),color: Palette.appBarTitleColor,),
+              leading: IconButton(onPressed: ()=>Navigator.of(context,rootNavigator: true).pop(), icon: Icon(Icons.arrow_back_ios_new_outlined),color: Palette.appBarTitleColor,),
               title: Text(
                 'Ձայնադարան',
                 style: TextStyle(
