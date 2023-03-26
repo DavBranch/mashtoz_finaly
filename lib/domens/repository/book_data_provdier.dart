@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
-
 import 'package:mashtoz_flutter/domens/data_providers/session_data_provider.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/book_home_data.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/category_lsit.dart';
@@ -19,6 +18,9 @@ class BookDataProvider {
   Stream<FileResponse>? fileStream;
   CacheManager? cacheManager;
   final sessionDataProvider = SessionDataProvider();
+  final Box homeBox = Hive.box('data');
+  final Box charactersBox = Hive.box('UserData');
+  final Box categoryBox = Hive.box('category');
 
   //Fetch Category List
   Future<List<BookCategory>> getCategoryLists(String url) async {
@@ -51,10 +53,10 @@ class BookDataProvider {
       int idCategory) async {
     List<dynamic>? libraryList = [];
     try {
-      final box = await Hive.openBox('category');
+
       print('Fetching from Hive');
       libraryList =
-      (box.get(idCategory.toString()) != null ? box.get(idCategory.toString())  : []) ;
+      (categoryBox.get(idCategory.toString()) != null ? categoryBox.get(idCategory.toString())  : []) ;
       if (libraryList?.length == 0) {
         print('Fetching from the network');
         var response = await http.get(
@@ -79,7 +81,7 @@ class BookDataProvider {
 
             }
           });
-          await box.put(idCategory.toString(), libraryList);
+          await categoryBox.put(idCategory.toString(), libraryList);
         } else {
           print('failed');
           return libraryList;
@@ -88,6 +90,7 @@ class BookDataProvider {
     } catch (e) {
       print('Imherreeeeeee ${e}');
     }
+    //await categoryBox.close();
     return libraryList!;
   }
 
@@ -193,8 +196,7 @@ class BookDataProvider {
   Future<List<Data>> getDataByCharactersForHome(String url) async {
     var dialects = <Data>[];
     // check if box exist
-    var box = await Hive.openBox('data');
-    var hiveData = box.get('data');
+    var hiveData = charactersBox.get('data');
     if(hiveData != null){
       // call hive
 
@@ -222,10 +224,12 @@ class BookDataProvider {
           dialects.add(dat);
         });
         //add to box
-        box.put('data', dialects);
+        charactersBox.put('data', dialects);
       } else {
       }
     }
+    //await charactersBox.close();
+
     return dialects;
   }
   //Words of Day
@@ -332,8 +336,7 @@ class BookDataProvider {
   // }
   Future<HomeData> getHomeData() async {
     try {
-      var box = await Hive.openBox('UserData');
-      var data = box.get('userData');
+      var data = homeBox.get('userData');
       if(data != null){
         var newData = HomeData.fromJson(data);
         return newData;
@@ -348,7 +351,7 @@ class BookDataProvider {
         var success = body['success'];
         if (success == true) {
           var data = body['data'] as Map<String, dynamic>;
-          await box.put('userData', data);
+          await homeBox.put('userData', data);
           var newData = HomeData.fromJson(data);
           return newData;
         }
@@ -357,6 +360,7 @@ class BookDataProvider {
       print(e);
       // throw Exception(e);
     }
+    //await homeBox.close();
     return HomeData();
   }
 }

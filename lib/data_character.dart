@@ -39,7 +39,7 @@ class DataAdapter extends TypeAdapter<Data> {
       ..writeByte(3)
       ..write(obj.body)
       ..writeByte(4)
-      ..write(obj..type)
+      ..write(obj.type)
       ..writeByte(5)
       ..write(obj.firstCharacter)
       ..writeByte(6)
@@ -57,5 +57,5 @@ class DataAdapter extends TypeAdapter<Data> {
   }
 
   @override
-  int get typeId => 1;
+  int get typeId => 2;
 }

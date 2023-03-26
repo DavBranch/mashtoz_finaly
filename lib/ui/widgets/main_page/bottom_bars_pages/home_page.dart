@@ -186,6 +186,8 @@ class HomePageState extends State<HomePage> {
   }
   @override
   void dispose() {
+    _scController.dispose();
+    _firstController.dispose();
     super.dispose();
   }
   void _tappedFolder(String which) {
@@ -473,6 +475,7 @@ class HomePageState extends State<HomePage> {
                                                                                       textAlign:
                                                                                       TextAlign
                                                                                           .center,
+
                                                                                       style: TextStyle(color: Colors.grey.shade600),
                                                                                     ),
                                                                                   ),

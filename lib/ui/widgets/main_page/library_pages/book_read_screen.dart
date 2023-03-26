@@ -27,7 +27,6 @@ import 'book_inherited_widget.dart';
 import 'book_utils/book_setings.dart';
 
 String? eId, libId;
-
 class BookReadScreen extends StatefulWidget {
   const BookReadScreen(
       {Key? key,
@@ -283,7 +282,7 @@ class _BookPagesState extends State<BookPages> {
   String listText;
   Content? readScreen;
   double selectedValue = 0;
-  FontSize textSize = FontSize.medium;
+  double _textSize = 16.0;
   final userDataProvider = UserDataProvider();
   final bookDataProvider = BookDataProvider();
   @override
@@ -317,6 +316,19 @@ class _BookPagesState extends State<BookPages> {
     }
 
     super.initState();
+  }
+
+  void _increaseTextSize() {
+    setState(() {
+      _textSize = (_textSize + 2.0).clamp(16.0, 30.0);
+
+    });
+  }
+
+  void _decreaseTextSize() {
+    setState(() {
+      _textSize = (_textSize - 2.0).clamp(16.0, 30.0);
+    });
   }
 
   Future<void> setBrightness(double brightness) async {
@@ -1263,7 +1275,7 @@ class _BookPagesState extends State<BookPages> {
 
                                           style: {
                                             'body': Style(
-                                              fontSize: textSize,
+                                              fontSize:  FontSize(_textSize),
                                             ),
 
 
@@ -1557,49 +1569,8 @@ void settingsSheetBody(){
     context: context,
     builder: (context) {
       return  BookSetings(
-          sizeChange: (){
-       if(textSize == FontSize.medium){
-         setState(() {
-           textSize = FontSize.large;
-         });
-       }
-       else if(textSize == FontSize.large){
-         setState(() {
-           textSize = FontSize.larger;
-         });
-       }
-       else if(textSize == FontSize.smaller){
-         setState(() {
-           textSize = FontSize.medium;
-         });
-       }
-       else if(textSize == FontSize.large){
-         setState(() {
-           textSize = FontSize.larger;
-         });
-       }else if(textSize == FontSize.small){
-         setState(() {
-           textSize = FontSize.medium;
-         });
-       }
-      },
-      sizeChangeSmall: (){
-
-        if(textSize == FontSize.medium){
-          setState(() {
-            textSize = FontSize.small;
-          });
-        }else if(textSize == FontSize.small){
-          setState(() {
-            textSize = FontSize.smaller;
-          });
-      }else if(textSize == FontSize.large){
-            textSize = FontSize.medium;
-        } else if(textSize == FontSize.larger){
-          textSize = FontSize.large;
-        }
-
-      }
+      sizeChange: _increaseTextSize,
+      sizeChangeSmall: _decreaseTextSize
 
       );
     },

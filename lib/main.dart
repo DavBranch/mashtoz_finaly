@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:mashtoz_flutter/config/palette.dart';
 import 'package:mashtoz_flutter/contentAdapter.dart';
 import 'package:mashtoz_flutter/data_character.dart';
 import 'package:mashtoz_flutter/domens/blocs/Login/login_bloc.dart';
@@ -67,8 +68,14 @@ void main() async {
     badge: true,
     sound: true,
   );
+ await Future.wait([
+   Hive.openBox('data'),
+   Hive.openBox('UserData'),
+   Hive.openBox('category'),
+ ]);
+ await initializeDateFormatting();
 
-  initializeDateFormatting().then((_) => runApp(MyApp()));
+ runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -115,7 +122,22 @@ class _MyAppState extends State<MyApp> {
         child: MaterialApp(
           locale: _locale,
           debugShowCheckedModeBanner: false,
-          home:  MySplashScreen(),
+          home:  FutureBuilder(
+              future: Future.wait([
+                Hive.openBox('data'),
+                Hive.openBox('UserData'),
+                Hive.openBox('category'),
+              ]),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                // Boxes have finished opening, so render the app UI
+                return const MySplashScreen();
+              } else {
+                // Show a loading indicator while waiting for the boxes to open
+                return const CircularProgressIndicator(color: Palette.main,);
+              }
+            },
+          ),
         ),
       ),
     );

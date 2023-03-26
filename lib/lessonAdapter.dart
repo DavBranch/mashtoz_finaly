@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 import 'domens/models/book_data/lessons.dart';
@@ -36,5 +35,5 @@ class LessonsAdapter extends TypeAdapter<Lessons> {
   }
 
   @override
-  int get typeId => 3;
+  int get typeId => 4;
 }

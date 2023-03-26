@@ -80,7 +80,6 @@ class _ContactState extends State<Contact> {
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 child: Form(
-                  key: _formKey,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: SingleChildScrollView(
                     child: Column(

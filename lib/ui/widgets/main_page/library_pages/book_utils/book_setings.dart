@@ -48,28 +48,39 @@ class _BookSetingsState extends State<BookSetings> {
           child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Expanded(
               child: Container(
                 width: mediaQuery.width,
                 height: mediaQuery.height,
                 child: Column(children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20.0, left: 20.0),
-                    child: Text(
-                      'Կարգավորումներ',
-                      style: TextStyle(
-                          fontSize: 14, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
+                  Flex(
+
+                    direction: Axis.vertical, // or Axis.horizontal, depending on your layout
+                    children:[
+                      const Padding(
+                      padding: EdgeInsets.only(right: 20.0, left: 20.0),
+                      child: Text(
+                        'Կարգավորումներ',
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),]
                   ),
-                  SizedBox(height: 10.0),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20.0, left: 20.0),
-                    child: Divider(
-                      color: Color.fromRGBO(226, 224, 224, 1),
-                      thickness: 1,
-                    ),
+                  const SizedBox(height: 10.0),
+                  Flex(
+                    direction: Axis.vertical, // or Axis.horizontal, depending on your layout
+
+                    children:const [
+                       Padding(
+                        padding: EdgeInsets.only(right: 20.0, left: 20.0),
+                        child: Divider(
+                          color: Color.fromRGBO(226, 224, 224, 1),
+                          thickness: 1,
+                        ),
+                      ),
+                    ],
                   ),
                   Expanded(
                     child: Container(
@@ -83,23 +94,28 @@ class _BookSetingsState extends State<BookSetings> {
                                   crossAxisAlignment: CrossAxisAlignment
                                       .start, //  mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Padding(
-                                      padding:
-                                      const EdgeInsets.only(left: 20.0),
-                                      child: Expanded(
-                                        child: Text(
-                                          'Պայծառություն',
-                                          textAlign: TextAlign.start,
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w400,
-                                            letterSpacing: 1,
-                                            color: Color.fromRGBO(
-                                                122, 108, 115, 1),
+                                     Flex(
+                                       direction: Axis.vertical, // or Axis.horizontal, depending on your layout
+                                       children:const [
+                                         Padding(
+                                          padding:
+                                          EdgeInsets.only(left: 20.0),
+                                          child: Expanded(
+                                            child: Text(
+                                              'Պայծառություն',
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w400,
+                                                letterSpacing: 1,
+                                                color: Color.fromRGBO(
+                                                    122, 108, 115, 1),
+                                              ),
+                                            ),
                                           ),
-                                        ),
-                                      ),
                                     ),
+                                       ],
+                                     ),
                                     Expanded(
                                       child: Container(
                                         width: MediaQuery.of(context)
@@ -112,34 +128,34 @@ class _BookSetingsState extends State<BookSetings> {
                                               activeTrackColor:
                                               Palette.main,
                                               inactiveTrackColor:
-                                              Color.fromRGBO(
+                                              const Color.fromRGBO(
                                                   226, 224, 224, 1),
                                               trackShape:
-                                              RoundedRectSliderTrackShape(),
+                                              const RoundedRectSliderTrackShape(),
                                               trackHeight: 4.0,
                                               thumbShape:
-                                              RoundSliderThumbShape(
+                                              const RoundSliderThumbShape(
                                                   enabledThumbRadius:
                                                   12.0),
                                               thumbColor: Palette.main,
                                               overlayColor:
                                               Palette.whenTapedButton,
                                               overlayShape:
-                                              RoundSliderOverlayShape(
+                                              const RoundSliderOverlayShape(
                                                   overlayRadius: 18.0),
                                               tickMarkShape:
-                                              RoundSliderTickMarkShape(),
+                                              const RoundSliderTickMarkShape(),
                                               activeTickMarkColor:
                                               Palette.main,
                                               inactiveTickMarkColor:
-                                              Color.fromRGBO(
+                                              const Color.fromRGBO(
                                                   226, 224, 224, 1),
                                               valueIndicatorShape:
-                                              PaddleSliderValueIndicatorShape(),
+                                              const PaddleSliderValueIndicatorShape(),
                                               valueIndicatorColor:
                                               Palette.main,
                                               valueIndicatorTextStyle:
-                                              TextStyle(
+                                              const TextStyle(
                                                   color: Palette.main),
                                             ),
                                             child: FutureBuilder(
@@ -187,13 +203,19 @@ class _BookSetingsState extends State<BookSetings> {
                                   ],
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 20.0, left: 20.0),
-                                child: Divider(
-                                  color: Color.fromRGBO(226, 224, 224, 1),
-                                  thickness: 1,
-                                ),
+                              Flex(
+                                direction: Axis.vertical, // or Axis.horizontal, depending on your layout
+
+                                children:const [
+                                   Padding(
+                                    padding: EdgeInsets.only(
+                                        right: 20.0, left: 20.0),
+                                    child: Divider(
+                                      color: Color.fromRGBO(226, 224, 224, 1),
+                                      thickness: 1,
+                                    ),
+                                  ),
+                                ],
                               ),
                               Expanded(
                                 child: Column(
@@ -201,20 +223,26 @@ class _BookSetingsState extends State<BookSetings> {
                                   CrossAxisAlignment.start,
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Padding(
-                                      padding:
-                                      const EdgeInsets.only(left: 20.0),
-                                      child: Text(
-                                        'Տառաչափ',
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 1,
-                                          color: Color.fromRGBO(
-                                              122, 108, 115, 1),
+                                    Flex(
+                                      direction: Axis.vertical, // or Axis.horizontal, depending on your layout
+
+                                      children: const[
+                                         Padding(
+                                          padding:
+                                          EdgeInsets.only(left: 20.0),
+                                          child: Text(
+                                            'Տառաչափ',
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400,
+                                              letterSpacing: 1,
+                                              color: Color.fromRGBO(
+                                                  122, 108, 115, 1),
+                                            ),
+                                          ),
                                         ),
-                                      ),
+                                      ],
                                     ),
                                     SizedBox(
                                       height: orentation ==
@@ -254,13 +282,19 @@ class _BookSetingsState extends State<BookSetings> {
                                   ],
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 20.0, left: 20.0),
-                                child: Divider(
-                                  color: Color.fromRGBO(226, 224, 224, 1),
-                                  thickness: 1,
-                                ),
+                              Flex(
+                                direction: Axis.vertical, // or Axis.horizontal, depending on your layout
+
+                                children: const[
+                                   Padding(
+                                    padding: EdgeInsets.only(
+                                        right: 20.0, left: 20.0),
+                                    child: Divider(
+                                      color: Color.fromRGBO(226, 224, 224, 1),
+                                      thickness: 1,
+                                    ),
+                                  ),
+                                ],
                               ),
                               Expanded(
                                 child: Column(
@@ -268,20 +302,25 @@ class _BookSetingsState extends State<BookSetings> {
                                   CrossAxisAlignment.start,
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Padding(
-                                      padding:
-                                      const EdgeInsets.only(left: 20.0),
-                                      child: Text(
-                                        'Ռեժիմ',
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 1,
-                                          color: Color.fromRGBO(
-                                              122, 108, 115, 1),
+                                    Flex(
+                                      direction: Axis.vertical, // or Axis.horizontal, depending on your layout
+                                      children:const [
+                                         Padding(
+                                          padding:
+                                          EdgeInsets.only(left: 20.0),
+                                          child: Text(
+                                            'Ռեժիմ',
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400,
+                                              letterSpacing: 1,
+                                              color: Color.fromRGBO(
+                                                  122, 108, 115, 1),
+                                            ),
+                                          ),
                                         ),
-                                      ),
+                                      ],
                                     ),
                                     SizedBox(
                                       height: orentation ==
@@ -333,7 +372,7 @@ class _BookSetingsState extends State<BookSetings> {
                                                                   37,
                                                                   width: 37,
                                                                   color: !isLisghtTheme
-                                                                      ? Color.fromRGBO(
+                                                                      ? const Color.fromRGBO(
                                                                       226,
                                                                       224,
                                                                       224,
@@ -345,7 +384,7 @@ class _BookSetingsState extends State<BookSetings> {
                                                                       37,
                                                                       width:
                                                                       37,
-                                                                      color: Color.fromRGBO(
+                                                                      color: const Color.fromRGBO(
                                                                           226,
                                                                           224,
                                                                           224,
@@ -372,7 +411,7 @@ class _BookSetingsState extends State<BookSetings> {
                                                             letterSpacing:
                                                             1,
                                                             color: !isLisghtTheme
-                                                                ? Color
+                                                                ? const Color
                                                                 .fromRGBO(
                                                                 186,
                                                                 166,
@@ -442,7 +481,7 @@ class _BookSetingsState extends State<BookSetings> {
                                                             letterSpacing:
                                                             1,
                                                             color: !isDarkTheme
-                                                                ? Color
+                                                                ? const Color
                                                                 .fromRGBO(
                                                                 186,
                                                                 166,
@@ -463,13 +502,19 @@ class _BookSetingsState extends State<BookSetings> {
                                   ],
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 20.0, left: 20.0),
-                                child: Divider(
-                                  color: Color.fromRGBO(226, 224, 224, 1),
-                                  thickness: 1.2,
-                                ),
+                              Flex(
+                                direction: Axis.vertical, // or Axis.horizontal, depending on your layout
+
+                                children:const [
+                                   Padding(
+                                    padding: EdgeInsets.only(
+                                        right: 20.0, left: 20.0),
+                                    child: Divider(
+                                      color: Color.fromRGBO(226, 224, 224, 1),
+                                      thickness: 1.2,
+                                    ),
+                                  ),
+                                ],
                               ),
                               Expanded(
                                 child: Column(
@@ -477,21 +522,27 @@ class _BookSetingsState extends State<BookSetings> {
                                   CrossAxisAlignment.start,
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Padding(
-                                      padding:
-                                      const EdgeInsets.only(left: 20.0),
-                                      child: Text(
-                                        'Էկրան',
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 1,
-                                          color: Color.fromRGBO(
-                                              122, 108, 115, 1),
-                                        ),
-                                      ),
+                                     Flex(
+                                       direction: Axis.vertical, // or Axis.horizontal, depending on your layout
+
+                                       children: const[
+                                         Padding(
+                                          padding:
+                                          EdgeInsets.only(left: 20.0),
+                                          child: Text(
+                                            'Էկրան',
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400,
+                                              letterSpacing: 1,
+                                              color: Color.fromRGBO(
+                                                  122, 108, 115, 1),
+                                            ),
+                                          ),
                                     ),
+                                       ],
+                                     ),
                                     SizedBox(
                                       height: orentation ==
                                           Orientation.landscape
@@ -541,7 +592,7 @@ class _BookSetingsState extends State<BookSetings> {
                                                               ? 0.1
                                                               : 15.0,
                                                         ),
-                                                        Text(
+                                                        const Text(
                                                           'Հորիզոնական',
                                                           style: TextStyle(
                                                               color: Color
@@ -603,7 +654,7 @@ class _BookSetingsState extends State<BookSetings> {
                                                               ? 0.1
                                                               : 7.0,
                                                         ),
-                                                        Text(
+                                                        const Text(
                                                           'Ուղղահայաց',
                                                           style: TextStyle(
                                                               color: Color
@@ -651,8 +702,8 @@ return Container(
   child: SingleChildScrollView(
   child:   Column(
     children: [
-  Padding(
-            padding: const EdgeInsets.only(right: 20.0, left: 20.0),
+  const Padding(
+            padding: EdgeInsets.only(right: 20.0, left: 20.0),
             child: Text(
               'Կարգավորումներ',
               style: TextStyle(
@@ -660,9 +711,9 @@ return Container(
               textAlign: TextAlign.center,
             ),
           ),
-      SizedBox(height: 10.0),
-      Padding(
-                padding: const EdgeInsets.only(right: 20.0, left: 20.0),
+      const SizedBox(height: 10.0),
+      const Padding(
+                padding: EdgeInsets.only(right: 20.0, left: 20.0),
                 child: Divider(
                   color: Color.fromRGBO(226, 224, 224, 1),
                   thickness: 1,
@@ -675,9 +726,9 @@ return Container(
                                   crossAxisAlignment: CrossAxisAlignment
                                         .start, //  mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Padding(
+                                      const Padding(
                                         padding:
-                                        const EdgeInsets.only(left: 20.0),
+                                        EdgeInsets.only(left: 20.0),
                                         child: Expanded(
                                           child: Text(
                                             'Պայծառություն',
@@ -703,33 +754,33 @@ return Container(
                                               activeTrackColor:
                                               Palette.main,
                                               inactiveTrackColor:
-                                              Color.fromRGBO(
+                                              const Color.fromRGBO(
                                                   226, 224, 224, 1),
                                               trackShape:
-                                              RoundedRectSliderTrackShape(),
+                                              const RoundedRectSliderTrackShape(),
                                               trackHeight: 4.0,
                                               thumbShape:
-                                              RoundSliderThumbShape(
+                                              const RoundSliderThumbShape(
                                                   enabledThumbRadius:
                                                   12.0),
                                               thumbColor: Palette.main,
                                               overlayColor: Palette.disable,
                                               overlayShape:
-                                              RoundSliderOverlayShape(
+                                              const RoundSliderOverlayShape(
                                                   overlayRadius: 18.0),
                                               tickMarkShape:
-                                              RoundSliderTickMarkShape(),
+                                              const RoundSliderTickMarkShape(),
                                               activeTickMarkColor:
                                               Palette.main,
                                               inactiveTickMarkColor:
-                                              Color.fromRGBO(
+                                              const Color.fromRGBO(
                                                   226, 224, 224, 1),
                                               valueIndicatorShape:
-                                              PaddleSliderValueIndicatorShape(),
+                                              const PaddleSliderValueIndicatorShape(),
                                               valueIndicatorColor:
                                               Palette.main,
                                               valueIndicatorTextStyle:
-                                              TextStyle(
+                                              const TextStyle(
                                                   color: Palette.main),
                                             ),
                                             child: FutureBuilder(
@@ -780,9 +831,9 @@ return Container(
                             crossAxisAlignment:
                             CrossAxisAlignment.start,
                             children: [
-                              Padding(
+                              const Padding(
                                 padding:
-                                const EdgeInsets.only(left: 20.0),
+                                EdgeInsets.only(left: 20.0),
                                 child: Text(
                                   'Տառաչափ',
                                   textAlign: TextAlign.start,
@@ -795,7 +846,7 @@ return Container(
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height:
                                    10.0
 
@@ -848,8 +899,8 @@ return Container(
                             ],
                           ),)
           ],),
-      Padding(
-        padding: const EdgeInsets.only(right: 20.0, left: 20.0),
+      const Padding(
+        padding: EdgeInsets.only(right: 20.0, left: 20.0),
         child: Divider(
           color: Color.fromRGBO(226, 224, 224, 1),
           thickness: 1,
@@ -867,9 +918,9 @@ return Container(
                                        CrossAxisAlignment.start,
                                        mainAxisSize: MainAxisSize.min,
                                        children: [
-                                         Padding(
+                                         const Padding(
                                            padding:
-                                           const EdgeInsets.only(left: 20.0),
+                                           EdgeInsets.only(left: 20.0),
                                            child: Text(
                                              'Ռեժիմ',
                                              textAlign: TextAlign.start,
@@ -932,7 +983,7 @@ return Container(
                                                                        37,
                                                                        width: 37,
                                                                        color: !isLisghtTheme
-                                                                           ? Color.fromRGBO(
+                                                                           ? const Color.fromRGBO(
                                                                            226,
                                                                            224,
                                                                            224,
@@ -944,7 +995,7 @@ return Container(
                                                                            37,
                                                                            width:
                                                                            37,
-                                                                           color: Color.fromRGBO(
+                                                                           color: const Color.fromRGBO(
                                                                                226,
                                                                                224,
                                                                                224,
@@ -971,7 +1022,7 @@ return Container(
                                                                  letterSpacing:
                                                                  1,
                                                                  color: !isLisghtTheme
-                                                                     ? Color
+                                                                     ? const Color
                                                                      .fromRGBO(
                                                                      186,
                                                                      166,
@@ -1041,7 +1092,7 @@ return Container(
                                                                  letterSpacing:
                                                                  1,
                                                                  color: !isDarkTheme
-                                                                     ? Color
+                                                                     ? const Color
                                                                      .fromRGBO(
                                                                      186,
                                                                      166,
@@ -1071,9 +1122,9 @@ return Container(
                                        CrossAxisAlignment.start,
                                        mainAxisSize: MainAxisSize.min,
                                        children: [
-                                         Padding(
+                                         const Padding(
                                            padding:
-                                           const EdgeInsets.only(left: 20.0),
+                                           EdgeInsets.only(left: 20.0),
                                            child: Text(
                                              'Էկրան',
                                              textAlign: TextAlign.start,
@@ -1135,7 +1186,7 @@ return Container(
                                                                    ? 0.1
                                                                    : 15.0,
                                                              ),
-                                                             Text(
+                                                             const Text(
                                                                'Հորիզոնական',
                                                                style: TextStyle(
                                                                    color: Color
@@ -1197,7 +1248,7 @@ return Container(
                                                                    ? 0.1
                                                                    : 10.0,
                                                              ),
-                                                             Text(
+                                                             const Text(
                                                                'Ուղղահայաց',
                                                                style: TextStyle(
                                                                    color: Color

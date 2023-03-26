@@ -33,5 +33,5 @@ class HomeDataAdapter extends TypeAdapter<HomeData> {
   }
 
   @override
-  int get typeId => 4;
+  int get typeId => 3;
 }
