@@ -7,29 +7,39 @@ class TabNavigatorRoutes {
 }
 
 class TabNavigator extends StatelessWidget {
-  TabNavigator({required this.navigatorKey, required this.tabItem});
+  const TabNavigator({
+    required this.navigatorKey,
+    required this.tabItem,
+  });
   final GlobalKey<NavigatorState>? navigatorKey;
   final String tabItem;
 
   @override
   Widget build(BuildContext context) {
     Widget? child;
-    if (tabItem == "homepage")
-      child = HomePage();
-    else if (tabItem == "librarypage")
-      child = LibraryPage();
-    else if (tabItem == "searchpage")
-      child = SearchPage();
-    else if (tabItem == "italianpage")
-      child = ItalianPage();
-    else if (tabItem == "accountpage") child = AccountPage();
-
+    switch (tabItem) {
+      case 'homepage':
+        child = HomePage();
+        break;
+      case 'librarypage':
+        child = const LibraryPage();
+        break;
+      case 'searchpage':
+        child = const SearchPage();
+        break;
+      case 'italianpage':
+        child =  ItalianPage();
+        break;
+      case 'accountpage':
+        child = const AccountPage();
+        break;
+    }
     return Navigator(
       key: navigatorKey,
       onGenerateRoute: (routeSettings) {
         return MaterialPageRoute(
-            builder: (context) => child!);
+          builder: (context) => child!,
+        );
       },
     );
-  }
-}
+  }}

@@ -6,12 +6,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:hive_flutter/adapters.dart';
+// import 'package:hive_flutter/adapters.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:mashtoz_flutter/config/palette.dart';
-import 'package:mashtoz_flutter/contentAdapter.dart';
-import 'package:mashtoz_flutter/data_character.dart';
 import 'package:mashtoz_flutter/domens/blocs/Login/login_bloc.dart';
 import 'package:mashtoz_flutter/domens/blocs/register_bloc/register_bloc.dart';
 import 'package:mashtoz_flutter/domens/models/app_theme.dart/theme_notifire.dart';
@@ -19,8 +17,6 @@ import 'package:mashtoz_flutter/domens/models/bottom_bar_color_notifire.dart';
 import 'package:mashtoz_flutter/domens/models/user_sign_or_not.dart';
 import 'package:mashtoz_flutter/domens/repository/user_data_provider.dart';
 import 'package:mashtoz_flutter/firebase_options.dart';
-import 'package:mashtoz_flutter/homeAdapter.dart';
-import 'package:mashtoz_flutter/lessonAdapter.dart';
 import 'package:mashtoz_flutter/ui/utils/day_change_notifire.dart';
 import 'package:mashtoz_flutter/ui/utils/splash_screen.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/library_pages/book_inherited_widget.dart';
@@ -45,14 +41,15 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print('A bg message just showed up :  ${message.messageId}');
 }
 void main() async {
- await Hive.initFlutter();
- Hive.registerAdapter(ContentAdapter());
- Hive.registerAdapter(DataAdapter());
- Hive.registerAdapter(HomeDataAdapter());
- Hive.registerAdapter(LessonsAdapter());
+  WidgetsFlutterBinding.ensureInitialized();
+ //  await Hive.initFlutter();
+ // Hive.registerAdapter(ContentAdapter());
+ // Hive.registerAdapter(DataAdapter());
+ // Hive.registerAdapter(HomeDataAdapter());
+ // Hive.registerAdapter(LessonsAdapter());
+
 
  Platform.isIOS ? isWhichPlatform = true : isWhichPlatform;
-  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -68,14 +65,15 @@ void main() async {
     badge: true,
     sound: true,
   );
- await Future.wait([
-   Hive.openBox('data'),
-   Hive.openBox('UserData'),
-   Hive.openBox('category'),
- ]);
+ // await Future.wait([
+ //   Hive.openBox('data'),
+ //   Hive.openBox('UserData'),
+ //   Hive.openBox('category'),
+ // ]);
  await initializeDateFormatting();
 
- runApp(const MyApp());
+  runApp(const MyApp());
+  CacheManager.logLevel = CacheManagerLogLevel.verbose;
 }
 
 class MyApp extends StatefulWidget {
@@ -122,22 +120,11 @@ class _MyAppState extends State<MyApp> {
         child: MaterialApp(
           locale: _locale,
           debugShowCheckedModeBanner: false,
-          home:  FutureBuilder(
-              future: Future.wait([
-                Hive.openBox('data'),
-                Hive.openBox('UserData'),
-                Hive.openBox('category'),
-              ]),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                // Boxes have finished opening, so render the app UI
-                return const MySplashScreen();
-              } else {
-                // Show a loading indicator while waiting for the boxes to open
-                return const CircularProgressIndicator(color: Palette.main,);
-              }
-            },
-          ),
+          home: // Boxes have finished opening, so render the app UI
+                 const MySplashScreen(),
+
+
+
         ),
       ),
     );

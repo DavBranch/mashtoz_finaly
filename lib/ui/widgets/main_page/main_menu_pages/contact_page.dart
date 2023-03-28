@@ -25,7 +25,7 @@ class _ContactState extends State<Contact> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        backgroundColor: Color.fromRGBO(226, 224, 224, 1),
+        backgroundColor: const Color.fromRGBO(226, 224, 224, 1),
         body: Padding(
           padding: const EdgeInsets.only(right: 20, left: 20.0),
           child: CustomScrollView(slivers: [
@@ -48,10 +48,10 @@ class _ContactState extends State<Contact> {
             //       statusBarColor: Color.fromRGBO(25, 4, 18, 1)),
             // ),
             SliverAppBar(
-              leading: IconButton(onPressed: ()=>Navigator.of(context).pop(), icon: Icon(Icons.arrow_back_ios_new_outlined),color: Color.fromRGBO(117, 99, 111, 1),),
+              leading: IconButton(onPressed: ()=>Navigator.of(context).pop(), icon: const Icon(Icons.arrow_back_ios_new_outlined),color: const Color.fromRGBO(117, 99, 111, 1),),
               flexibleSpace: Container(
-                margin: EdgeInsets.only(left: 50),
-                child: Align(
+                margin: const EdgeInsets.only(left: 50),
+                child: const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Կապ',
@@ -65,21 +65,22 @@ class _ContactState extends State<Contact> {
                 ),
               ),
               expandedHeight: 73,
-              backgroundColor: Color.fromRGBO(226, 224, 224, 1),
+              backgroundColor: const Color.fromRGBO(226, 224, 224, 1),
               elevation: 0,
               automaticallyImplyLeading: false,
-              systemOverlayStyle: SystemUiOverlayStyle(
+              systemOverlayStyle: const SystemUiOverlayStyle(
                   statusBarColor: Color.fromRGBO(25, 4, 18, 1)),
               actions: [
-                MenuShow(),
+                const MenuShow(),
               ],
             ),
             SliverFillRemaining(
               child: Container(
-                color: Color.fromRGBO(226, 224, 224, 1),
+                color: const Color.fromRGBO(226, 224, 224, 1),
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 child: Form(
+                  key: _formKey,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: SingleChildScrollView(
                     child: Column(
@@ -165,7 +166,7 @@ class _ContactState extends State<Contact> {
         });
       },
       cursorColor: Colors.black,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
           fillColor: Colors.white,
           filled: true,
           border: OutlineInputBorder(borderRadius: BorderRadius.zero),
@@ -207,7 +208,7 @@ class _ContactState extends State<Contact> {
       },
       cursorColor: Colors.black,
       textCapitalization: TextCapitalization.sentences,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
           fillColor: Colors.white,
           filled: true,
           border: OutlineInputBorder(borderRadius: BorderRadius.zero),
@@ -244,8 +245,8 @@ class _ContactState extends State<Contact> {
         width: double.infinity,
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Color.fromRGBO(113, 141, 156, 1),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+              primary: const Color.fromRGBO(113, 141, 156, 1),
+              shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
             ),
             onPressed:isTap ==false? () async {
               final email = emailController;
@@ -279,8 +280,9 @@ class _ContactState extends State<Contact> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Message Sent')),
                   );
+
                   setState(() {
-                    resetForm();
+
 
                     isTap=false;
                   });
@@ -288,7 +290,7 @@ class _ContactState extends State<Contact> {
 
               }
             }:null,
-            child: Text('Ուղարկել')));
+            child: const Text('Ուղարկել')));
   }
   void resetForm() {
     _formKey.currentState?.reset();

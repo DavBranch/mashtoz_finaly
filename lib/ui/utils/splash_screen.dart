@@ -1,10 +1,9 @@
+import 'package:cross_connectivity/cross_connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:mashtoz_flutter/config/palette.dart';
-import 'package:mashtoz_flutter/ui/widgets/helper_widgets/save_show_dialog.dart';
 import 'package:mashtoz_flutter/ui/widgets/helper_widgets/size_config.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/home_screen.dart';
 import 'package:rive/rive.dart';
-import 'package:cross_connectivity/cross_connectivity.dart';
 
 class MySplashScreen extends StatefulWidget {
   const MySplashScreen({Key? key}) : super(key: key);
@@ -34,8 +33,9 @@ class _MySplashScreenState extends State<MySplashScreen> {
 
     if (isActive == true){
       await Future.delayed(Duration(milliseconds: 5000));
-      Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => HomeScreen()));
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (_) => HomeScreen()),
+              (Route<dynamic> route) => false);
     }
 
   }

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:hive/hive.dart';
+// import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:mashtoz_flutter/domens/data_providers/session_data_provider.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/book_home_data.dart';
@@ -16,11 +16,12 @@ import '../models/book_data/data.dart';
 
 class BookDataProvider {
   Stream<FileResponse>? fileStream;
-  CacheManager? cacheManager;
+  // CacheManager? cacheManager;
   final sessionDataProvider = SessionDataProvider();
-  final Box homeBox = Hive.box('data');
-  final Box charactersBox = Hive.box('UserData');
-  final Box categoryBox = Hive.box('category');
+  // final Box homeBox = Hive.box('data');
+  // final Box charactersBox = Hive.box('UserData');
+  // final Box categoryBox = Hive.box('category');
+  final cacheManager = DefaultCacheManager();
 
   //Fetch Category List
   Future<List<BookCategory>> getCategoryLists(String url) async {
@@ -49,50 +50,114 @@ class BookDataProvider {
     }
     return libraryList;
   }
-  Future<List?> getLibrarayYbooksByCategory(
-      int idCategory) async {
-    List<dynamic>? libraryList = [];
-    try {
+  Future<List<dynamic>?> getLibraryBooksByCategory(int idCategory) async {
+    List<dynamic> libraryList = [];
 
-      print('Fetching from Hive');
-      libraryList =
-      (categoryBox.get(idCategory.toString()) != null ? categoryBox.get(idCategory.toString())  : []) ;
-      if (libraryList?.length == 0) {
-        print('Fetching from the network');
-        var response = await http.get(
-          Uri.parse(Api.libraryCategoryById(idCategory.toString())),
-          headers: <String, String>{
-            'Content-Type': 'application/json',
-          },
-        );
-        var body = json.decode(response.body);
-        var content = body['data']['content'];
-        var success = body['success'];
-        if (success == true) {
-          Map.from(content).forEach((key, value) {
-            if (key
-                .toString()
-                .contains(Map.
-            from(value).values.first.toString())) {
-              var data = Content.fromJson(value);
-              if(data!=null){
-                libraryList?.add(data);
-              }
+    // Check if response is cached
+    var file = await cacheManager?.getFileFromCache(Api.libraryCategoryById(idCategory.toString()));
+    if (file != null && file.validTill?.isAfter(DateTime.now()) == true) {
+      print('Fetching from cache');
+      var body = await file.file.readAsString();
+      var content = json.decode(body)['data']['content'];
+      Map.from(content).forEach((key, value) {
+        if (key
+            .toString()
+            .contains(Map.
+        from(value).values.first.toString())) {
+          var data = Content.fromJson(value);
+          libraryList.add(data);
 
-            }
-          });
-          await categoryBox.put(idCategory.toString(), libraryList);
-        } else {
-          print('failed');
-          return libraryList;
         }
+      });
+      return libraryList;
+    }
+
+    // Fetch data from network
+    try {
+      print('Fetching from the network');
+      var response = await http.get(
+        Uri.parse(Api.libraryCategoryById(idCategory.toString())),
+        headers: <String, String>{
+          'Content-Type': 'application/json',
+        },
+      );
+      var body = json.decode(response.body);
+      var content = body['data']['content'];
+      var success = body['success'];
+      if (success == true) {
+        Map.from(content).forEach((key, value) {
+                    if (key
+                        .toString()
+                        .contains(Map.
+                    from(value).values.first.toString())) {
+                      var data = Content.fromJson(value);
+                      if(data!=null){
+                        libraryList?.add(data);
+                      }
+
+                    }
+                  });
+        // Cache the response
+        await cacheManager?.putFile(
+          Api.libraryCategoryById(idCategory.toString()),
+          response.bodyBytes,
+          eTag: response.headers['etag'] ?? '',
+        );
+      } else {
+        print('failed');
+        return libraryList;
       }
     } catch (e) {
       print('Imherreeeeeee ${e}');
     }
-    //await categoryBox.close();
-    return libraryList!;
+
+    return libraryList;
   }
+
+  // Future<List?> getLibrarayYbooksByCategory(
+  //     int idCategory) async {
+  //   List<dynamic>? libraryList = [];
+  //   try {
+  //
+  //     print('Fetching from Hive');
+  //     libraryList =
+  //     (categoryBox.get(idCategory.toString()) != null ? categoryBox.get(idCategory.toString())  : []) ;
+  //     if (libraryList?.length == 0) {
+  //       print('Fetching from the network');
+  //       var response = await http.get(
+  //         Uri.parse(Api.libraryCategoryById(idCategory.toString())),
+  //         headers: <String, String>{
+  //           'Content-Type': 'application/json',
+  //         },
+  //       );
+  //       var body = json.decode(response.body);
+  //       var content = body['data']['content'];
+  //       var success = body['success'];
+  //       if (success == true) {
+  //         Map.from(content).forEach((key, value) {
+  //           if (key
+  //               .toString()
+  //               .contains(Map.
+  //           from(value).values.first.toString())) {
+  //             var data = Content.fromJson(value);
+  //             if(data!=null){
+  //               libraryList?.add(data);
+  //             }
+  //
+  //           }
+  //         });
+  //         await categoryBox.put(idCategory.toString(), libraryList);
+  //       } else {
+  //         print('failed');
+  //         return libraryList;
+  //       }
+  //     }
+  //   } catch (e) {
+  //     print('Imherreeeeeee ${e}');
+  //   }
+  //   //await categoryBox.close();
+  //   return libraryList!;
+  // }
 
   //Fetch Gallery List
   Future<List<dynamic>> fetchGalleryList() async {
@@ -193,45 +258,47 @@ class BookDataProvider {
     }
     return dialects;
   }
+
   Future<List<Data>> getDataByCharactersForHome(String url) async {
     var dialects = <Data>[];
-    // check if box exist
-    var hiveData = charactersBox.get('data');
-    if(hiveData != null){
-      // call hive
 
-      Map.from(hiveData).values.forEach((element) {
-        //print(element);
-        var dat = Data.fromJson(element);
-        dialects.add(dat);
-      });
-
-    } else {
-      //call api
-      var response = await http.get(
-        Uri.parse(url),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-      );
-      var body = json.decode(response.body);
+    // Try to fetch data from cache
+    var file = await DefaultCacheManager().getSingleFile(url);
+    if (await file.exists()) {
+      var jsonString = await file.readAsString();
+      var body = json.decode(jsonString);
       var success = body['success'];
       var datas = body['data'];
       if (success == true) {
         Map.from(datas).values.forEach((element) {
-          //print(element);
           var dat = Data.fromJson(element);
           dialects.add(dat);
         });
-        //add to box
-        charactersBox.put('data', dialects);
-      } else {
       }
+      return dialects;
     }
-    //await charactersBox.close();
+
+    // If data is not available in cache, call API and store response in cache
+    var response = await http.get(
+      Uri.parse(url),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+    );
+    var body = json.decode(response.body);
+    var success = body['success'];
+    var datas = body['data'];
+    if (success == true) {
+      Map.from(datas).values.forEach((element) {
+        var dat = Data.fromJson(element);
+        dialects.add(dat);
+      });
+      await DefaultCacheManager().putFile(url, response.bodyBytes);
+    }
 
     return dialects;
   }
+
   //Words of Day
   Future<WordOfDay?> getWordsOfDay() async {
     var response = await http.get(
@@ -336,31 +403,39 @@ class BookDataProvider {
   // }
   Future<HomeData> getHomeData() async {
     try {
-      var data = homeBox.get('userData');
-      if(data != null){
+      // Check if response is cached
+      var file = await cacheManager.getFileFromCache(Api.getHomeData);
+      if (file != null && file.validTill?.isAfter(DateTime.now()) == true) {
+        print('Fetching from cache');
+        var body = await file.file.readAsString();
+        var data = HomeData.fromJson(json.decode(body)['data']);
+        return data;
+      }
+
+      // Fetch data from network
+      var response = await http.get(
+        Uri.parse(Api.getHomeData),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+      );
+      var body = json.decode(response.body);
+      var success = body['success'];
+      if (success == true) {
+        var data = body['data'] as Map<String, dynamic>;
         var newData = HomeData.fromJson(data);
-        return newData;
-      }else{
-        var response = await http.get(
-          Uri.parse(Api.getHomeData),
-          headers: <String, String>{
-            'Content-Type': 'application/json; charset=UTF-8',
-          },
+        // Cache the response
+        await cacheManager.putFile(
+          Api.getHomeData,
+          response.bodyBytes,
+          eTag: response.headers['etag'] ?? '',
         );
-        var body = json.decode(response.body);
-        var success = body['success'];
-        if (success == true) {
-          var data = body['data'] as Map<String, dynamic>;
-          await homeBox.put('userData', data);
-          var newData = HomeData.fromJson(data);
-          return newData;
-        }
+        return newData;
       }
     } catch (e) {
       print(e);
-      // throw Exception(e);
     }
-    //await homeBox.close();
     return HomeData();
   }
+
 }

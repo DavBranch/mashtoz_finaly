@@ -1,22 +1,17 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/category_lsit.dart';
 import 'package:mashtoz_flutter/domens/repository/book_data_provdier.dart';
-import 'package:mashtoz_flutter/globals.dart';
 import 'package:mashtoz_flutter/ui/widgets/helper_widgets/menuShow.dart';
 import 'package:mashtoz_flutter/ui/widgets/helper_widgets/save_show_dialog.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../../../config/palette.dart';
-
 import '../../../../domens/models/book_data/content_list.dart';
-import '../../../../domens/models/user.dart';
 import '../../../../domens/repository/user_data_provider.dart';
-
 import 'book_inherited_widget.dart';
 import 'book_read_screen.dart';
 
@@ -352,15 +347,35 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                               iconColor: Palette.whenTapedButton,
                               childrenPadding:
                                   EdgeInsets.only(left: 20.0, right: 20.0),
-                              title: Text(
-                                '${bovandak?[index].title}',
-                                style: TextStyle(
-                                  fontFamily: 'GHEAGrapalat',
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w700,
-                                  color: Color.fromRGBO(84, 112, 126, 1),
+                              title:GestureDetector(
+                      onTap:(){
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) =>
+                                  BookReadScreen(
+                                    isFromHomePage: widget.isFromHomaPage,
+                                    readScreen:
+                                    bovandak?[index],
+                                    isShowTitle:
+                                    true,
+                                  ),
+                            ),
+                          );
+                          print('Coco');
+
+                      },
+                                child: Text(
+                                  '${bovandak?[index].title}',
+                                  style: const TextStyle(
+                                    fontFamily: 'GHEAGrapalat',
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color.fromRGBO(84, 112, 126, 1),
+                                  ),
+                                  textAlign: TextAlign.start,
                                 ),
-                                textAlign: TextAlign.start,
                               ),
                               // leading: Text('0${index+1}'),
                               tilePadding:
@@ -387,6 +402,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                           ? Column(
                                               children: [
                                                 ExpansionTile(
+                                                  initiallyExpanded:true,
                                                   collapsedIconColor:
                                                       const Color.fromRGBO(
                                                           250, 147, 114, 1),

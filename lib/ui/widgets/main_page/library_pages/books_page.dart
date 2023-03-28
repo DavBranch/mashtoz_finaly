@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:math' as math;
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -8,17 +7,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/category_lsit.dart';
-
 import 'package:mashtoz_flutter/domens/models/book_data/content_list.dart';
 import 'package:mashtoz_flutter/domens/repository/book_data_provdier.dart';
 import 'package:mashtoz_flutter/ui/widgets/buttons/bottom_navigation_bar/bottom_app_bar.dart';
 import 'package:mashtoz_flutter/ui/widgets/helper_widgets/size_config.dart';
 import 'package:responsive_grid_list/responsive_grid_list.dart';
 
+import '/config/palette.dart';
 import '../../../../domens/models/bottom_bar_color_notifire.dart';
 import '../../helper_widgets/menuShow.dart';
-import '/config/palette.dart';
-
 import 'book_inherited_widget.dart';
 import 'book_page.dart';
 
@@ -51,7 +48,7 @@ class _BooksScreenState extends State<BooksScreen> {
 
   @override
   void initState() {
-    contentFuture = bookDataProvider.getLibrarayYbooksByCategory(category?.id ?? 0);
+    contentFuture = bookDataProvider.getLibraryBooksByCategory(category?.id ?? 0);
     super.initState();
   }
 

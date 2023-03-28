@@ -3,10 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:mashtoz_flutter/ui/utils/log_out_changenotifire.dart';
 import 'package:mashtoz_flutter/ui/widgets/buttons/facebook_gmail_buttons.dart';
-import 'package:mashtoz_flutter/ui/widgets/main_page/home_screen.dart';
 
-import '../../../../config/palette.dart';
-import '../../../../domens/models/bottom_bar_color_notifire.dart';
 import 'login_form.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -17,63 +14,63 @@ class LoginScreen extends StatelessWidget {
     print(MediaQuery.of(context).size.height);
     return WillPopScope(
       onWillPop: ()async{
-        switch(HomeScreenState.currentIndex){
-          case 0 : context.read<BottomColorNotifire>().setColor(
-              Palette.textLineOrBackGroundColor);
-          HomeScreenState.icons = BottomIcons.home;
-
-          HomeScreenState.isLibrary = false;
-
-          HomeScreenState.isHome = true;
-          HomeScreenState.isSearch = false;
-          HomeScreenState.isItalian = false;
-          HomeScreenState.isAccount = false;
-          break;
-          case 1 : context.read<BottomColorNotifire>().setColor(
-              Palette.libraryBacgroundColor);
-          HomeScreenState.icons = BottomIcons.library;
-
-          HomeScreenState.isLibrary = true;
-
-          HomeScreenState.isHome = false;
-          HomeScreenState.isSearch = false;
-          HomeScreenState.isItalian = false;
-          HomeScreenState.isAccount = false;
-          break;
-          case 2 : context.read<BottomColorNotifire>().setColor(
-              Palette.searchBackGroundColor);
-          HomeScreenState.icons = BottomIcons.search;
-
-          HomeScreenState.isLibrary = false;
-
-          HomeScreenState.isHome = false;
-          HomeScreenState.isSearch = true;
-          HomeScreenState.isItalian = false;
-          HomeScreenState.isAccount = false;
-          break;
-          case 3 : context.read<BottomColorNotifire>().setColor(
-              Palette.textLineOrBackGroundColor);
-          HomeScreenState.icons = BottomIcons.italian;
-
-          HomeScreenState.isLibrary = false;
-
-          HomeScreenState.isHome = false;
-          HomeScreenState.isSearch = false;
-          HomeScreenState.isItalian = true;
-          HomeScreenState.isAccount = false;
-          break;
-          case 4 : context.read<BottomColorNotifire>().setColor(
-              Palette.textLineOrBackGroundColor);
-          HomeScreenState.icons = BottomIcons.account;
-
-          HomeScreenState.isLibrary = false;
-
-          HomeScreenState.isHome = false;
-          HomeScreenState.isSearch = false;
-          HomeScreenState.isItalian = false;
-          HomeScreenState.isAccount = true;
-          break;
-        }
+        // switch(HomeScreenState.currentIndex){
+        //   case 0 : context.read<BottomColorNotifire>().setColor(
+        //       Palette.textLineOrBackGroundColor);
+        //   HomeScreenState.icons = BottomIcons.home;
+        //
+        //   HomeScreenState.isLibrary = false;
+        //
+        //   HomeScreenState.isHome = true;
+        //   HomeScreenState.isSearch = false;
+        //   HomeScreenState.isItalian = false;
+        //   HomeScreenState.isAccount = false;
+        //   break;
+        //   case 1 : context.read<BottomColorNotifire>().setColor(
+        //       Palette.libraryBacgroundColor);
+        //   HomeScreenState.icons = BottomIcons.library;
+        //
+        //   HomeScreenState.isLibrary = true;
+        //
+        //   HomeScreenState.isHome = false;
+        //   HomeScreenState.isSearch = false;
+        //   HomeScreenState.isItalian = false;
+        //   HomeScreenState.isAccount = false;
+        //   break;
+        //   case 2 : context.read<BottomColorNotifire>().setColor(
+        //       Palette.searchBackGroundColor);
+        //   HomeScreenState.icons = BottomIcons.search;
+        //
+        //   HomeScreenState.isLibrary = false;
+        //
+        //   HomeScreenState.isHome = false;
+        //   HomeScreenState.isSearch = true;
+        //   HomeScreenState.isItalian = false;
+        //   HomeScreenState.isAccount = false;
+        //   break;
+        //   case 3 : context.read<BottomColorNotifire>().setColor(
+        //       Palette.textLineOrBackGroundColor);
+        //   HomeScreenState.icons = BottomIcons.italian;
+        //
+        //   HomeScreenState.isLibrary = false;
+        //
+        //   HomeScreenState.isHome = false;
+        //   HomeScreenState.isSearch = false;
+        //   HomeScreenState.isItalian = true;
+        //   HomeScreenState.isAccount = false;
+        //   break;
+        //   case 4 : context.read<BottomColorNotifire>().setColor(
+        //       Palette.textLineOrBackGroundColor);
+        //   HomeScreenState.icons = BottomIcons.account;
+        //
+        //   HomeScreenState.isLibrary = false;
+        //
+        //   HomeScreenState.isHome = false;
+        //   HomeScreenState.isSearch = false;
+        //   HomeScreenState.isItalian = false;
+        //   HomeScreenState.isAccount = true;
+        //   break;
+        // }
 
         return true;
       },
@@ -103,63 +100,63 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       Align(alignment: Alignment.topLeft,
                       child: IconButton(onPressed: (){
-                        switch(HomeScreenState.currentIndex){
-                          case 0 : context.read<BottomColorNotifire>().setColor(
-                              Palette.textLineOrBackGroundColor);
-                          HomeScreenState.icons = BottomIcons.home;
-
-                          HomeScreenState.isLibrary = false;
-
-                          HomeScreenState.isHome = true;
-                          HomeScreenState.isSearch = false;
-                          HomeScreenState.isItalian = false;
-                          HomeScreenState.isAccount = false;
-                          break;
-                          case 1 : context.read<BottomColorNotifire>().setColor(
-                              Palette.libraryBacgroundColor);
-                          HomeScreenState.icons = BottomIcons.library;
-
-                          HomeScreenState.isLibrary = true;
-
-                          HomeScreenState.isHome = false;
-                          HomeScreenState.isSearch = false;
-                          HomeScreenState.isItalian = false;
-                          HomeScreenState.isAccount = false;
-                          break;
-                          case 2 : context.read<BottomColorNotifire>().setColor(
-                              Palette.searchBackGroundColor);
-                          HomeScreenState.icons = BottomIcons.search;
-
-                          HomeScreenState.isLibrary = false;
-
-                          HomeScreenState.isHome = false;
-                          HomeScreenState.isSearch = true;
-                          HomeScreenState.isItalian = false;
-                          HomeScreenState.isAccount = false;
-                          break;
-                          case 3 : context.read<BottomColorNotifire>().setColor(
-                              Palette.textLineOrBackGroundColor);
-                          HomeScreenState.icons = BottomIcons.italian;
-
-                          HomeScreenState.isLibrary = false;
-
-                          HomeScreenState.isHome = false;
-                          HomeScreenState.isSearch = false;
-                          HomeScreenState.isItalian = true;
-                          HomeScreenState.isAccount = false;
-                          break;
-                          case 4 : context.read<BottomColorNotifire>().setColor(
-                              Palette.textLineOrBackGroundColor);
-                          HomeScreenState.icons = BottomIcons.account;
-
-                          HomeScreenState.isLibrary = false;
-
-                          HomeScreenState.isHome = false;
-                          HomeScreenState.isSearch = false;
-                          HomeScreenState.isItalian = false;
-                          HomeScreenState.isAccount = true;
-                          break;
-                        }
+                        // switch(HomeScreenState.currentIndex){
+                        //   case 0 : context.read<BottomColorNotifire>().setColor(
+                        //       Palette.textLineOrBackGroundColor);
+                        //   HomeScreenState.icons = BottomIcons.home;
+                        //
+                        //   HomeScreenState.isLibrary = false;
+                        //
+                        //   HomeScreenState.isHome = true;
+                        //   HomeScreenState.isSearch = false;
+                        //   HomeScreenState.isItalian = false;
+                        //   HomeScreenState.isAccount = false;
+                        //   break;
+                        //   case 1 : context.read<BottomColorNotifire>().setColor(
+                        //       Palette.libraryBacgroundColor);
+                        //   HomeScreenState.icons = BottomIcons.library;
+                        //
+                        //   HomeScreenState.isLibrary = true;
+                        //
+                        //   HomeScreenState.isHome = false;
+                        //   HomeScreenState.isSearch = false;
+                        //   HomeScreenState.isItalian = false;
+                        //   HomeScreenState.isAccount = false;
+                        //   break;
+                        //   case 2 : context.read<BottomColorNotifire>().setColor(
+                        //       Palette.searchBackGroundColor);
+                        //   HomeScreenState.icons = BottomIcons.search;
+                        //
+                        //   HomeScreenState.isLibrary = false;
+                        //
+                        //   HomeScreenState.isHome = false;
+                        //   HomeScreenState.isSearch = true;
+                        //   HomeScreenState.isItalian = false;
+                        //   HomeScreenState.isAccount = false;
+                        //   break;
+                        //   case 3 : context.read<BottomColorNotifire>().setColor(
+                        //       Palette.textLineOrBackGroundColor);
+                        //   HomeScreenState.icons = BottomIcons.italian;
+                        //
+                        //   HomeScreenState.isLibrary = false;
+                        //
+                        //   HomeScreenState.isHome = false;
+                        //   HomeScreenState.isSearch = false;
+                        //   HomeScreenState.isItalian = true;
+                        //   HomeScreenState.isAccount = false;
+                        //   break;
+                        //   case 4 : context.read<BottomColorNotifire>().setColor(
+                        //       Palette.textLineOrBackGroundColor);
+                        //   HomeScreenState.icons = BottomIcons.account;
+                        //
+                        //   HomeScreenState.isLibrary = false;
+                        //
+                        //   HomeScreenState.isHome = false;
+                        //   HomeScreenState.isSearch = false;
+                        //   HomeScreenState.isItalian = false;
+                        //   HomeScreenState.isAccount = true;
+                        //   break;
+                        // }
 
                         Navigator.of(context,rootNavigator: true).pop();}, icon: Icon(Icons.arrow_back_ios_new_outlined),color: Colors.white,),
                       ),

@@ -100,7 +100,7 @@ class _BookReadScreenState extends State<BookReadScreen> {
       bookDataProvider.getCategoryLists(Api.categoryListUrl).then((value) {
         for (var nv in value) {
           Future.delayed(Duration(microseconds: 1500), () {
-            bookDataProvider.getLibrarayYbooksByCategory(nv.id!).then((value) {
+            bookDataProvider.getLibraryBooksByCategory(nv.id!).then((value) {
               for (var nValue in value!) {
                 // print(nValue.id);
 
@@ -1223,9 +1223,10 @@ class _BookPagesState extends State<BookPages> {
                                                     letterSpacing: 1),
                                                 textAlign: TextAlign.center,
                                               ))),
-                                      Padding(
+                                      Container(
                                         padding: EdgeInsets.only(
                                             left: 16.0, right: 16.0),
+                                        width: MediaQuery.of(context).size.width,
                                         child: Html(
                                            data: listText,
                                           // document: dom.Document.html(listText),
@@ -1238,17 +1239,19 @@ class _BookPagesState extends State<BookPages> {
                                             return '';
                                           },
                                           customRenders: {
-                                            tagMatcher("table"):CustomRender.widget(
-                                                widget: (contexts, buildChildren) => Container(
+                                            tagMatcher("table"): CustomRender.widget(
+                                              widget: (context, buildChildren) => SizedBox(
+                                                child: NotificationListener<ScrollNotification>(
+                                                  onNotification: (notification) => true,
                                                   child: SingleChildScrollView(
-                                                    padding: EdgeInsets.only(right: MediaQuery.of(context).size.width),
                                                     scrollDirection: Axis.horizontal,
-
-                                                    child: tableRender.call().widget!.call(contexts, buildChildren),
+                                                    child: tableRender.call().widget!.call(context, buildChildren),
                                                   ),
-                                                )
+                                                ),
+                                              ),
                                             ),
                                           },
+
                                           shrinkWrap: true,
                                             onLinkTap: (url, _, __, ___) async{
                                               print("Opening $url...");
@@ -1281,17 +1284,35 @@ class _BookPagesState extends State<BookPages> {
 
 
                                             'table': Style(
-
-                                              width: Width(MediaQuery.of(context).size.width-70),
-
-                                              lineHeight: LineHeight.em(1.3),
-
-
-                                                  ),
-                                            'td': Style(
                                               width: Width(MediaQuery.of(context).size.width),
+                                              // reduce width by 100 pixels
+                                              lineHeight: LineHeight.em(1.3),
+                                            ),
+                                            'td': Style(
 
-                                              alignment: Alignment.topLeft,
+                                              alignment: Alignment.centerLeft,
+                                              after: ' ',
+                                            ),
+                                            'tr': Style(
+                                              width: Width(MediaQuery.of(context).size.width-100),
+                                              whiteSpace: WhiteSpace.pre,
+                                              alignment: Alignment.center,
+
+                                            ),
+                                            'img':Style(
+
+                                                width: Width(MediaQuery.of(context).size.width-30),
+                                                alignment: Alignment.center,
+
+                                            ),
+                                            'span': Style(
+                                              fontSize: FontSize(17),
+                                                width: Width(MediaQuery.of(context).size.width/2),
+
+                                                alignment: Alignment.center,
+                                              maxLines: 2,
+                                              after: ' ',
+                                              textOverflow: TextOverflow.visible
 
                                             ),
 
