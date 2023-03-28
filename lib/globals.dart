@@ -116,8 +116,14 @@ class Api {
   //Library_Category APIs
   static String get categoryListUrl => '$api_url/libraries/categoryList';
 
-  static libraryCategoryById(id) => '$api_url/libraries/$id';
-
+  // static libraryCategoryById(id) => '$api_url/libraries/$id';
+  static String libraryCategoryById(String id, {String? eTag}) {
+    var url = '$api_url/libraries/$id';
+    if (eTag != null) {
+      url += '?_etag=$eTag';
+    }
+    return url;
+  }
   //ItalianLesson API
   static String get italianLessons => '$api_url/lessons';
 

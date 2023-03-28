@@ -137,6 +137,7 @@ class _InfoPageState extends State<InfoPage> {
                         style: {
                           'p': Style(
                            fontSize:  FontSize(17),
+                            textAlign: TextAlign.start
                           ),
                         },
                       ),
