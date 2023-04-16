@@ -1,5 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mashtoz_flutter/config/palette.dart';
 import 'package:mashtoz_flutter/domens/data_providers/session_data_provider.dart';
@@ -32,6 +33,8 @@ class HomeScreen extends StatefulWidget {
 class HomeScreenState extends State<HomeScreen> {
  // static BottomIcons? icons = BottomIcons.home;
   final _sessionProvider=SessionDataProvider();
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
+  FlutterLocalNotificationsPlugin? _flutterLocalNotificationsPlugin;
  // static bool isAccount = false;
  //  static bool isHome = false;
  //  static bool isItalian = false;
@@ -81,11 +84,11 @@ class HomeScreenState extends State<HomeScreen> {
       NotificationService.display(message);
     });
 
-    FirebaseMessaging.onMessageOpenedApp.listen((message) {
-      final routeFromMessage = message.data["route"];
-
-      Navigator.of(context).pushNamed(routeFromMessage);
-    });
+    // FirebaseMessaging.onMessageOpenedApp.listen((message) {
+    //   // final routeFromMessage = message.data["route"];
+    //   //
+    //   // Navigator.of(context).pushNamed(routeFromMessage);
+    // });
 hasToken();
     super.initState();
   }
@@ -114,15 +117,22 @@ hasToken();
     return WillPopScope(
       onWillPop: () async {
         // Check if we're at the first tab
-        if (_currentIndex == 0) {
+        if (_currentIndex == 0 && !_homeNavigatorKey!.currentState!.canPop()) {
           // If so, let the system handle the back button press
           return true;
-        } else {
-          // Otherwise, go back to the previous tab
+        } else if (_homeNavigatorKey!.currentState!.canPop()) {
+          _homeNavigatorKey!.currentState!.pop();
+        } else if (_currentIndex > 0) {
+          // If there is no previous page to pop, switch to the previous tab
           setState(() => _currentIndex -= 1);
-          return false;
+        } else {
+          // Otherwise, stay in the same tab and let the system handle the back button press
+          return true;
         }
+        return false;
       },
+
+
       child: Scaffold(
         body: IndexedStack(
           index: _currentIndex,

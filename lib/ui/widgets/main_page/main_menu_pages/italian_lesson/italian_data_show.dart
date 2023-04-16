@@ -4,11 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mashtoz_flutter/config/palette.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/lessons.dart';
-import 'package:mashtoz_flutter/domens/models/user.dart';
 import 'package:mashtoz_flutter/domens/repository/book_data_provdier.dart';
 import 'package:mashtoz_flutter/domens/repository/user_data_provider.dart';
 import 'package:mashtoz_flutter/ui/widgets/helper_widgets/save_show_dialog.dart';
-import 'package:mashtoz_flutter/ui/widgets/youtube_videos/youtuve_player.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../../helper_widgets/menuShow.dart';
@@ -61,7 +59,7 @@ class _ItaliaLessonShowState extends State<ItaliaLessonShow> {
             body: Padding(
               padding: const EdgeInsets.only(right: 20, left: 20.0),
               child: CustomScrollView(
-                physics: AlwaysScrollableScrollPhysics(),
+                physics: const AlwaysScrollableScrollPhysics(),
                 scrollDirection: Axis.vertical,
                 slivers: [
                   orentation != Orientation.landscape
@@ -89,11 +87,11 @@ class _ItaliaLessonShowState extends State<ItaliaLessonShow> {
                                 Navigator.pop(context);
                               },
                               //iconSize: 13,
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back_ios_new_outlined,
                                 color: Palette.appBarTitleColor,
                               ),
-                              padding: EdgeInsets.only(right: double.infinity),
+                              padding: const EdgeInsets.only(right: double.infinity),
                               alignment: Alignment.center,
                             ),
                           ),
@@ -101,16 +99,16 @@ class _ItaliaLessonShowState extends State<ItaliaLessonShow> {
                           backgroundColor: Palette.textLineOrBackGroundColor,
                           elevation: 0,
                           automaticallyImplyLeading: false,
-                          systemOverlayStyle: SystemUiOverlayStyle(
+                          systemOverlayStyle: const SystemUiOverlayStyle(
                               statusBarColor: Color.fromRGBO(25, 4, 18, 1)),
                           actions: [
-                            MenuShow(),
+                            const MenuShow(),
                           ],
                         )
-                      : SliverToBoxAdapter(),
+                      : const SliverToBoxAdapter(),
                   SliverToBoxAdapter(
                     child: SingleChildScrollView(
-                      physics: AlwaysScrollableScrollPhysics(),
+                      physics: const AlwaysScrollableScrollPhysics(),
                       child: Column(
                         children: [
                           Container(
@@ -127,7 +125,7 @@ class _ItaliaLessonShowState extends State<ItaliaLessonShow> {
                                   CachedNetworkImage(
                                     imageUrl: lessons!.image!,
                                   ),
-                                  Positioned.fill(
+                                  const Positioned.fill(
                                     child: Align(
                                       alignment: Alignment.center,
                                       child: Center(
@@ -143,13 +141,13 @@ class _ItaliaLessonShowState extends State<ItaliaLessonShow> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           SizedBox(
                             width: MediaQuery.of(context).size.width,
                             child: Flexible(
                               child: Text(
                                 lessons!.title ?? '',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.w700,
                                   fontSize: 12.0,
                                   fontFamily: 'GHEAGrapalat',
@@ -160,8 +158,8 @@ class _ItaliaLessonShowState extends State<ItaliaLessonShow> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 15.0),
-                          Divider(),
+                          const SizedBox(height: 15.0),
+                          const Divider(),
                           orentation != Orientation.landscape
                               ? Container(
                                   color: Palette.textLineOrBackGroundColor,
@@ -194,7 +192,7 @@ class _ItaliaLessonShowState extends State<ItaliaLessonShow> {
                                           ],
                                         ),
                                       ),
-                                      Spacer(),
+                                      const Spacer(),
                                       InkWell(
                                         onTap: () {
                                           var data = <String, dynamic>{
@@ -220,7 +218,7 @@ class _ItaliaLessonShowState extends State<ItaliaLessonShow> {
                                       ),
                                     ],
                                   ))
-                              : SizedBox(
+                              : const SizedBox(
                                   height: 0.1,
                                 ),
                         ],
@@ -231,19 +229,18 @@ class _ItaliaLessonShowState extends State<ItaliaLessonShow> {
               ),
             ),
           )
-        : Container(
-            child: Center(
-              child: CircularProgressIndicator(
-                color: Palette.main,
-              ),
-            ),
-          );
+        : const Center(
+          child: CircularProgressIndicator(
+            color: Palette.main,
+          ),
+        );
   }
 
   void userIsSign(Map<String, dynamic> data) async {
       showDialog(
           context: context,
           barrierDismissible: false,
+          useRootNavigator: true,
           builder: (
             context,
           ) =>

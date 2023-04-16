@@ -349,16 +349,17 @@ class BookDataProvider {
           dialects.add(dat);
         });
       }
-      return dialects;
     }
 
-    // If data is not available in cache, call API and store response in cache
+    // Call API to get data
     var response = await http.get(
       Uri.parse(url),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
     );
+
+    // Parse API response
     var body = json.decode(response.body);
     var success = body['success'];
     var datas = body['data'];
@@ -367,11 +368,22 @@ class BookDataProvider {
         var dat = Data.fromJson(element);
         dialects.add(dat);
       });
-      await DefaultCacheManager().putFile(url, response.bodyBytes);
+
+      // Check if data in cache is different from API response
+      var jsonString = json.encode(body);
+      if (await file.exists()) {
+        var oldJsonString = await file.readAsString();
+        if (jsonString != oldJsonString) {
+          await DefaultCacheManager().putFile(url, response.bodyBytes);
+        }
+      } else {
+        await DefaultCacheManager().putFile(url, response.bodyBytes);
+      }
     }
 
     return dialects;
   }
+
 
   //Words of Day
   Future<WordOfDay?> getWordsOfDay() async {
@@ -491,6 +503,7 @@ class BookDataProvider {
         Uri.parse(Api.getHomeData),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
+          // Add any additional headers as needed
         },
       );
       var body = json.decode(response.body);
@@ -503,13 +516,23 @@ class BookDataProvider {
           Api.getHomeData,
           response.bodyBytes,
           eTag: response.headers['etag'] ?? '',
+          // Set the maximum cache age (in seconds)
+          maxAge: Duration(seconds: 10),
+          // Set the maximum cache size (in bytes)
         );
         return newData;
+      } else {
+        // Handle error case
+        var error = body['error'] ?? 'Unknown error';
+        print('Error: $error');
+        throw Exception(error);
       }
     } catch (e) {
-      print(e);
+      // Handle exception
+      print('Exception: $e');
+      rethrow;
     }
-    return HomeData();
   }
+
 
 }

@@ -206,7 +206,7 @@ class BookCard extends StatelessWidget {
             MaterialPageRoute(
               builder: (_) => isFromHomePage ==true?BookInitalScreen(
                 isFromHomaPage: isFromHomePage,
-                book: book,
+                book: null,
                 idLib: bookId,
               ):BookInitalScreen(
                 book: book,

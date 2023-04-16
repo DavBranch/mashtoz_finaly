@@ -155,7 +155,7 @@ class HomePageState extends State<HomePage> {
         a = value;
       });
     });
-    setState(() {});
+
 
     return value;
   });
@@ -457,26 +457,36 @@ class HomePageState extends State<HomePage> {
                                                                               child: Row(
                                                       mainAxisAlignment : MainAxisAlignment.spaceBetween,
                                                                                 children: [
-                                                                                  Text(
-                                                                                    '${data?.author}',
-                                                                                    textAlign:
-                                                                                    TextAlign
-                                                                                        .center,
-                                                                                  ),
-                                                                                  TextButton(
-                                                                                    onPressed:(){
-                                                                                      context
-                                                                                          .read<BottomColorNotifire>()
-                                                                                          .setColor(Palette.searchBackGroundColor);
-                                                                                      Navigator.push(context, MaterialPageRoute(builder: (_)=> const AfterWordsOfDayScreen()));
-                                                                                    },
+                                                                                  Expanded(
                                                                                     child: Text(
-                                                                                      'Նախորդ խոսքեր',
+                                                                                      '${data?.author}',
                                                                                       textAlign:
                                                                                       TextAlign
-                                                                                          .center,
+                                                                                          .left,
+                                                                                      style: TextStyle(fontSize: 12),
+                                                                                    ),
+                                                                                  ),
+                                                                                  Expanded(
+                                                                                    child: GestureDetector(
+                                                                                      onTap:(){
+                                                                                        context
+                                                                                            .read<BottomColorNotifire>()
+                                                                                            .setColor(Palette.searchBackGroundColor);
+                                                                                        Navigator.push(context, MaterialPageRoute(builder: (_)=> const AfterWordsOfDayScreen()));
+                                                                                      },
+                                                                                      child: Text(
+                                                                                        'Նախորդ խոսքեր',
+                                                                                        textAlign:
+                                                                                        TextAlign
+                                                                                            .right,
 
-                                                                                      style: TextStyle(color: Colors.grey.shade600),
+                                                                                        style: TextStyle(
+                                                                                          color: Colors.grey.shade600,
+                                                                                          fontSize: 12,
+                                                                                          decoration: TextDecoration.underline,
+                                                                                          decorationStyle: TextDecorationStyle.solid,
+                                                                                        ),
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 ],

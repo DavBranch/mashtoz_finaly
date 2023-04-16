@@ -108,7 +108,7 @@
                     }
                 },
                 {
-                    "source": "/Users/davit/.gradle/caches/transforms-3/d62c5e092aaf9364a24da08b40e24c41/transformed/jetified-facebook-login-16.0.0/res/values-it/values-it.xml",
+                    "source": "/Users/davit/.gradle/caches/transforms-3/4b54f5c70a6029421772eed5bad4fe70/transformed/jetified-facebook-login-16.0.1/res/values-it/values-it.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

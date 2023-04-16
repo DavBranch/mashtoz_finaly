@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="default_web_client_id" translatable="false">828541657077-67lbret9t6ukfq41l2lnqnclo0hpe6l9.apps.googleusercontent.com</string>
-    <string name="gcm_defaultSenderId" translatable="false">828541657077</string>
-    <string name="google_api_key" translatable="false">AIzaSyDyrVadIm7o3QnOShQ6dc6IW-SkDYpfNs8</string>
-    <string name="google_app_id" translatable="false">1:828541657077:android:5b5231d5e2df791fec4abc</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDyrVadIm7o3QnOShQ6dc6IW-SkDYpfNs8</string>
-    <string name="google_storage_bucket" translatable="false">mashtoz-aa897.appspot.com</string>
-    <string name="project_id" translatable="false">mashtoz-aa897</string>
+    <string name="default_web_client_id" translatable="false">853680183845-f581bjebl3lue76rn37e170o9n7q475k.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">853680183845</string>
+    <string name="google_api_key" translatable="false">AIzaSyACIkXhqaIiSl6Z83WCL25Ydx4OA_lWxjo</string>
+    <string name="google_app_id" translatable="false">1:853680183845:android:7634d4fa0725ce15737dcc</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyACIkXhqaIiSl6Z83WCL25Ydx4OA_lWxjo</string>
+    <string name="google_storage_bucket" translatable="false">mashtoz-kayq.appspot.com</string>
+    <string name="project_id" translatable="false">mashtoz-kayq</string>
 </resources>

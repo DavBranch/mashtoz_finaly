@@ -1,14 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:mashtoz_flutter/domens/blocs/Login/login_bloc.dart';
-import 'package:mashtoz_flutter/domens/blocs/register_bloc/register_bloc.dart';
 import 'package:mashtoz_flutter/domens/data_providers/session_data_provider.dart';
-import 'package:mashtoz_flutter/domens/models/user_sign_or_not.dart';
 import 'package:mashtoz_flutter/domens/repository/user_data_provider.dart';
 import 'package:mashtoz_flutter/ui/utils/log_out_changenotifire.dart';
 import 'package:mashtoz_flutter/ui/utils/showSnackBar.dart';
@@ -16,20 +12,14 @@ import 'package:mashtoz_flutter/ui/widgets/login_sign/login_screen/login_screen.
 import 'package:mashtoz_flutter/ui/widgets/main_page/bottom_bars_pages/account_page.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/home_screen.dart';
 
-class AuthService{
+class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   final SessionDataProvider _sessionDataProvider = SessionDataProvider();
   final UserDataProvider _userDataProvider = UserDataProvider();
-  bool hasToken() {
-    bool isSign = false;
-    _sessionDataProvider.readsAccessToken().then((value) {
-      if(value != null){
-        isSign = true;
-      }
-    });
-
-    return isSign;
+  Future<bool> hasToken() async {
+    var value = await _sessionDataProvider.readsAccessToken();
+    return value != null;
   }
 
  // void hasSignInfo(BuildContext context,FirebaseAuth user,OAuthCredential oAuthCredential){
@@ -41,12 +31,11 @@ class AuthService{
  //
  // }
 
- Widget handleAuthState() {
-    bool isSign =    hasToken();
+  Future<Widget> handleAuthState() async {
+    bool isSign = await hasToken();
     User? result = FirebaseAuth.instance.currentUser;
-
-    return
-      (result != null && isSign ) || isSign ? const AccountPage() : const LoginScreen();
+    print("IsSign$isSign");
+    return (result != null && isSign) || isSign ? const AccountPage() : LoginScreen();
   }
 
   // signInWithGoogle(BuildContext context) async {
@@ -116,7 +105,7 @@ class AuthService{
       } else{
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => const LoginScreen(
+            builder: (context) =>  LoginScreen(
             ),
           ),
         );
@@ -146,7 +135,7 @@ class AuthService{
       } else{
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => const LoginScreen(
+            builder: (context) =>  LoginScreen(
             ),
           ),
         );

@@ -12,6 +12,7 @@ import 'package:share_plus/share_plus.dart';
 import '../../../../config/palette.dart';
 import '../../../../domens/models/book_data/content_list.dart';
 import '../../../../domens/repository/user_data_provider.dart';
+import '../../../../globals.dart';
 import 'book_inherited_widget.dart';
 import 'book_read_screen.dart';
 
@@ -41,28 +42,28 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
   @override
   void initState() {
     userDataProvider.fetchUserInfo().then((value) => custemerId = value?.id??0);
-   // if(idLib != null) getLibrarayYbooksById(idLib!);
+    if(idLib != null) findBook();
 
     super.initState();
   }
-  // void findBook()async{
-  //   await bookDataProvider.getCategoryLists(Api.categoryListUrl).then((value) {
-  //     for (var nv in value) {
-  //       print("Iddddddddd${nv.id}");
-  //       bookDataProvider.getLibrarayYbooksByCategory(nv.id!).then((value) {
-  //
-  //         for (var nValue in value!) {
-  //           if ("(${nValue.id})".toString().contains(idLib.toString())) {
-  //             book = nValue;
-  //             setState(() {});
-  //             break;
-  //           }
-  //         }
-  //       });
-  //     }
-  //   });
-  //
-  // }
+  void findBook()async{
+    await bookDataProvider.getCategoryLists(Api.categoryListUrl).then((value) {
+      for (var nv in value) {
+        print("Iddddddddd${nv.id}");
+        bookDataProvider.getLibraryBooksByCategory(nv.id!).then((value) {
+
+          for (var nValue in value!) {
+            if ("(${nValue.id})".toString().contains(idLib.toString())) {
+              book = nValue;
+              setState(() {});
+              break;
+            }
+          }
+        });
+      }
+    });
+
+  }
 //   Future<void> getLibrarayYbooksById(int idLib) async {
 //     List<BookCategory> categoryList = await bookDataProvider.getCategoryLists(Api.categoryListUrl);
 //     bool isFound = false;
@@ -93,9 +94,9 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
 
-    if ( book?.content!=null) {
+    if ( book?.content != null ) {
       return Scaffold(
-        backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+        backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
@@ -103,7 +104,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                 transform: Matrix4.translationValues(-20.0, 0.0, 0.0),
                 child:isFromHomePage==true? null:Text(
                   '${category?.categoryTitle}',
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 16,
                       letterSpacing: 1,
                       fontFamily: 'GHEAGrapalat',
@@ -118,7 +119,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back_ios_new_outlined,
                     color: Palette.appBarTitleColor,
                   ),
@@ -128,11 +129,11 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
               backgroundColor: Palette.textLineOrBackGroundColor,
               elevation: 0,
               automaticallyImplyLeading: false,
-              systemOverlayStyle: SystemUiOverlayStyle(
+              systemOverlayStyle: const SystemUiOverlayStyle(
                   statusBarColor: Color.fromRGBO(25, 4, 18, 1)),
               actions: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 20.0),
+                const Padding(
+                  padding: EdgeInsets.only(right: 20.0),
                   child: MenuShow(),
                 ),
               ],
@@ -172,7 +173,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                               255, 255, 255, 1),
                                           border: Border.all(
                                             color:
-                                                Color.fromRGBO(51, 51, 51, 1),
+                                                const Color.fromRGBO(51, 51, 51, 1),
                                             width: 01,
                                           ),
                                         ))),
@@ -203,7 +204,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                       child: Text(
                                         "${book?.title}",
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Color.fromRGBO(25, 4, 18, 1),
                                           fontSize: 12,
                                           letterSpacing: 1,
@@ -225,7 +226,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                             child: Text(
                                               book?.author ?? '',
                                               textAlign: TextAlign.center,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 color: Color.fromRGBO(
                                                     25, 4, 18, 1),
                                                 fontSize: 12,
@@ -257,7 +258,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                   Container(
                       color: const Color.fromRGBO(246, 246, 246, 1),
                       width: double.infinity,
-                      padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                      padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                       height: 49,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -323,11 +324,11 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
             ),
             SliverToBoxAdapter(
               child: SingleChildScrollView(
-                physics: ClampingScrollPhysics(),
+                physics: const ClampingScrollPhysics(),
                 child: ListView.builder(
                     itemCount: book?.content?.length,
                     scrollDirection: Axis.vertical,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       final bovandak =
@@ -346,7 +347,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                               textColor: const Color.fromRGBO(84, 112, 126, 1),
                               iconColor: Palette.whenTapedButton,
                               childrenPadding:
-                                  EdgeInsets.only(left: 20.0, right: 20.0),
+                                  const EdgeInsets.only(left: 20.0, right: 20.0),
                               title:GestureDetector(
                       onTap:(){
 
@@ -379,12 +380,12 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                               ),
                               // leading: Text('0${index+1}'),
                               tilePadding:
-                                  EdgeInsets.only(right: 20.0, left: 40.0),
+                                  const EdgeInsets.only(right: 20.0, left: 40.0),
                                 initiallyExpanded:true,
                               children: [
                                 ListView.builder(
                                     shrinkWrap: true,
-                                    physics: NeverScrollableScrollPhysics(),
+                                    physics: const NeverScrollableScrollPhysics(),
                                     itemCount: subBovandak?.length,
                                     scrollDirection: Axis.vertical,
                                     itemBuilder: (context, index2) {
@@ -409,18 +410,38 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                                   iconColor:
                                                       const Color.fromRGBO(
                                                           250, 147, 114, 1),
-                                                  title: Text(
-                                                    '${subBovandak?[index2].title}',
-                                                    style: TextStyle(
-                                                        color: Color.fromRGBO(
-                                                            113, 141, 156, 1),
-                                                        fontFamily:
-                                                            'GHEAGrapalat',
-                                                        fontSize: 14.0,
-                                                        fontWeight:
-                                                            FontWeight.w700),
+                                                  title: GestureDetector(
+                                                    onTap:(){
+
+                                                      Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (_) =>
+                                                              BookReadScreen(
+                                                                isFromHomePage: widget.isFromHomaPage,
+                                                                readScreen:
+                                                                subBovandak?[index2],
+                                                                isShowTitle:
+                                                                true,
+                                                              ),
+                                                        ),
+                                                      );
+                                                      print('Coco');
+
+                                                    },
+                                                    child: Text(
+                                                      '${subBovandak?[index2].title}',
+                                                      style: const TextStyle(
+                                                          color: Color.fromRGBO(
+                                                              113, 141, 156, 1),
+                                                          fontFamily:
+                                                              'GHEAGrapalat',
+                                                          fontSize: 14.0,
+                                                          fontWeight:
+                                                              FontWeight.w700),
+                                                    ),
                                                   ),
-                                                  tilePadding: EdgeInsets.only(
+                                                  tilePadding: const EdgeInsets.only(
                                                       right: 20.0, left: 40.0),
                                                   children: [
                                                     ListView.builder(
@@ -430,7 +451,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                                         scrollDirection:
                                                             Axis.vertical,
                                                         physics:
-                                                            NeverScrollableScrollPhysics(),
+                                                            const NeverScrollableScrollPhysics(),
                                                         itemBuilder:
                                                             (context, index3) {
                                                           Content readContent =
@@ -454,7 +475,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                                               print('Coco');
                                                             },
                                                             child: Container(
-                                                              padding: EdgeInsets
+                                                              padding: const EdgeInsets
                                                                   .only(
                                                                       left:
                                                                           40.0,
@@ -467,14 +488,14 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                                                       SvgPicture
                                                                           .asset(
                                                                               'assets/images/line24.svg'),
-                                                                      SizedBox(
+                                                                      const SizedBox(
                                                                           width:
                                                                               20.0),
                                                                       Expanded(
                                                                         child:
                                                                             Text(
                                                                           "${subContent[index3].title}",
-                                                                          style: TextStyle(
+                                                                          style: const TextStyle(
                                                                               fontFamily: 'GHEAGrapalat',
                                                                               fontSize: 14.0,
                                                                               fontWeight: FontWeight.w700,
@@ -485,7 +506,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                                                       ),
                                                                     ],
                                                                   ),
-                                                                  Divider(
+                                                                  const Divider(
                                                                       height:
                                                                           20.0,
                                                                       thickness:
@@ -497,9 +518,9 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                                         }),
                                                   ],
                                                 ),
-                                                Padding(
+                                                const Padding(
                                                   padding:
-                                                      const EdgeInsets.only(
+                                                      EdgeInsets.only(
                                                           right: 15.0,
                                                           left: 15.0),
                                                   child: Divider(
@@ -540,7 +561,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                                             TextAlign.start,
                                                       ),
                                                     ),
-                                                    Divider(),
+                                                    const Divider(),
                                                   ],
                                                 ),
                                               ),
@@ -548,8 +569,8 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                     }),
                               ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(
+                            const Padding(
+                              padding: EdgeInsets.only(
                                   right: 20.0, left: 20.0),
                               child: Divider(
                                 thickness: 1,
@@ -581,7 +602,7 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                   alignment: Alignment.centerLeft,
                                   child: Text(
                                     '${bovandak?[index].title}',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontFamily: 'GHEAGrapalat',
                                         fontSize: 16.0,
                                         fontWeight: FontWeight.w700,
@@ -592,16 +613,16 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
                                 ),
                               ),
                             ),
-                            Padding(
+                            const Padding(
                               padding:
-                                  const EdgeInsets.only(right: 15.0, left: 0.0),
+                                  EdgeInsets.only(right: 15.0, left: 0.0),
                               child: Divider(
                                 thickness: 1,
                                 height: 1.5,
                                 color: Color.fromRGBO(226, 224, 224, 1),
                               ),
                             ),
-                            SizedBox(height: 5.0),
+                            const SizedBox(height: 5.0),
                           ]),
                         );
                       }
@@ -612,18 +633,15 @@ class _BookInitalScreenState extends State<BookInitalScreen> {
         ),
       );
     } else {
-   return  book!=null ?  BookReadScreen(
+   return  book != null ?  BookReadScreen(
      isFromHomePage: widget.isFromHomaPage,
      readScreen: book,
         isShowTitle: true,
-      ):Scaffold(body: Center(child:CircularProgressIndicator(color: Palette.main,),),);
+      ):const Scaffold(body: Center(child:CircularProgressIndicator(color: Palette.main,),),);
     }
   }
 
   Future<void> userIsSign(Map<String, dynamic> data) async {
-
-
-
       showDialog(
           context: context,
           barrierDismissible: false,
@@ -668,17 +686,37 @@ class _GlobalBovandakListsState extends State<GlobalBovandakLists> {
                           const Color.fromRGBO(250, 147, 114, 1),
                       textColor: const Color.fromRGBO(84, 112, 126, 1),
                       iconColor: Palette.whenTapedButton,
-                      title: Text(
-                        '${bovandak?[index].title}',
-                        style: TextStyle(
-                          fontFamily: 'GHEAGrapalat',
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w700,
-                          color: Color.fromRGBO(84, 112, 126, 1),
+                      title: GestureDetector(
+              onTap:(){
+
+              Navigator.push(
+              context,
+              MaterialPageRoute(
+              builder: (_) =>
+              BookReadScreen(
+              isFromHomePage:false,
+              readScreen:
+              bovandak?[index],
+              isShowTitle:
+              true,
+              ),
+              ),
+              );
+              print('Coco');
+
+              },
+                        child: Text(
+                          '${bovandak?[index].title}',
+                          style: const TextStyle(
+                            fontFamily: 'GHEAGrapalat',
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w700,
+                            color: Color.fromRGBO(84, 112, 126, 1),
+                          ),
+                          textAlign: TextAlign.start,
                         ),
-                        textAlign: TextAlign.start,
                       ),
-                      tilePadding: EdgeInsets.only(right: 20.0, left: 40.0),
+                      tilePadding: const EdgeInsets.only(right: 20.0, left: 40.0),
                       children: [
                         ListView.builder(
                             shrinkWrap: true,
@@ -702,16 +740,36 @@ class _GlobalBovandakListsState extends State<GlobalBovandakLists> {
                                                   250, 147, 114, 1),
                                           iconColor: const Color.fromRGBO(
                                               250, 147, 114, 1),
-                                          title: Text(
-                                            '${subBovandak?[index2].title}',
-                                            style: TextStyle(
-                                                color: Color.fromRGBO(
-                                                    113, 141, 156, 1),
-                                                fontFamily: 'GHEAGrapalat',
-                                                fontSize: 14.0,
-                                                fontWeight: FontWeight.w700),
+                                          title: GestureDetector(
+                                            onTap:(){
+
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (_) =>
+                                                      BookReadScreen(
+                                                        isFromHomePage:false,
+                                                        readScreen:
+                                                        subBovandak?[index2],
+                                                        isShowTitle:
+                                                        true,
+                                                      ),
+                                                ),
+                                              );
+                                              print('Coco');
+
+                                            },
+                                            child: Text(
+                                              '${subBovandak?[index2].title}',
+                                              style: const TextStyle(
+                                                  color: Color.fromRGBO(
+                                                      113, 141, 156, 1),
+                                                  fontFamily: 'GHEAGrapalat',
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.w700),
+                                            ),
                                           ),
-                                          tilePadding: EdgeInsets.only(
+                                          tilePadding: const EdgeInsets.only(
                                               right: 20.0, left: 40.0),
                                           children: [
                                             ListView.builder(
@@ -739,7 +797,7 @@ class _GlobalBovandakListsState extends State<GlobalBovandakLists> {
                                                       print('Coco');
                                                     },
                                                     child: Container(
-                                                      padding: EdgeInsets.only(
+                                                      padding: const EdgeInsets.only(
                                                           left: 40.0,
                                                           right: 20.0),
                                                       height: 60,
@@ -747,11 +805,11 @@ class _GlobalBovandakListsState extends State<GlobalBovandakLists> {
                                                         children: [
                                                           SvgPicture.asset(
                                                               'assets/images/line24.svg'),
-                                                          SizedBox(width: 20.0),
+                                                          const SizedBox(width: 20.0),
                                                           Expanded(
                                                             child: Text(
                                                               "${subContent[index3].title}",
-                                                              style: TextStyle(
+                                                              style: const TextStyle(
                                                                   fontFamily:
                                                                       'GHEAGrapalat',
                                                                   fontSize:
@@ -773,8 +831,8 @@ class _GlobalBovandakListsState extends State<GlobalBovandakLists> {
                                                 }),
                                           ],
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
+                                        const Padding(
+                                          padding: EdgeInsets.only(
                                               right: 15.0, left: 0.0),
                                           child: Divider(
                                             thickness: 1,
@@ -800,7 +858,7 @@ class _GlobalBovandakListsState extends State<GlobalBovandakLists> {
                                         print('Coco');
                                       },
                                       child: Container(
-                                        padding: EdgeInsets.all(12.0),
+                                        padding: const EdgeInsets.all(12.0),
                                         height: 60,
                                         child: Text(
                                           '${subBovandak?[index2].title}',
@@ -811,8 +869,8 @@ class _GlobalBovandakListsState extends State<GlobalBovandakLists> {
                             }),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 20.0, left: 20.0),
+                    const Padding(
+                      padding: EdgeInsets.only(right: 20.0, left: 20.0),
                       child: Divider(
                         thickness: 1,
                         height: 1.5,
@@ -841,7 +899,7 @@ class _GlobalBovandakListsState extends State<GlobalBovandakLists> {
                           alignment: Alignment.centerLeft,
                           child: Text(
                             '${bovandak?[index].title}',
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontFamily: 'GHEAGrapalat',
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.w700,
@@ -852,8 +910,8 @@ class _GlobalBovandakListsState extends State<GlobalBovandakLists> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 15.0, left: 0.0),
+                    const Padding(
+                      padding: EdgeInsets.only(right: 15.0, left: 0.0),
                       child: Divider(
                         thickness: 1,
                         height: 1.5,

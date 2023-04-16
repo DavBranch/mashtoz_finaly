@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mashtoz_flutter/domens/data_providers/session_data_provider.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/bottom_bars_pages/bottom_bar_menu_pages.dart';
+
+import 'auth_service.dart';
 
 class TabNavigatorRoutes {
   static const String root = '/';
@@ -7,10 +10,11 @@ class TabNavigatorRoutes {
 }
 
 class TabNavigator extends StatelessWidget {
-  const TabNavigator({
+  final _sessionProvider = SessionDataProvider();
+   TabNavigator({Key? key,
     required this.navigatorKey,
     required this.tabItem,
-  });
+  }) : super(key: key);
   final GlobalKey<NavigatorState>? navigatorKey;
   final String tabItem;
 
@@ -31,8 +35,28 @@ class TabNavigator extends StatelessWidget {
         child =  ItalianPage();
         break;
       case 'accountpage':
-        child = const AccountPage();
-        break;
+
+        child =  FutureBuilder<Widget>(
+    future: AuthService().handleAuthState(),
+    builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
+    if (snapshot.connectionState == ConnectionState.done) {
+    if (snapshot.hasError) {
+
+    return Text('Error: ${snapshot.error}');
+
+    } else {
+
+    return snapshot.data!;
+
+    }
+    } else {
+
+      return const CircularProgressIndicator();
+
+    }
+    },
+    );
+ break;
     }
     return Navigator(
       key: navigatorKey,
@@ -42,4 +66,20 @@ class TabNavigator extends StatelessWidget {
         );
       },
     );
-  }}
+
+
+  }
+
+  bool hasToken() {
+    String? hasToken;
+    Future.delayed(Duration(milliseconds: 400,),()async{
+      hasToken  = await  _sessionProvider.readsAccessToken();});
+
+    if(hasToken != null){
+
+      return true;
+
+    }
+    return   false;
+  }
+}

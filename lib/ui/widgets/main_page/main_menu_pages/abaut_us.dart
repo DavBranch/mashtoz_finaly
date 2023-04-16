@@ -118,7 +118,7 @@ class _InfoPageState extends State<InfoPage> {
                       child: Html(
                         shrinkWrap: true,
                         onLinkTap: (url, _, __, ___) async{
-                          print("Opening $url...");
+                          print('Opening $url...');
                           if(url!=null){
                             if(url.contains('http') || url.contains('https') ){
                               if (await canLaunch(url)) {
@@ -128,6 +128,10 @@ class _InfoPageState extends State<InfoPage> {
                               } else {
                                 throw 'Could not launch $url';
                               }
+                            }
+                            if(url.contains('page:2')){
+                              print('page2');
+                              Navigator.of(context).push(MaterialPageRoute(builder: (_)=>const Contact()));
                             }
 
 

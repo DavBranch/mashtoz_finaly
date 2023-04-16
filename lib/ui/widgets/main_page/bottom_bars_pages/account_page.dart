@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -5,15 +7,12 @@ import 'package:mashtoz_flutter/domens/models/book_data/category_lsit.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/content_list.dart';
 import 'package:mashtoz_flutter/domens/models/book_data/lessons.dart';
 import 'package:mashtoz_flutter/domens/repository/user_data_provider.dart';
-import 'dart:math' as math;
 import 'package:mashtoz_flutter/ui/widgets/main_page/bottom_bars_pages/bottom_bar_menu_pages.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/library_pages/books_page.dart';
 import 'package:responsive_grid_list/responsive_grid_list.dart';
-
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 import '../../../../config/palette.dart';
-
 import '../../helper_widgets/menuShow.dart';
 
 class AccountPage extends StatelessWidget {
@@ -109,68 +108,70 @@ class _DelegateChildState extends State<DelegateChild>
   Widget buildList(
       {required Content data, required int index, required int listCount}) {
     if (drawableIndex == 0) {
-      return ResponsiveGridList(
-        horizontalGridSpacing: 16, // Horizontal space between grid items
+      return SingleChildScrollView(
+        child: ResponsiveGridList(
+          horizontalGridSpacing: 16, // Horizontal space between grid items
 
-        verticalGridMargin: 50, // Vertical space around the grid
-        minItemWidth:
-        388, // The minimum item width (can be smaller, if the layout constraints are smaller)
-        minItemsPerRow:
-        1, // The minimum items to show in a single row. Takes precedence over minItemWidth
-        maxItemsPerRow: 4, // The m
-        shrinkWrap: true,
-        children: List.generate(data.content!.length, (index) {
-          return index % 2 != 0
-              ? Transform(
-              alignment: Alignment.center,
-              transform: Matrix4.rotationY(math.pi),
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: BookCard(
-                  isOdd: true,
-                  book: data,
-                  categorys: BookCategory(
-                    categoryTitle: data.title!,
-                    id: data.id!,
-                    title: data.title!,
-                    type: 'librarian',
+          verticalGridMargin: 50, // Vertical space around the grid
+          minItemWidth:
+          388, // The minimum item width (can be smaller, if the layout constraints are smaller)
+          minItemsPerRow:
+          1, // The minimum items to show in a single row. Takes precedence over minItemWidth
+          maxItemsPerRow: 4, // The m
+          shrinkWrap: true,
+          children: List.generate(data.content!.length, (index) {
+            return index % 2 != 0
+                ? Transform(
+                alignment: Alignment.center,
+                transform: Matrix4.rotationY(math.pi),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: BookCard(
+                    isOdd: true,
+                    book: data,
+                    categorys: BookCategory(
+                      categoryTitle: data.title!,
+                      id: data.id!,
+                      title: data.title!,
+                      type: 'librarian',
+                    ),
                   ),
+                ))
+                : Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: BookCard(
+                isOdd: false,
+                book: data,
+                categorys: BookCategory(
+                  categoryTitle: data.title!,
+                  id: data.id!,
+                  title: data.title!,
+                  type: 'librarian',
                 ),
-              ))
-              : Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: BookCard(
-              isOdd: false,
+              ),
+            );
+          }),
+        ),
+      );
+      return index % 2 != 0
+          ? BookCard(
               book: data,
+              isOdd: false,
               categorys: BookCategory(
                 categoryTitle: data.title!,
                 id: data.id!,
                 title: data.title!,
                 type: 'librarian',
-              ),
-            ),
-          );
-        }),
-      );
-      // return index % 2 != 0
-      //     ? BookCard(
-      //         book: data,
-      //         isOdd: false,
-      //         categorys: BookCategory(
-      //           categoryTitle: data.title!,
-      //           id: data.id!,
-      //           title: data.title!,
-      //           type: 'librarian',
-      //         ))
-      //     : BookCard(
-      //         book: data,
-      //         isOdd: false,
-      //         categorys: BookCategory(
-      //           categoryTitle: data.title!,
-      //           id: data.id!,
-      //           title: data.title!,
-      //           type: 'librarian',
-      //         ));
+              ))
+          : BookCard(
+              book: data,
+              isOdd: false,
+              categorys: BookCategory(
+                categoryTitle: data.title!,
+                id: data.id!,
+                title: data.title!,
+                type: 'librarian',
+              ));
     } else if (drawableIndex == 1) {
       return carachtersList(data, index);
     } else if (drawableIndex == 2) {
@@ -212,7 +213,7 @@ class _DelegateChildState extends State<DelegateChild>
           return ListView(
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
-            physics: AlwaysScrollableScrollPhysics(),
+            physics: const AlwaysScrollableScrollPhysics(),
             children: items,
           );
         },
@@ -319,49 +320,57 @@ class _DelegateChildState extends State<DelegateChild>
         children: [
           SizedBox(height: 52),
           FutureBuilder<List<UserAccount>?>(
-              future: favoriteFuture,
-              builder: (context, snapshot) {
-                var data = snapshot.data;
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Container(
-                      child: Center(
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2.0,
-                            color: Palette.main,
-                          )));
-                } else if (snapshot.connectionState == ConnectionState.done) {
-                  if (snapshot.hasError) {
-                    return const Text('Something went wrong');
-                  } else if (snapshot.hasData) {
-                    var data = snapshot.data;
-                    return !data!.isEmpty? Expanded(
-                      child: Container(
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: data?.length,
-                          itemBuilder: (context, index) {
-                            if (data![index].type! == types[drawableIndex]) {
-                              return buildList(
-                                  data: data[index].content,
-                                  index: index,
-                                  listCount: data.length);
-                            }
-                            return Container(
-                              width: 0.1,
-                              height: 0.1,
-                            );
-                          },
-                        ),
-                      ),
-                    ) : Center(child:Text('Դեռևս գրառումներ չկան',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,color: Palette.barColor),),);
-                  } else {
-                    return const Center(child:Text('Դեռևս գրառումներ չկան',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,color: Palette.barColor),),);
-                  }
+            future: favoriteFuture,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2.0,
+                    color: Palette.main,
+                  ),
+                );
+              } else if (snapshot.connectionState == ConnectionState.done) {
+                if (snapshot.hasError) {
+                  return Text('Something went wrong');
+                } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                  final data = snapshot.data!;
+                  return Expanded(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      physics: AlwaysScrollableScrollPhysics(),
+                      itemCount: data.length,
+                      itemBuilder: (context, index) {
+                        final userAccount = data[index];
+                        if (userAccount.type! == types[drawableIndex]) {
+                          return buildList(
+                            data: userAccount.content,
+                            index: index,
+                            listCount: data.length,
+                          );
+                        } else {
+                          return SizedBox.shrink();
+                        }
+                      },
+                    ),
+                  );
                 } else {
-                  return Text('State: ${snapshot.connectionState}');
+                  return Center(
+                    child: Text(
+                      'Դեռևս գրառումներ չկան',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Palette.barColor,
+                      ),
+                    ),
+                  );
                 }
-              }),
+              } else {
+                return Text('State: ${snapshot.connectionState}');
+              }
+            },
+          ),
+
         ],
       ),
     );
@@ -426,7 +435,7 @@ class _DelegateChildState extends State<DelegateChild>
           ),
         ),
         body: TabBarView(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const AlwaysScrollableScrollPhysics(),
             controller: _tabController,
             children: listAccountElements
                 .map(

@@ -5,20 +5,21 @@ import 'package:formz/formz.dart';
 import 'package:mashtoz_flutter/config/palette.dart';
 import 'package:mashtoz_flutter/domens/blocs/register_bloc/register_bloc.dart';
 import 'package:mashtoz_flutter/domens/blocs/register_bloc/register_state.dart';
-import 'package:mashtoz_flutter/ui/widgets/main_page/bottom_bars_pages/home_page.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/home_screen.dart';
 
 import '../../../../domens/models/user_input_data_validation/passowrd.dart';
 
 class SignupForm extends StatelessWidget {
+  const SignupForm({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return BlocListener<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state.status.isSubmissionSuccess) {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => HomeScreen()));
+          Navigator.of(context,rootNavigator: true)
+              .pushAndRemoveUntil(MaterialPageRoute(builder: (_) => HomeScreen()),(Route<dynamic> route) => false);
         } else if (state.status.isSubmissionFailure) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
@@ -30,12 +31,12 @@ class SignupForm extends StatelessWidget {
             ..hideCurrentSnackBar()
             ..showSnackBar(
               SnackBar(
-                content: Container(
+                content: SizedBox(
                   height: 23,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Container(
+                    children: const <Widget>[
+                      SizedBox(
                         height: 15,
                         width: 20,
                         child: CircularProgressIndicator(
@@ -86,7 +87,7 @@ class _EmailIput extends StatelessWidget {
       builder: (context, state) {
         return TextFormField(
           cursorColor: Palette.cursor,
-          style: TextStyle(color: Palette.textLineOrBackGroundColor),
+          style: const TextStyle(color: Palette.textLineOrBackGroundColor),
           decoration: InputDecoration(
             focusedBorder: const UnderlineInputBorder(
                 borderSide:
@@ -121,7 +122,7 @@ class _FullNameInput extends StatelessWidget {
       builder: (context, state) {
         return TextFormField(
           cursorColor: Palette.cursor,
-          style: TextStyle(color: Palette.textLineOrBackGroundColor),
+          style: const TextStyle(color: Palette.textLineOrBackGroundColor),
           decoration: InputDecoration(
             focusedBorder: const UnderlineInputBorder(
                 borderSide:
@@ -171,7 +172,7 @@ class _PasswordInputState extends State<PasswordInput> {
       builder: (context, state) {
         return TextFormField(
           cursorColor: Palette.cursor,
-          style: TextStyle(color: Palette.textLineOrBackGroundColor),
+          style: const TextStyle(color: Palette.textLineOrBackGroundColor),
           decoration: InputDecoration(
             focusedBorder: const UnderlineInputBorder(
                 borderSide:

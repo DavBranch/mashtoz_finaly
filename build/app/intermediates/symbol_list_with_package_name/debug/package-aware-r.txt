@@ -488,6 +488,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color ic_launcher_background
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -933,6 +934,7 @@ drawable corner
 drawable floating_action_mode_shape
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_launcher_background
 drawable launch_background
 drawable launch_logo
 drawable logo_mashtoz
@@ -1434,6 +1436,9 @@ layout tw__tweet_quote
 layout tw__video_control
 menu menu_main
 mipmap ic_launcher
+mipmap ic_launcher_foreground
+mipmap ic_launcher_round
+mipmap launcher_icon
 plurals tw__time_hours
 plurals tw__time_mins
 plurals tw__time_secs

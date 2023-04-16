@@ -1,16 +1,13 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:formz/formz.dart';
 import 'package:mashtoz_flutter/config/palette.dart';
 import 'package:mashtoz_flutter/domens/blocs/Login/login_bloc.dart';
 import 'package:mashtoz_flutter/domens/blocs/Login/login_state.dart';
-
-import 'package:formz/formz.dart';
 import 'package:mashtoz_flutter/domens/repository/user_data_provider.dart';
-import 'package:mashtoz_flutter/ui/widgets/main_page/bottom_bars_pages/bottom_bar_menu_pages.dart';
 import 'package:mashtoz_flutter/ui/widgets/main_page/home_screen.dart';
 
-import '../../../../domens/models/user_input_data_validation/passowrd.dart';
 import '../forgot_screen/forgot_screen.dart';
 
 class LoginForm extends StatefulWidget {
@@ -28,8 +25,8 @@ class _LoginFormState extends State<LoginForm> {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state.status.isSubmissionSuccess) {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (_) => HomeScreen()));
+          Navigator.of(context,rootNavigator: true).pushAndRemoveUntil(
+               MaterialPageRoute(builder: (_) => const HomeScreen()),(Route<dynamic> route) => false);
         } else if (state.status.isSubmissionFailure) {
           print('cik isSubmissionFailure');
           ScaffoldMessenger.of(context)

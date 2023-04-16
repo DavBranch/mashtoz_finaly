@@ -283,8 +283,8 @@ class _ContactState extends State<Contact> {
 
                   setState(() {
 
-
-                    isTap=false;
+                    resetForm();
+                    isTap = false;
                   });
                 }
 
